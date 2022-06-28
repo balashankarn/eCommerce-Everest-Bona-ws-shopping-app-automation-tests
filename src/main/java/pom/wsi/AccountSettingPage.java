@@ -113,4 +113,56 @@ public class AccountSettingPage extends CommonActions {
         driver.navigate().back();
 
     }
+
+    public void verifyScreenUI() {
+
+        WaitForMobileElement(btnPasswordChange);
+        Assert.assertTrue(btnEmailEdit.isDisplayed());
+        Assert.assertTrue(btnPasswordChange.isDisplayed());
+    }
+
+    public void viewChangeOption() {
+        WaitForMobileElement(btnPasswordChange);
+        Assert.assertTrue(btnPasswordChange.isDisplayed());
+    }
+
+
+    public void navigateToChangePassword() {
+        WaitForMobileElement(btnPasswordChange);
+        btnPasswordChange.click();
+
+    }
+
+    public void passwordScreenUI() {
+        WaitForMobileElement(changePasswordHeader);
+        Assert.assertTrue(changePasswordHeader.isDisplayed());
+        Assert.assertTrue(txtCurrentPassword.isDisplayed());
+        Assert.assertTrue(txtNewPassword.isDisplayed());
+    }
+
+    public void userClickSOnCurrentPassword() {
+        try {
+            WaitForMobileElement(txtCurrentPassword);
+            txtCurrentPassword.click();
+            txtNewPassword.click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void userEnterNewPassword(String newpassword) {
+        try {
+            WaitForMobileElement(txtNewPassword);
+            txtNewPassword.sendKeys(newpassword);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void closeTheApp() {
+        quitBrowser();
+    }
+
 }
