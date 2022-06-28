@@ -478,5 +478,9 @@ public static void MobDragAndDrop(MobileElement element1, MobileElement element2
 		DriverManager.getDriver().switchTo().defaultContent();
 		DriverManager.getDriver().switchTo().frame(webelement);
 	}
-	
+
+	public void quitBrowser() {
+		DriverManager.quit();
+
+	}
 }
