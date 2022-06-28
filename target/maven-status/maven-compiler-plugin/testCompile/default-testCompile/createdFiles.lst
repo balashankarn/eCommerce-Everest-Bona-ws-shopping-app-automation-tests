@@ -1,4 +1,5 @@
 parallel/Login_StepDef.class
+parallel/MSHAPP_524_StepDefs.class
 parallel/Hooks.class
 parallel/RunCucumberTest.class
 parallel/MSHAPP_172_StepDefs.class
