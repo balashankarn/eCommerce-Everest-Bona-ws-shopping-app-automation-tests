@@ -11,15 +11,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pom.wsi.LoginPage;
+import pom.wsi.PermissionPage;
 
 
 public class Login_StepDef extends Factory{
-	
+
 	LoginPage login;
+	PermissionPage permissionPage;
 	Hooks hooks = new Hooks();
 	public static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
-/************************************************Login Module Step Definitions
- * @throws Exception ************************************************/
+	/************************************************Login Module Step Definitions
+	 * @throws Exception ************************************************/
 
 //	@Given("user launches app enters the {string} in the search library page")
 //	public void user_enters_the_in_the_search_library_page(String libname) throws Exception {
@@ -52,23 +54,26 @@ public class Login_StepDef extends Factory{
 	public void userLaunchesAppsAndClicksOnAccountSettingButton() {
 		hooks.launchBrowser();
 		login=new LoginPage(DriverManager.getDriver());
-		login.selectEnviornment();
+		permissionPage =new PermissionPage(DriverManager.getDriver());
+		permissionPage.clickOnAllowOnce();
+		//	login.selectEnviornment();
 	}
 
 	@When("user clicks sign in option")
 	public void userClicksSignInOption() {
 
 		login.navigatingToSignin();
+		//	login.signOut();
 		login.clickOnSignin();
 	}
 
 	@And("user enter username {string} and password {string} clicks on login")
 	public void userEnterUsernameAndPasswordClicksOnLogin(String username, String password) {
 
-	//	hooks.launchBrowser();
-	//	login=new LoginPage(DriverManager.getDriver());
+		//	hooks.launchBrowser();
+		//	login=new LoginPage(DriverManager.getDriver());
 
-	//	DriverManager.getDriver().hideKeyboard();
+		//	DriverManager.getDriver().hideKeyboard();
 		login.userEnterUserName(username);
 //    	swipeScreen(5,5,5,1);
 		//DriverManager.getDriver().navigate().back();
@@ -95,6 +100,7 @@ public class Login_StepDef extends Factory{
 //	public void userLandOnSignInScreen() {
 //
 //	}
+
 
 
 }
