@@ -14,7 +14,7 @@ Feature: MSHAPP-172 Account Dashboard: Signed In (basic version)
 
   @accountdashbboard
   Scenario: Verify Whether UI as per design
-    Given user lands on dashboard screen
+    Given user is dashboard screen
     When user is able should be able to view all the elements on dashboard
     Then user should be able scroll up and down of the screen
 

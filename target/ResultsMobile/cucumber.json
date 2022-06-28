@@ -3,20 +3,20 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2022-05-25T14:57:46.949Z",
-        "line": 12,
+        "start_timestamp": "2022-06-08T14:46:10.315Z",
+        "line": 11,
         "name": "Verify Whether user is able to Login into the App",
         "description": "",
-        "id": "mshapp-176-account-settings:-edit-email:-form-only;-no-text-entry-or-submission-yet;verify-whether-user-is-able-to-login-into-the-app;;2",
+        "id": "order-history;verify-whether-user-is-able-to-login-into-the-app;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 37993000000,
+              "duration": 133802000000,
               "status": "passed"
             },
-            "line": 6,
+            "line": 5,
             "name": "user launches apps and clicks on account setting button",
             "match": {
               "location": "parallel.Login_StepDef.userLaunchesAppsAndClicksOnAccountSettingButton()"
@@ -25,10 +25,10 @@
           },
           {
             "result": {
-              "duration": 12481000000,
+              "duration": 10698000000,
               "status": "passed"
             },
-            "line": 7,
+            "line": 6,
             "name": "user clicks sign in option",
             "match": {
               "location": "parallel.Login_StepDef.userClicksSignInOption()"
@@ -37,10 +37,10 @@
           },
           {
             "result": {
-              "duration": 8806000000,
+              "duration": 4942000000,
               "status": "passed"
             },
-            "line": 8,
+            "line": 7,
             "name": "user enter username \"bala3@test.com\" and password \"test@1234\" clicks on login",
             "match": {
               "arguments": [
@@ -59,10 +59,10 @@
           },
           {
             "result": {
-              "duration": 14945000000,
+              "duration": 14003000000,
               "status": "passed"
             },
-            "line": 9,
+            "line": 8,
             "name": "user lands on dashboard screen",
             "match": {
               "location": "parallel.Login_StepDef.userLandsOnDashboardScreen()"
@@ -72,196 +72,83 @@
         ],
         "tags": [
           {
-            "name": "@editemail"
+            "name": "@orderHistory"
           }
         ]
       },
       {
-        "start_timestamp": "2022-05-25T14:59:01.261Z",
+        "start_timestamp": "2022-06-08T14:48:53.901Z",
         "line": 14,
-        "name": "Verify whether user is able to click on email edit option",
+        "name": "Verify Whether user can go to Order history from Left nav in My account Section",
         "description": "",
-        "id": "mshapp-176-account-settings:-edit-email:-form-only;-no-text-entry-or-submission-yet;verify-whether-user-is-able-to-click-on-email-edit-option",
+        "id": "order-history;verify-whether-user-can-go-to-order-history-from-left-nav-in-my-account-section",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 3787000000,
+              "duration": 1096000000,
               "status": "passed"
             },
             "line": 15,
-            "name": "user is on account dashboard screen",
+            "name": "user is in home page",
             "match": {
-              "location": "parallel.MSHAPP_176_StepDef.userIsOnAccountDashboardScreen()"
+              "location": "parallel.MSHAPP_524_StepDefs.userIsInHomePage()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 3375000000,
+              "duration": 3386000000,
               "status": "passed"
             },
             "line": 16,
-            "name": "user navigate to account setting page",
+            "name": "user clicks on account tab",
             "match": {
-              "location": "parallel.MSHAPP_176_StepDef.userNavigateToAccountSettingPage()"
+              "location": "parallel.MSHAPP_524_StepDefs.userClicksOnAccountTab()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 2558000000,
+              "duration": 4335000000,
               "status": "passed"
             },
             "line": 17,
-            "name": "user click on edit email option",
+            "name": "user clicks on order history link in my account page",
             "match": {
-              "location": "parallel.MSHAPP_176_StepDef.userClickOnEditEmailOption()"
+              "location": "parallel.MSHAPP_524_StepDefs.userClicksOnOrderHistoryLinkInMyAccountPage()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 3031000000,
+              "duration": 32887000000,
               "status": "passed"
             },
             "line": 18,
-            "name": "user should be navigated to edit email screen",
+            "name": "user checks whether he is order page or not",
             "match": {
-              "location": "parallel.MSHAPP_176_StepDef.userShouldBeNavigatedToEditEmailScreen()"
+              "location": "parallel.MSHAPP_524_StepDefs.userChecksWhetherHeIsOrderPageOrNot()"
             },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@editemail"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-05-25T14:59:14.019Z",
-        "line": 20,
-        "name": "Verify whether UI is as per the sketch",
-        "description": "",
-        "id": "mshapp-176-account-settings:-edit-email:-form-only;-no-text-entry-or-submission-yet;verify-whether-ui-is-as-per-the-sketch",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 3803000000,
-              "status": "passed"
-            },
-            "line": 21,
-            "name": "user is in edit email screen",
-            "match": {
-              "location": "parallel.MSHAPP_176_StepDef.userIsInEditEmailScreen()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 13868000000,
-              "status": "passed"
-            },
-            "line": 22,
-            "name": "user should  be able to tap on both feilds",
-            "match": {
-              "location": "parallel.MSHAPP_176_StepDef.userShouldBeAbleToTapOnBothFeilds()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 3663000000,
-              "status": "passed"
-            },
-            "line": 23,
-            "name": "UI should be as per the sketch",
-            "match": {
-              "location": "parallel.MSHAPP_176_StepDef.uiShouldBeAsPerTheSketch()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@editemail"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-05-25T14:59:35.360Z",
-        "line": 32,
-        "name": "Verify whether user close without saving data",
-        "description": "",
-        "id": "mshapp-176-account-settings:-edit-email:-form-only;-no-text-entry-or-submission-yet;verify-whether-user-close-without-saving-data;;2",
-        "type": "scenario",
-        "keyword": "Scenario Outline",
-        "steps": [
-          {
-            "result": {
-              "duration": 3988000000,
-              "status": "passed"
-            },
-            "line": 26,
-            "name": "user is in edit email screen",
-            "match": {
-              "location": "parallel.MSHAPP_176_StepDef.userIsInEditEmailScreen()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 6640000000,
-              "status": "passed"
-            },
-            "line": 27,
-            "name": "user enter currentpassword \"bala@123\" and newemailaddress \"bala3@test.com\" clicks on close",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"bala@123\"",
-                  "offset": 27
-                },
-                {
-                  "val": "\"bala3@test.com\"",
-                  "offset": 58
-                }
-              ],
-              "location": "parallel.MSHAPP_176_StepDef.userEnterCurrentpasswordAndNewemailaddressClicksOnClose(java.lang.String,java.lang.String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 28,
-            "name": "user should be navigated back to account setting screen",
-            "match": {
-              "location": "parallel.MSHAPP_176_StepDef.userShouldBeNavigatedBackToAccountSettingScreen()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@editemail"
+            "name": "@orderHistory"
           }
         ]
       }
     ],
-    "name": "MSHAPP-176 Account Settings: Edit email: Form only; no text entry or submission yet",
+    "name": "Order history",
     "description": "",
-    "id": "mshapp-176-account-settings:-edit-email:-form-only;-no-text-entry-or-submission-yet",
+    "id": "order-history",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/Features/MSHAPP-176.feature",
+    "uri": "file:src/test/resources/Features/MSHAPP-524.feature",
     "tags": [
       {
-        "name": "@editemail",
+        "name": "@orderHistory",
         "type": "Tag",
         "location": {
           "line": 1,

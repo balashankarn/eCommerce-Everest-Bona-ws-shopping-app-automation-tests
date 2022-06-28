@@ -14,6 +14,7 @@ com/driverfactory/DriverManager.class
 pom/wsi/AccountSettingPage.class
 com/driverfactory/DriverFactory$Target.class
 com/driverfactory/manager/AndriodDriverManager$1.class
+pom/wsi/OrderHistoryPage.class
 com/reusableMethods/Screenshots.class
 com/driverfactory/DriverFactory$PlatformList.class
 pom/wsi/TabBar.class

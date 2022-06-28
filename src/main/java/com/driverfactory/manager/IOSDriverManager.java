@@ -30,6 +30,7 @@ public class IOSDriverManager extends Factory {
 		//capabilities.setCapability("noReset", "true");
 		desiredCapabilities.setCapability("realMobile", "true");
 		desiredCapabilities.setCapability("nativeWebTap","true");
+		desiredCapabilities.setCapability("browserstack.networkLogs","true");
 		desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, ConfigReader.getData("iOSAutomationName"));
 		desiredCapabilities.setCapability(MobileCapabilityType.APP, ConfigReader.getData("iOSbuildPath"));
 		//driver = new IOSDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
