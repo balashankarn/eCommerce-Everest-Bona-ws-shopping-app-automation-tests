@@ -11,6 +11,9 @@ Feature: Create Registry
     When  user clicks on create registry
      Then user lands on sign in screen
 
+
+
+
     Scenario: Verify whether user is on able to login into my account
       Given user is in sgin screen
       When user enter username {string} and password {string} clicks on login
