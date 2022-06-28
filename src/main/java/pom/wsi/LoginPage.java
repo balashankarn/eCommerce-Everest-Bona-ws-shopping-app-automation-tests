@@ -27,7 +27,9 @@ public class LoginPage extends CommonActions {
     static ExcelReader reader = new ExcelReader();
 
     public static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
-
+    TabBarPage tabBarPage;
+    PermissionPage permissionPage;
+    AccountSettingPage accountSettingPage;
     public LoginPage(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
@@ -35,7 +37,7 @@ public class LoginPage extends CommonActions {
 
     @iOSXCUITFindBy(accessibility = "ACCOUNT")
     private MobileElement tbrAccount;
-    @iOSXCUITFindBy(id = "Sign in")
+    @iOSXCUITFindBy(id = "SIGN IN")
     private MobileElement btnSignin;
     @iOSXCUITFindBy(accessibility = "Regression")
     private MobileElement btnresgression;
@@ -43,7 +45,7 @@ public class LoginPage extends CommonActions {
     private MobileElement btnLogin;
     @iOSXCUITFindBy(accessibility = "authtextfield_email_textfield")
     private MobileElement txtUsername;
-    @iOSXCUITFindBy(accessibility= "authtextfield_password_textfield")
+    @iOSXCUITFindBy(accessibility = "authtextfield_password_textfield")
     private MobileElement txtPassword;
     @iOSXCUITFindBy(accessibility = "OK")
     private MobileElement btnOK;
@@ -54,10 +56,13 @@ public class LoginPage extends CommonActions {
     private MobileElement debug;
     @iOSXCUITFindBy(accessibility = "section0row1")
     private MobileElement selct_Site;
-
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"pk\"])[2]")
+    private MobileElement btnQA41;
+    @iOSXCUITFindBy(accessibility = "ACCOUNT SETTINGS")
+    private MobileElement btnAccountSetting;
     public void navigatingToSignin() {
 
-        DriverManager.getDriver().launchApp();
+        //  DriverManager.getDriver().launchApp();
         WaitForMobileElement(tbrAccount);
         ClickOnMobileElement(tbrAccount);
     }
@@ -69,12 +74,14 @@ public class LoginPage extends CommonActions {
             WaitForMobileElement(selct_Site);
             ClickOnMobileElement(selct_Site);
             WaitForMobileElement(btnresgression);
-            ClickOnMobileElement(btnresgression);
+            // ClickOnMobileElement(btnresgression);
+            ClickOnMobileElement(btnQA41);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+
     public void clickOnSignin() {
         WaitForMobileElement(btnSignin);
         ClickOnMobileElement(btnSignin);
@@ -98,7 +105,7 @@ public class LoginPage extends CommonActions {
         }
     }
 
-    public void clickLoginBth(){
+    public void clickLoginBth() {
         WaitForMobileElement(btnLogin);
         btnLogin.click();
     }
@@ -113,6 +120,20 @@ public class LoginPage extends CommonActions {
             btnOK.click();
 
         }
+    }
+
+    public void scrollUp() {
+        swipeUp();
+    }
+
+    public void scrollDown() {
+        swipeDown();
+    }
+    public void signOut(){
+        swipeUp();
+        Assert.assertTrue(btnAccountSetting.isDisplayed());
+        ClickOnMobileElement(btnAccountSetting);
+        scrollDown();
     }
 
 

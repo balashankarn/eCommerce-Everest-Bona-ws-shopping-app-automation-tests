@@ -1,0 +1,1 @@
+Feature: Account Settings: Biometric auth not supported, or not set up in iOS
