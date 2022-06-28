@@ -1,3 +1,4 @@
+@checkoutguest
 Feature: Guest Checkout using webView Checkout
 
   @checkoutguest
