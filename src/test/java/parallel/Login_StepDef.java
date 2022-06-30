@@ -14,14 +14,15 @@ import pom.wsi.LoginPage;
 import pom.wsi.PermissionPage;
 
 
-public class Login_StepDef extends Factory{
+public class Login_StepDef extends Factory {
 
-	LoginPage login;
-	PermissionPage permissionPage;
-	Hooks hooks = new Hooks();
-	public static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
-	/************************************************Login Module Step Definitions
-	 * @throws Exception ************************************************/
+    LoginPage login;
+    PermissionPage permissionPage;
+    Hooks hooks = new Hooks();
+    public static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
+
+    /************************************************Login Module Step Definitions
+     * @throws Exception ************************************************/
 
 //	@Given("user launches app enters the {string} in the search library page")
 //	public void user_enters_the_in_the_search_library_page(String libname) throws Exception {
@@ -48,49 +49,44 @@ public class Login_StepDef extends Factory{
 //	public void user_navigates_to_registration_form_screen() throws Exception {
 //		login.profileCreation();
 //	}
+    @Given("user launches apps and clicks on account setting button")
+    public void userLaunchesAppsAndClicksOnAccountSettingButton() {
+        hooks.launchBrowser();
+        login = new LoginPage(DriverManager.getDriver());
+        permissionPage = new PermissionPage(DriverManager.getDriver());
+        //	login.selectEnviornment();
+    }
 
+    @When("user clicks sign in option")
+    public void userClicksSignInOption() {
+        login.navigatingToSignin();
+        permissionPage.clickOnAllowOnce();
+        //	login.signOut();
+        login.clickOnSignin();
+    }
 
-	@Given("user launches apps and clicks on account setting button")
-	public void userLaunchesAppsAndClicksOnAccountSettingButton() {
-		hooks.launchBrowser();
-		login=new LoginPage(DriverManager.getDriver());
-		permissionPage =new PermissionPage(DriverManager.getDriver());
-		permissionPage.clickOnAllowOnce();
-		//	login.selectEnviornment();
-	}
+    @And("user enter username {string} and password {string} clicks on login")
+    public void userEnterUsernameAndPasswordClicksOnLogin(String username, String password) {
 
-	@When("user clicks sign in option")
-	public void userClicksSignInOption() {
+        //	hooks.launchBrowser();
+        //	login=new LoginPage(DriverManager.getDriver());
 
-		login.navigatingToSignin();
-		//	login.signOut();
-		login.clickOnSignin();
-	}
-
-	@And("user enter username {string} and password {string} clicks on login")
-	public void userEnterUsernameAndPasswordClicksOnLogin(String username, String password) {
-
-		//	hooks.launchBrowser();
-		//	login=new LoginPage(DriverManager.getDriver());
-
-		//	DriverManager.getDriver().hideKeyboard();
-		login.userEnterUserName(username);
+        //	DriverManager.getDriver().hideKeyboard();
+        login.userEnterUserName(username);
 //    	swipeScreen(5,5,5,1);
-		//DriverManager.getDriver().navigate().back();
-		login.userEnterPassword(password);
-		login.clickLoginBth();
+        //DriverManager.getDriver().navigate().back();
+        login.userEnterPassword(password);
+        login.clickLoginBth();
 
 
+    }
 
-	}
-
-	@Then("user lands on dashboard screen")
-	public void userLandsOnDashboardScreen() {
-		login.userLandsOnDashboard();
+    @Then("user lands on dashboard screen")
+    public void userLandsOnDashboardScreen() {
+        login.userLandsOnDashboard();
 
 
-	}
-
+    }
 
 
 //	@Then("user lands on Account setting screen")
@@ -102,7 +98,6 @@ public class Login_StepDef extends Factory{
 //	public void userLandOnSignInScreen() {
 //
 //	}
-
 
 
 }

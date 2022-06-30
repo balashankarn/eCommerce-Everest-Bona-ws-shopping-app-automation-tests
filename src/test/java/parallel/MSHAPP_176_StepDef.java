@@ -16,19 +16,19 @@ public class MSHAPP_176_StepDef extends Factory {
 
     LoginPage login;
     Hooks hooks = new Hooks();
-    AccountPage accountPage ;
+    AccountPage accountPage;
     AccountSettingPage accountSettingPage;
+
     @Given("user is on account dashboard screen")
-    public void userIsOnAccountDashboardScreen(){
+    public void userIsOnAccountDashboardScreen() {
         accountPage = new AccountPage(DriverManager.getDriver());
-  accountPage.accountDashBoard();
+        accountPage.accountDashBoard();
     }
 
     @And("user click on edit email option")
     public void userClickOnEditEmailOption() {
-       accountSettingPage = new AccountSettingPage(DriverManager.getDriver());
-      accountSettingPage.navigateToEditEmail();
-
+        accountSettingPage = new AccountSettingPage(DriverManager.getDriver());
+        accountSettingPage.navigateToEditEmail();
     }
 
     @Then("user should be navigated to edit email screen")
@@ -40,13 +40,11 @@ public class MSHAPP_176_StepDef extends Factory {
     public void userIsInEditEmailScreen() {
         accountSettingPage = new AccountSettingPage(DriverManager.getDriver());
         accountSettingPage.verifyEditEmailScreen();
-
     }
 
     @When("user should  be able to tap on both feilds")
     public void userShouldBeAbleToTapOnBothFeilds() {
         accountSettingPage.userAbleToTapOnBothFeild();
-
     }
 
     @Then("UI should be as per the sketch")
@@ -56,23 +54,22 @@ public class MSHAPP_176_StepDef extends Factory {
     }
 
 
-
     @Then("user should be navigated back to account setting screen")
     public void userShouldBeNavigatedBackToAccountSettingScreen() {
 
 
     }
 
-  @When("user navigate to account setting page")
-  public void userNavigateToAccountSettingPage() {
-      accountPage.navigateToAccountSettingPage();
-  }
+    @When("user navigate to account setting page")
+    public void userNavigateToAccountSettingPage() {
+        accountPage.navigateToAccountSettingPage();
+    }
 
     @When("user enter currentpassword {string} and newemailaddress {string} clicks on close")
     public void userEnterCurrentpasswordAndNewemailaddressClicksOnClose(String currentpassword, String newemailaddress) throws InterruptedException {
-      accountSettingPage.userEnterCurrentPassword(currentpassword);
-      accountSettingPage.userEnterEmailAddress(newemailaddress);
-     // accountSettingPage.userClicksOnCloseButton();
+        accountSettingPage.userEnterCurrentPassword(currentpassword);
+        accountSettingPage.userEnterEmailAddress(newemailaddress);
+        // accountSettingPage.userClicksOnCloseButton();
 
     }
 }
