@@ -20,7 +20,7 @@ Feature:Account Settings: Password Update
     When user clicks on change password
     Then user lands on change password
 
-  Scenario Outline: veerify whether user is able to enter current password and new password.
+  Scenario Outline: verify whether user is able to enter current password and new password.
     Given user is in change password screen
     When  user clicks on the current password and new password
     Then  user enter "<currentpassword>" and "<newpassword>"
