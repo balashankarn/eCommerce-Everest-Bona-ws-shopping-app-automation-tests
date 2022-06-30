@@ -60,6 +60,10 @@ public class LoginPage extends CommonActions {
     private MobileElement btnQA41;
     @iOSXCUITFindBy(accessibility = "ACCOUNT SETTINGS")
     private MobileElement btnAccountSetting;
+    @iOSXCUITFindBy(accessibility = "NEXT")
+    private MobileElement btnNext;
+
+
     public void navigatingToSignin() {
 
         //  DriverManager.getDriver().launchApp();
@@ -135,6 +139,8 @@ public class LoginPage extends CommonActions {
         ClickOnMobileElement(btnAccountSetting);
         scrollDown();
     }
+
+
 
 
 //public void visibility(){

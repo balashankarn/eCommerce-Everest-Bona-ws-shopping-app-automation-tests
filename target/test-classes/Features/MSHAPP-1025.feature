@@ -1,4 +1,5 @@
-Feature: Create Registry
+@MSHAPP-1025
+Feature: MSHAPP-1025:Optimized Create Registry -Step 1: First Name Last Name
 
   Scenario: verify whether user is able to navigate create registry step -1
 
@@ -11,9 +12,16 @@ Feature: Create Registry
     When  user clicks on create registry
      Then user lands on sign in screen
 
-    Scenario: Verify whether user is on able to login into my account
-      Given user is in sgin screen
-      When user enter username {string} and password {string} clicks on login
+      Scenario Outline: verify whether user is able to login
+        Given user is on sign screen
+        And user enter username "<username>" and password "<password>" clicks on login
+        Then user should land on create registry screen one
+        Examples:
+          | username    | password |
+          | bala3@test.com | test@1234 |
+
+
+
       
 
 
