@@ -94,6 +94,7 @@
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:3.2.0" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20190610.1" level="project" />
     <orderEntry type="library" name="Maven: commons-configuration:commons-configuration:1.10" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.22" level="project" />
     <orderEntry type="library" name="Maven: com.aventstack:extentreports-cucumber4-adapter:1.2.1" level="project" />
     <orderEntry type="library" name="Maven: com.aventstack:extentreports:5.0.1" level="project" />
     <orderEntry type="library" name="Maven: io.reactivex.rxjava3:rxjava:3.0.4" level="project" />

@@ -20,6 +20,7 @@ pom/wsi/LoginPage.class
 pom/wsi/TabBarPage.class
 pom/wsi/CheckoutPage.class
 com/driverfactory/manager/AndriodDriverManager$1.class
+pom/wsi/OrderHistoryPage.class
 com/reusableMethods/Screenshots.class
 com/driverfactory/Factory$1.class
 com/utilities/JvmReport.class

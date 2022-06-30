@@ -18,8 +18,6 @@ public class CheckoutPage extends CommonActions {
 
     public CheckoutPage(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-
-
     }
 
     @iOSXCUITFindBy(accessibility = "CART")
