@@ -35,6 +35,8 @@ public class RegistryPage extends CommonActions {
     private MobileElement txtPassword;
     @iOSXCUITFindBy(accessibility = "NEXT")
     private MobileElement btnNext;
+    @iOSXCUITFindBy(accessibility = "authentication_sign_in_button")
+    private MobileElement btnLogin;
 
 
     public void userClickOnRegistry() {
@@ -87,6 +89,25 @@ public class RegistryPage extends CommonActions {
        WaitForMobileElement(btnNext);
         Assert.assertTrue(btnNext.isDisplayed());
    }
+    public void userEnterUserName(String username) {
+        try {
+            WaitForMobileElement(txtUsername);
+            txtUsername.sendKeys(username);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void userEnterPassword(String password) {
+        try {
+            WaitForMobileElement(txtPassword);
+            txtPassword.sendKeys(password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-
+    public void clickLoginBth() {
+        WaitForMobileElement(btnLogin);
+        btnLogin.click();
+    }
 }

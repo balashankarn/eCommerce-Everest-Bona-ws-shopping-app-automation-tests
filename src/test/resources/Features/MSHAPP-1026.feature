@@ -14,13 +14,13 @@ Feature:1026-Optimized Create Registry -Step 1: Event Type
 
   Scenario Outline: verify whether user is able to login
     Given user is on sign screen
-    And user enter username "<username>" and password "<password>" clicks on login
+    And user enter username "<username>" and password "<password>" clicks on login in sign in page
     Then user should land on create registry screen one
     Examples:
       | username    | password |
       | bala3@test.com | test@1234 |
 
-    Scenario: verify whether user is able to select event type
-      Given user  is on create event screen
-      And user clicks on event type and selects event
-      Then the selected event should be populated here
+#    Scenario: verify whether user is able to select event type
+#      Given user  is on create event screen
+#      And user clicks on event type and selects event
+#      Then the selected event should be populated here

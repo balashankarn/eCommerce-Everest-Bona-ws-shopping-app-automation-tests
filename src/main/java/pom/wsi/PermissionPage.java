@@ -14,21 +14,26 @@ public class PermissionPage extends CommonActions {
     static ExcelReader reader = new ExcelReader();
     public static final Logger logger = LoggerFactory.getLogger(PermissionPage.class);
 
-    public PermissionPage(AppiumDriver driver){
+    public PermissionPage(AppiumDriver driver) {
 
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 
     }
-    @iOSXCUITFindBy(accessibility ="Don’t Allow")
+
+    @iOSXCUITFindBy(accessibility = "Don’t Allow")
     private MobileElement btnDontAllow;
-    @iOSXCUITFindBy(accessibility ="Allow While Using App")
+    @iOSXCUITFindBy(accessibility = "Allow While Using App")
     private MobileElement btnAllowWhileUsingApp;
     @iOSXCUITFindBy(accessibility = "Allow Once")
     private MobileElement btnAllowOnce;
 
-public void clickOnAllowOnce(){
-    WaitForMobileElement(btnAllowWhileUsingApp);
-    ClickOnMobileElement(btnAllowWhileUsingApp);
-}
+    public void clickOnAllowOnce() {
+        try {
+            WaitForMobileElement(btnAllowWhileUsingApp);
+            ClickOnMobileElement(btnAllowWhileUsingApp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+    }
 }

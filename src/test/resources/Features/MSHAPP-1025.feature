@@ -14,7 +14,7 @@ Feature: MSHAPP-1025:Optimized Create Registry -Step 1: First Name Last Name
 
       Scenario Outline: verify whether user is able to login
         Given user is on sign screen
-        And user enter username "<username>" and password "<password>" clicks on login
+        And user enter username "<username>" and password "<password>" clicks on login in sign in page
         Then user should land on create registry screen one
         Examples:
           | username    | password |

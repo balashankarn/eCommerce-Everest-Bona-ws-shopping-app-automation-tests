@@ -242,3 +242,5 @@ $RECYCLE.BIN/
 
 reports/
 target/
+target/surefire-reports/
+target/ResultsMobile

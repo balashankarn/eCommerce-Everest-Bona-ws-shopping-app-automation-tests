@@ -1,6 +1,7 @@
 package parallel;
 
 import com.driverfactory.DriverManager;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,6 +22,7 @@ public class MSHAPP_1025_StepDefs {
         hooks.launchBrowser();
         registryPage = new RegistryPage(DriverManager.getDriver());
         permissionPage = new PermissionPage(DriverManager.getDriver());
+        login =new LoginPage(DriverManager.getDriver());
         permissionPage.clickOnAllowOnce();
     }
 
@@ -62,5 +64,12 @@ public class MSHAPP_1025_StepDefs {
     @Then("user should land on create registry screen one")
     public void userShouldLandOnCreateRegistryScreenOne() {
  registryPage.userShouldLandOnCreateRegistryScreenOne();
+    }
+
+    @And("user enter username {string} and password {string} clicks on login in sign in page")
+    public void userEnterUsernameAndPasswordClicksOnLoginInSignInPage(String username, String password) {
+        registryPage.userEnterUserName(username);
+        registryPage.userEnterPassword(password);
+        registryPage.clickLoginBth();
     }
 }

@@ -3,17 +3,17 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2022-06-29T10:54:23.687Z",
+        "start_timestamp": "2022-06-30T07:59:38.216Z",
         "line": 4,
-        "name": "verify whether user is able to navigate create registry step -1",
+        "name": "verify whether user is able to navigate registry dashboard",
         "description": "",
-        "id": "mshapp-1025:optimized-create-registry--step-1:-first-name-last-name;verify-whether-user-is-able-to-navigate-create-registry-step--1",
+        "id": "1026-optimized-create-registry--step-1:-event-type;verify-whether-user-is-able-to-navigate-registry-dashboard",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 96598000000,
+              "duration": 161495000000,
               "status": "passed"
             },
             "line": 6,
@@ -25,7 +25,7 @@
           },
           {
             "result": {
-              "duration": 4717000000,
+              "duration": 4580000000,
               "status": "passed"
             },
             "line": 7,
@@ -37,7 +37,7 @@
           },
           {
             "result": {
-              "duration": 1419000000,
+              "duration": 1086000000,
               "status": "passed"
             },
             "line": 8,
@@ -50,22 +50,22 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1025"
+            "name": "@MSHAPP-1026"
           }
         ]
       },
       {
-        "start_timestamp": "2022-06-29T10:56:06.489Z",
+        "start_timestamp": "2022-06-30T08:02:25.449Z",
         "line": 10,
-        "name": "Verify user is navigated to sign in screen",
+        "name": "Verify user is navigated to create registry screen",
         "description": "",
-        "id": "mshapp-1025:optimized-create-registry--step-1:-first-name-last-name;verify-user-is-navigated-to-sign-in-screen",
+        "id": "1026-optimized-create-registry--step-1:-event-type;verify-user-is-navigated-to-create-registry-screen",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 1851000000,
+              "duration": 2186000000,
               "status": "passed"
             },
             "line": 11,
@@ -77,7 +77,7 @@
           },
           {
             "result": {
-              "duration": 4527000000,
+              "duration": 3650000000,
               "status": "passed"
             },
             "line": 12,
@@ -89,7 +89,7 @@
           },
           {
             "result": {
-              "duration": 1616000000,
+              "duration": 1050000000,
               "status": "passed"
             },
             "line": 13,
@@ -102,34 +102,38 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1025"
+            "name": "@MSHAPP-1026"
           }
         ]
       },
       {
-        "start_timestamp": "2022-06-29T10:56:14.525Z",
+        "start_timestamp": "2022-06-30T08:02:32.353Z",
         "line": 21,
         "name": "verify whether user is able to login",
         "description": "",
-        "id": "mshapp-1025:optimized-create-registry--step-1:-first-name-last-name;verify-whether-user-is-able-to-login;;2",
+        "id": "1026-optimized-create-registry--step-1:-event-type;verify-whether-user-is-able-to-login;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "status": "undefined"
+              "duration": 1145000000,
+              "status": "passed"
             },
             "line": 16,
             "name": "user is on sign screen",
-            "match": {},
+            "match": {
+              "location": "parallel.MSHAPP_1025_StepDefs.userIsOnSignScreen()"
+            },
             "keyword": "Given "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 10675000000,
+              "status": "passed"
             },
             "line": 17,
-            "name": "user enter username \"bala3@test.com\" and password \"test@1234\" clicks on login",
+            "name": "user enter username \"bala3@test.com\" and password \"test@1234\" clicks on login in sign in page",
             "match": {
               "arguments": [
                 {
@@ -141,35 +145,38 @@
                   "offset": 50
                 }
               ],
-              "location": "parallel.Login_StepDef.userEnterUsernameAndPasswordClicksOnLogin(java.lang.String,java.lang.String)"
+              "location": "parallel.MSHAPP_1025_StepDefs.userEnterUsernameAndPasswordClicksOnLoginInSignInPage(java.lang.String,java.lang.String)"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 3683000000,
+              "status": "passed"
             },
             "line": 18,
             "name": "user should land on create registry screen one",
-            "match": {},
+            "match": {
+              "location": "parallel.MSHAPP_1025_StepDefs.userShouldLandOnCreateRegistryScreenOne()"
+            },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1025"
+            "name": "@MSHAPP-1026"
           }
         ]
       }
     ],
-    "name": "MSHAPP-1025:Optimized Create Registry -Step 1: First Name Last Name",
+    "name": "1026-Optimized Create Registry -Step 1: Event Type",
     "description": "",
-    "id": "mshapp-1025:optimized-create-registry--step-1:-first-name-last-name",
+    "id": "1026-optimized-create-registry--step-1:-event-type",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/Features/MSHAPP-1025.feature",
+    "uri": "file:src/test/resources/Features/MSHAPP-1026.feature",
     "tags": [
       {
-        "name": "@MSHAPP-1025",
+        "name": "@MSHAPP-1026",
         "type": "Tag",
         "location": {
           "line": 1,
