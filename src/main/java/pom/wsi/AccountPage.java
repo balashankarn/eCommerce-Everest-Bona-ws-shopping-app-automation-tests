@@ -21,7 +21,7 @@ public class AccountPage extends CommonActions {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @iOSXCUITFindBy(accessibility = "ACCOUNT SETTINGS")
+    @iOSXCUITFindBy(accessibility = "setting")
     private MobileElement btnAccountSetting;
     @iOSXCUITFindBy(accessibility = "MY STORE")
     private MobileElement btnMyStore;
