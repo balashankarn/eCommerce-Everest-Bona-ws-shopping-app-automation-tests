@@ -8,27 +8,29 @@ import pom.wsi.*;
 
 public class MSHAPP_1026_StepDefs {
 
-   LoginPage login;
-   Hooks hooks = new Hooks();
-   AccountPage accountPage;
-   AccountSettingPage accountSettingPage;
-   RegistryPage registryPage;
-   PermissionPage permissionPage;
+    LoginPage login;
+    Hooks hooks = new Hooks();
+    AccountPage accountPage;
+    AccountSettingPage accountSettingPage;
+    RegistryPage registryPage;
+    PermissionPage permissionPage;
 
 
-   @Given("user  is on create event screen")
-   public void userIsOnCreateEventScreen(){
-      registryPage = new RegistryPage(DriverManager.getDriver());
-      registryPage.userShouldLandOnCreateRegistryScreenOne();
+    @Given("user  is on create event screen")
+    public void userIsOnCreateEventScreen() {
+        registryPage = new RegistryPage(DriverManager.getDriver());
+        registryPage.userShouldLandOnCreateRegistryScreenOne();
 
-   }
+    }
 
-   @And("user clicks on event type and selects event")
-   public void userClicksOnEventTypeAndSelectsEvent() {
-      
-   }
+    @And("user clicks on event type and selects event")
+    public void userClicksOnEventTypeAndSelectsEvent() {
+        registryPage.selectEvenType();
+    }
 
-   @Then("the selected event should be populated here")
-   public void theSelectedEventShouldBePopulatedHere() {
-   }
+    @Then("the selected event should be populated here")
+    public void theSelectedEventShouldBePopulatedHere() {
+        registryPage.selectedEventTypeShouldBePopulated();
+        registryPage.quitBrowser();
+    }
 }

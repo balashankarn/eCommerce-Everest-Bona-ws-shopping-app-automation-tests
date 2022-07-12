@@ -72,4 +72,9 @@ public class MSHAPP_1025_StepDefs {
         registryPage.userEnterPassword(password);
         registryPage.clickLoginBth();
     }
+
+    @And("user quits the screen")
+    public void userQuitsTheScreen() {
+     registryPage.quitBrowser();
+    }
 }

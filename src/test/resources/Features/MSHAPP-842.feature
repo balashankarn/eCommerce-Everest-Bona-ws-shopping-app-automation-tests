@@ -1,1 +1,1 @@
-Feature: CapitalOne Terms & Conditions link
+#Feature: CapitalOne Terms & Conditions link

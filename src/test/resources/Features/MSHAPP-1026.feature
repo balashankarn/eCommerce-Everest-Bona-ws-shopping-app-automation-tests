@@ -20,7 +20,7 @@ Feature:1026-Optimized Create Registry -Step 1: Event Type
       | username    | password |
       | bala3@test.com | test@1234 |
 
-#    Scenario: verify whether user is able to select event type
-#      Given user  is on create event screen
-#      And user clicks on event type and selects event
-#      Then the selected event should be populated here
+    Scenario: verify whether user is able to select event type
+      Given user  is on create event screen
+      And user clicks on event type and selects event
+      Then the selected event should be populated here

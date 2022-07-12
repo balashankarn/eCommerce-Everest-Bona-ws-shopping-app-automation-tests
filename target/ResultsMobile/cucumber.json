@@ -3,17 +3,17 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2022-06-30T07:59:38.216Z",
+        "start_timestamp": "2022-07-06T11:09:17.259Z",
         "line": 4,
         "name": "verify whether user is able to navigate registry dashboard",
         "description": "",
-        "id": "1026-optimized-create-registry--step-1:-event-type;verify-whether-user-is-able-to-navigate-registry-dashboard",
+        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-whether-user-is-able-to-navigate-registry-dashboard",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 161495000000,
+              "duration": 160966000000,
               "status": "passed"
             },
             "line": 6,
@@ -25,7 +25,7 @@
           },
           {
             "result": {
-              "duration": 4580000000,
+              "duration": 3497000000,
               "status": "passed"
             },
             "line": 7,
@@ -37,7 +37,7 @@
           },
           {
             "result": {
-              "duration": 1086000000,
+              "duration": 1005000000,
               "status": "passed"
             },
             "line": 8,
@@ -50,22 +50,22 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1026"
+            "name": "@MSHAPP-1028"
           }
         ]
       },
       {
-        "start_timestamp": "2022-06-30T08:02:25.449Z",
+        "start_timestamp": "2022-07-06T11:12:02.806Z",
         "line": 10,
         "name": "Verify user is navigated to create registry screen",
         "description": "",
-        "id": "1026-optimized-create-registry--step-1:-event-type;verify-user-is-navigated-to-create-registry-screen",
+        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-user-is-navigated-to-create-registry-screen",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 2186000000,
+              "duration": 1133000000,
               "status": "passed"
             },
             "line": 11,
@@ -77,7 +77,7 @@
           },
           {
             "result": {
-              "duration": 3650000000,
+              "duration": 3621000000,
               "status": "passed"
             },
             "line": 12,
@@ -89,7 +89,7 @@
           },
           {
             "result": {
-              "duration": 1050000000,
+              "duration": 1091000000,
               "status": "passed"
             },
             "line": 13,
@@ -102,22 +102,22 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1026"
+            "name": "@MSHAPP-1028"
           }
         ]
       },
       {
-        "start_timestamp": "2022-06-30T08:02:32.353Z",
+        "start_timestamp": "2022-07-06T11:12:08.669Z",
         "line": 21,
         "name": "verify whether user is able to login",
         "description": "",
-        "id": "1026-optimized-create-registry--step-1:-event-type;verify-whether-user-is-able-to-login;;2",
+        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-whether-user-is-able-to-login;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 1145000000,
+              "duration": 1121000000,
               "status": "passed"
             },
             "line": 16,
@@ -129,7 +129,7 @@
           },
           {
             "result": {
-              "duration": 10675000000,
+              "duration": 10527000000,
               "status": "passed"
             },
             "line": 17,
@@ -151,7 +151,7 @@
           },
           {
             "result": {
-              "duration": 3683000000,
+              "duration": 3223000000,
               "status": "passed"
             },
             "line": 18,
@@ -164,19 +164,71 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1026"
+            "name": "@MSHAPP-1028"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-07-06T11:12:23.550Z",
+        "line": 22,
+        "name": "verify user is able select privacy setting",
+        "description": "",
+        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-user-is-able-select-privacy-setting",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1032000000,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "user  is on create event screen",
+            "match": {
+              "location": "parallel.MSHAPP_1026_StepDefs.userIsOnCreateEventScreen()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 8127000000,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "user clicks on privacy setting and selects privacy",
+            "match": {
+              "location": "parallel.MSHAPP_1028_Stepdefs.userClicksOnPrivacySettingAndSelectsPrivacy()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 101467000000,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "the selected privacy type should be populated",
+            "match": {
+              "location": "parallel.MSHAPP_1028_Stepdefs.theSelectedPrivacyTypeShouldBePopulated()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@MSHAPP-1028"
           }
         ]
       }
     ],
-    "name": "1026-Optimized Create Registry -Step 1: Event Type",
+    "name": "MSHAPP-1028 Registry Privacy Settings -Tell me about",
     "description": "",
-    "id": "1026-optimized-create-registry--step-1:-event-type",
+    "id": "mshapp-1028-registry-privacy-settings--tell-me-about",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/Features/MSHAPP-1026.feature",
+    "uri": "file:src/test/resources/Features/MSHAPP-1028.feature",
     "tags": [
       {
-        "name": "@MSHAPP-1026",
+        "name": "@MSHAPP-1028",
         "type": "Tag",
         "location": {
           "line": 1,

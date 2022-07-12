@@ -16,6 +16,7 @@ Feature: MSHAPP-1025:Optimized Create Registry -Step 1: First Name Last Name
         Given user is on sign screen
         And user enter username "<username>" and password "<password>" clicks on login in sign in page
         Then user should land on create registry screen one
+        And user quits the screen
         Examples:
           | username    | password |
           | bala3@test.com | test@1234 |

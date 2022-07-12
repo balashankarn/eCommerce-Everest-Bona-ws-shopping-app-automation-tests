@@ -1,6 +1,6 @@
-@MSHAPP-1026
-Feature:1026-Optimized Create Registry -Step 1: Event Type
-  
+@MSHAPP-1027
+Feature:1027-Optimized Create Registry - Step 1: Event Date
+
   Scenario: verify whether user is able to navigate registry dashboard
 
     Given user launches the apps
@@ -20,7 +20,7 @@ Feature:1026-Optimized Create Registry -Step 1: Event Type
       | username    | password |
       | bala3@test.com | test@1234 |
 
-    Scenario: verify whether user is able to select event type
+    Scenario: verify user is able select event date
       Given user  is on create event screen
-      And user clicks on event type and selects event
-      Then the selected event should be populated here
+      And user clicks on event type and selects event date
+      Then the selected event date should be populated here

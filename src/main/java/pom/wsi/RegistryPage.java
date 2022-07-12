@@ -37,7 +37,18 @@ public class RegistryPage extends CommonActions {
     private MobileElement btnNext;
     @iOSXCUITFindBy(accessibility = "authentication_sign_in_button")
     private MobileElement btnLogin;
-
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeTextField[@name=\"authtextfield_email_textfield\"])[4]")
+    private MobileElement spnSelectEventType;
+    @iOSXCUITFindBy(accessibility = "DONE")
+    private MobileElement spnSelectEventTypeDone;
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeTextField[@name=\"authtextfield_email_textfield\"])[3]\t\n")
+    private MobileElement spnSelectEventDate;
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Tuesday, July 5\"]")
+    private MobileElement spnEventDate;
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeTextField[@name=\"authtextfield_email_textfield\"])[4]")
+    private MobileElement spnPrivacySetting;
+    @iOSXCUITFindBy(accessibility = "DONE")
+   private MobileElement spnPrivacySettingDone;
 
     public void userClickOnRegistry() {
         try {
@@ -110,4 +121,70 @@ public class RegistryPage extends CommonActions {
         WaitForMobileElement(btnLogin);
         btnLogin.click();
     }
+
+
+    public void selectEvenType(){
+
+        try {
+            WaitForMobileElement(spnSelectEventType);
+            ClickOnMobileElement(spnSelectEventType);
+            WaitForMobileElement(spnSelectEventTypeDone);
+            ClickOnMobileElement(spnSelectEventTypeDone);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void selectedEventTypeShouldBePopulated(){
+        WaitForMobileElement(btnNext);
+        Assert.assertTrue(btnNext.isDisplayed());
+    }
+
+   public void userClicksOnEvenTypeAndSelectsEventDate(){
+        try {
+            WaitForMobileElement(spnSelectEventDate);
+            ClickOnMobileElement(spnSelectEventDate);
+            WaitForMobileElement(spnEventDate);
+            ClickOnMobileElement(spnEventDate);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+   }
+
+   public void theSelectDateAndEventShouldBeDisplayedthere(){
+       WaitForMobileElement(btnNext);
+       Assert.assertTrue(btnNext.isDisplayed());
+   }
+
+
+   public void userQuitsTheApp(){
+        quitBrowser();
+
+   }
+
+   public void userClicksOnPrivacySettingAndSelectsPrivacy(){
+        try {
+            WaitForMobileElement(spnPrivacySetting);
+            ClickOnMobileElement(spnPrivacySetting);
+            WaitForMobileElement(spnPrivacySettingDone);
+            ClickOnMobileElement(spnPrivacySettingDone);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+   }
+
+   public void theSelectedPrivacyTypeShouldBePopulated(){
+      try {
+          WaitForMobileElement(btnNext);
+          Assert.assertTrue(btnNext.isDisplayed());
+      }catch (Exception e){
+       e.printStackTrace();
+      }
+
+   }
+
 }
