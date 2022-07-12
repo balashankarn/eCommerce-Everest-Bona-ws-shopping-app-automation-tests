@@ -1,0 +1,401 @@
+Index: src/test/java/parallel/MSHAPP_1025_StepDefs.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package parallel;\n\nimport com.driverfactory.DriverManager;\nimport io.cucumber.java.en.And;\nimport io.cucumber.java.en.Given;\nimport io.cucumber.java.en.Then;\nimport io.cucumber.java.en.When;\nimport pom.wsi.*;\n\npublic class MSHAPP_1025_StepDefs {\n\n    LoginPage login;\n    Hooks hooks = new Hooks();\n    AccountPage accountPage;\n    AccountSettingPage accountSettingPage;\n    RegistryPage registryPage;\n    PermissionPage permissionPage;\n\n\n    @Given(\"user launches the apps\")\n    public void userLaunchesTheApp() {\n        hooks.launchBrowser();\n        registryPage = new RegistryPage(DriverManager.getDriver());\n        permissionPage = new PermissionPage(DriverManager.getDriver());\n        login =new LoginPage(DriverManager.getDriver());\n        permissionPage.clickOnAllowOnce();\n    }\n\n    @When(\"user click on registry in bottom navigation bar\")\n    public void userClickOnRegistryInBottomNavigationBar() {\n        registryPage.userClickOnRegistry();\n\n    }\n\n    @Then(\"user lands on registry screen\")\n    public void userLandsOnRegistryScreen() {\n        registryPage.userLandsOnRegistry();\n\n    }\n\n    @Given(\"user is on registry screen\")\n    public void userIsOnRegistryScreen() {\n        registryPage = new RegistryPage(DriverManager.getDriver());\n        registryPage.userInRegistryScreen();\n    }\n\n    @When(\"user clicks on create registry\")\n    public void userClicksOnCreateRegistry() {\n        registryPage.userClickOnFindRegistry();\n    }\n\n    @Then(\"user lands on sign in screen\")\n    public void userLandsOnSignInScreen() {\n        registryPage.userLandsOnSignIn();\n    }\n\n    @Given(\"user is on sign screen\")\n    public void userIsOnSignScreen() {\n        registryPage = new RegistryPage(DriverManager.getDriver());\n       registryPage.userIsOnSignIn();\n\n    }\n\n    @Then(\"user should land on create registry screen one\")\n    public void userShouldLandOnCreateRegistryScreenOne() {\n registryPage.userShouldLandOnCreateRegistryScreenOne();\n    }\n\n    @And(\"user enter username {string} and password {string} clicks on login in sign in page\")\n    public void userEnterUsernameAndPasswordClicksOnLoginInSignInPage(String username, String password) {\n        registryPage.userEnterUserName(username);\n        registryPage.userEnterPassword(password);\n        registryPage.clickLoginBth();\n    }\n\n    @And(\"user quits the screen\")\n    public void userQuitsTheScreen() {\n     registryPage.quitBrowser();\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/parallel/MSHAPP_1025_StepDefs.java b/src/test/java/parallel/MSHAPP_1025_StepDefs.java
+--- a/src/test/java/parallel/MSHAPP_1025_StepDefs.java	(revision b7b071cb6f94e0994d668744f5ea2aa74d2e9a80)
++++ b/src/test/java/parallel/MSHAPP_1025_StepDefs.java	(date 1657612073870)
+@@ -23,7 +23,8 @@
+         registryPage = new RegistryPage(DriverManager.getDriver());
+         permissionPage = new PermissionPage(DriverManager.getDriver());
+         login =new LoginPage(DriverManager.getDriver());
+-        permissionPage.clickOnAllowOnce();
++       // permissionPage.clickOnAllowOnce();
++        permissionPage.userClicksOnContinue();
+     }
+ 
+     @When("user click on registry in bottom navigation bar")
+Index: src/main/java/pom/wsi/PermissionPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pom.wsi;\n\nimport com.reusableMethods.CommonActions;\nimport com.utilities.ExcelReader;\nimport io.appium.java_client.AppiumDriver;\nimport io.appium.java_client.MobileElement;\nimport io.appium.java_client.pagefactory.AppiumFieldDecorator;\nimport io.appium.java_client.pagefactory.iOSXCUITFindBy;\nimport org.openqa.selenium.support.PageFactory;\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\npublic class PermissionPage extends CommonActions {\n    static ExcelReader reader = new ExcelReader();\n    public static final Logger logger = LoggerFactory.getLogger(PermissionPage.class);\n\n    public PermissionPage(AppiumDriver driver) {\n\n        PageFactory.initElements(new AppiumFieldDecorator(driver), this);\n\n    }\n\n    @iOSXCUITFindBy(accessibility = \"Don’t Allow\")\n    private MobileElement btnDontAllow;\n    @iOSXCUITFindBy(accessibility = \"Allow While Using App\")\n    private MobileElement btnAllowWhileUsingApp;\n    @iOSXCUITFindBy(accessibility = \"Allow Once\")\n    private MobileElement btnAllowOnce;\n\n    public void clickOnAllowOnce() {\n        try {\n            WaitForMobileElement(btnAllowWhileUsingApp);\n            ClickOnMobileElement(btnAllowWhileUsingApp);\n        } catch (Exception e) {\n            e.printStackTrace();\n        }\n\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/pom/wsi/PermissionPage.java b/src/main/java/pom/wsi/PermissionPage.java
+--- a/src/main/java/pom/wsi/PermissionPage.java	(revision b7b071cb6f94e0994d668744f5ea2aa74d2e9a80)
++++ b/src/main/java/pom/wsi/PermissionPage.java	(date 1657612085333)
+@@ -26,6 +26,11 @@
+     private MobileElement btnAllowWhileUsingApp;
+     @iOSXCUITFindBy(accessibility = "Allow Once")
+     private MobileElement btnAllowOnce;
++    @iOSXCUITFindBy(accessibility = "CONTINUE AS GUEST")
++    private MobileElement btnCoontinueAsGuest;
++    @iOSXCUITFindBy(accessibility = "START SHOPPING")
++    private MobileElement btnStartShopping;
++
+ 
+     public void clickOnAllowOnce() {
+         try {
+@@ -36,4 +41,17 @@
+         }
+ 
+     }
++
++    public void userClicksOnContinue(){
++        try {
++            WaitForMobileElement(btnCoontinueAsGuest);
++            ClickOnMobileElement(btnCoontinueAsGuest);
++        }catch (Exception e){
++            e.printStackTrace();
++        }
++    }
++    public void userClicksOnStartShopping(){
++
++    }
++
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"78a4586a-f442-4b9f-9991-f1e81e966dd7\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1027_Stepdefs.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1028_Stepdefs.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1027.feature\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1028.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/pom/wsi/RegistryPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/pom/wsi/RegistryPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1025_StepDefs.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1025_StepDefs.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1026_StepDefs.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1026_StepDefs.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/parallel/RunCucumberTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/parallel/RunCucumberTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/Login.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/Login.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1025.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1025.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1026.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1026.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-172.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-172.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-176.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-176.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-177.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-177.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-341.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-341.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-346.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-346.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-524.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-524.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-764.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-764.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-842.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-842.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-866.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-866.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-867.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-867.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-874.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/Features/MSHAPP-874.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-failures.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-failures.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-features.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-features.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-steps.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-steps.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-tags.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-tags.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-feature_3458904516.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-feature_3458904516.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-feature_971391683.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-feature_971391683.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-tag_2406858255.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-tag_2406858255.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-tag_2406858256.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-tag_2406858256.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/ResultsMobile/cucumber.json\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/pom/wsi/RegistryPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/pom/wsi/RegistryPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/surefire-reports/Surefire suite/Surefire test.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/surefire-reports/Surefire suite/Surefire test.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/surefire-reports/Surefire suite/Surefire test.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/surefire-reports/Surefire suite/Surefire test.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/surefire-reports/TEST-parallel.RunCucumberTest.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/surefire-reports/TEST-parallel.RunCucumberTest.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/surefire-reports/emailable-report.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/surefire-reports/emailable-report.html\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/surefire-reports/parallel.RunCucumberTest.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/surefire-reports/parallel.RunCucumberTest.txt\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/surefire-reports/testng-results.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/surefire-reports/testng-results.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/Login.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/Login.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-1025.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-1025.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-1026.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-1026.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-172.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-172.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-176.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-176.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-177.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-177.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-341.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-341.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-346.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-346.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-524.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-524.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-764.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-764.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-842.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-842.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-866.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-866.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-867.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-867.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-874.feature\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/Features/MSHAPP-874.feature\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/parallel/MSHAPP_1025_StepDefs.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/parallel/MSHAPP_1025_StepDefs.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/parallel/MSHAPP_1026_StepDefs.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/parallel/MSHAPP_1026_StepDefs.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/parallel/RunCucumberTest.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/parallel/RunCucumberTest.class\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2BBzh9SYlWCJY5FnBIduC1UsurK\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n    <property name=\"project.structure.last.edited\" value=\"Project\" />\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.0\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$\" />\n      <recent name=\"$PROJECT_DIR$/.idea\" />\n      <recent name=\"$PROJECT_DIR$/src/test/resources/Features\" />\n    </key>\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\n      <recent name=\"parallel\" />\n      <recent name=\"pom.wsi\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"78a4586a-f442-4b9f-9991-f1e81e966dd7\" name=\"Changes\" comment=\"\" />\n      <created>1656394383310</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1656394383310</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision b7b071cb6f94e0994d668744f5ea2aa74d2e9a80)
++++ b/.idea/workspace.xml	(date 1657611700443)
+@@ -5,64 +5,13 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="78a4586a-f442-4b9f-9991-f1e81e966dd7" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1027_Stepdefs.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1028_Stepdefs.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1027.feature" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1028.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/. gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/pom/wsi/RegistryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pom/wsi/RegistryPage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/pom/wsi/PermissionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pom/wsi/PermissionPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1025_StepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1025_StepDefs.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1026_StepDefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/parallel/MSHAPP_1026_StepDefs.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/parallel/RunCucumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/parallel/RunCucumberTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/Login.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1025.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1025.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1026.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-1026.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-172.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-172.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-176.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-176.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-177.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-177.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-341.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-341.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-346.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-346.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-524.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-524.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-764.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-764.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-842.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-842.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-866.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-866.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-867.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-867.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-874.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Features/MSHAPP-874.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-failures.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-failures.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-features.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-features.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-steps.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-steps.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-tags.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/overview-tags.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-feature_3458904516.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-feature_3458904516.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-feature_971391683.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-feature_971391683.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-tag_2406858255.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-tag_2406858255.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-tag_2406858256.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ResultsMobile/cucumber-html-reports/report-tag_2406858256.html" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/ResultsMobile/cucumber.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/ResultsMobile/cucumber.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/pom/wsi/RegistryPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pom/wsi/RegistryPage.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Surefire suite/Surefire test.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Surefire suite/Surefire test.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Surefire suite/Surefire test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Surefire suite/Surefire test.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-parallel.RunCucumberTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-parallel.RunCucumberTest.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/parallel.RunCucumberTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/parallel.RunCucumberTest.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/Login.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-1025.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-1025.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-1026.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-1026.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-172.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-172.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-176.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-176.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-177.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-177.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-341.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-341.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-346.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-346.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-524.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-524.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-764.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-764.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-842.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-842.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-866.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-866.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-867.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-867.feature" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-874.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Features/MSHAPP-874.feature" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/pom/wsi/PermissionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pom/wsi/PermissionPage.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/parallel/MSHAPP_1025_StepDefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/parallel/MSHAPP_1025_StepDefs.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/parallel/MSHAPP_1026_StepDefs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/parallel/MSHAPP_1026_StepDefs.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/parallel/RunCucumberTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/parallel/RunCucumberTest.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -75,6 +24,9 @@
+         <option value="Class" />
+       </list>
+     </option>
++  </component>
++  <component name="Git.Merge.Settings">
++    <option name="BRANCH" value="origin/master" />
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+Index: target/ResultsMobile/cucumber.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[\n  {\n    \"line\": 2,\n    \"elements\": [\n      {\n        \"start_timestamp\": \"2022-07-06T11:09:17.259Z\",\n        \"line\": 4,\n        \"name\": \"verify whether user is able to navigate registry dashboard\",\n        \"description\": \"\",\n        \"id\": \"mshapp-1028-registry-privacy-settings--tell-me-about;verify-whether-user-is-able-to-navigate-registry-dashboard\",\n        \"type\": \"scenario\",\n        \"keyword\": \"Scenario\",\n        \"steps\": [\n          {\n            \"result\": {\n              \"duration\": 160966000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 6,\n            \"name\": \"user launches the apps\",\n            \"match\": {\n              \"location\": \"parallel.MSHAPP_1025_StepDefs.userLaunchesTheApp()\"\n            },\n            \"keyword\": \"Given \"\n          },\n          {\n            \"result\": {\n              \"duration\": 3497000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 7,\n            \"name\": \"user click on registry in bottom navigation bar\",\n            \"match\": {\n              \"location\": \"parallel.MSHAPP_1025_StepDefs.userClickOnRegistryInBottomNavigationBar()\"\n            },\n            \"keyword\": \"When \"\n          },\n          {\n            \"result\": {\n              \"duration\": 1005000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 8,\n            \"name\": \"user lands on registry screen\",\n            \"match\": {\n              \"location\": \"parallel.MSHAPP_1025_StepDefs.userLandsOnRegistryScreen()\"\n            },\n            \"keyword\": \"Then \"\n          }\n        ],\n        \"tags\": [\n          {\n            \"name\": \"@MSHAPP-1028\"\n          }\n        ]\n      },\n      {\n        \"start_timestamp\": \"2022-07-06T11:12:02.806Z\",\n        \"line\": 10,\n        \"name\": \"Verify user is navigated to create registry screen\",\n        \"description\": \"\",\n        \"id\": \"mshapp-1028-registry-privacy-settings--tell-me-about;verify-user-is-navigated-to-create-registry-screen\",\n        \"type\": \"scenario\",\n        \"keyword\": \"Scenario\",\n        \"steps\": [\n          {\n            \"result\": {\n              \"duration\": 1133000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 11,\n            \"name\": \"user is on registry screen\",\n            \"match\": {\n              \"location\": \"parallel.MSHAPP_1025_StepDefs.userIsOnRegistryScreen()\"\n            },\n            \"keyword\": \"Given \"\n          },\n          {\n            \"result\": {\n              \"duration\": 3621000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 12,\n            \"name\": \"user clicks on create registry\",\n            \"match\": {\n              \"location\": \"parallel.MSHAPP_1025_StepDefs.userClicksOnCreateRegistry()\"\n            },\n            \"keyword\": \"When \"\n          },\n          {\n            \"result\": {\n              \"duration\": 1091000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 13,\n            \"name\": \"user lands on sign in screen\",\n            \"match\": {\n              \"location\": \"parallel.MSHAPP_1025_StepDefs.userLandsOnSignInScreen()\"\n            },\n            \"keyword\": \"Then \"\n          }\n        ],\n        \"tags\": [\n          {\n            \"name\": \"@MSHAPP-1028\"\n          }\n        ]\n      },\n      {\n        \"start_timestamp\": \"2022-07-06T11:12:08.669Z\",\n        \"line\": 21,\n        \"name\": \"verify whether user is able to login\",\n        \"description\": \"\",\n        \"id\": \"mshapp-1028-registry-privacy-settings--tell-me-about;verify-whether-user-is-able-to-login;;2\",\n        \"type\": \"scenario\",\n        \"keyword\": \"Scenario Outline\",\n        \"steps\": [\n          {\n            \"result\": {\n              \"duration\": 1121000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 16,\n            \"name\": \"user is on sign screen\",\n            \"match\": {\n              \"location\": \"parallel.MSHAPP_1025_StepDefs.userIsOnSignScreen()\"\n            },\n            \"keyword\": \"Given \"\n          },\n          {\n            \"result\": {\n              \"duration\": 10527000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 17,\n            \"name\": \"user enter username \\\"bala3@test.com\\\" and password \\\"test@1234\\\" clicks on login in sign in page\",\n            \"match\": {\n              \"arguments\": [\n                {\n                  \"val\": \"\\\"bala3@test.com\\\"\",\n                  \"offset\": 20\n                },\n                {\n                  \"val\": \"\\\"test@1234\\\"\",\n                  \"offset\": 50\n                }\n              ],\n              \"location\": \"parallel.MSHAPP_1025_StepDefs.userEnterUsernameAndPasswordClicksOnLoginInSignInPage(java.lang.String,java.lang.String)\"\n            },\n            \"keyword\": \"And \"\n          },\n          {\n            \"result\": {\n              \"duration\": 3223000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 18,\n            \"name\": \"user should land on create registry screen one\",\n            \"match\": {\n              \"location\": \"parallel.MSHAPP_1025_StepDefs.userShouldLandOnCreateRegistryScreenOne()\"\n            },\n            \"keyword\": \"Then \"\n          }\n        ],\n        \"tags\": [\n          {\n            \"name\": \"@MSHAPP-1028\"\n          }\n        ]\n      },\n      {\n        \"start_timestamp\": \"2022-07-06T11:12:23.550Z\",\n        \"line\": 22,\n        \"name\": \"verify user is able select privacy setting\",\n        \"description\": \"\",\n        \"id\": \"mshapp-1028-registry-privacy-settings--tell-me-about;verify-user-is-able-select-privacy-setting\",\n        \"type\": \"scenario\",\n        \"keyword\": \"Scenario\",\n        \"steps\": [\n          {\n            \"result\": {\n              \"duration\": 1032000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 23,\n            \"name\": \"user  is on create event screen\",\n            \"match\": {\n              \"location\": \"parallel.MSHAPP_1026_StepDefs.userIsOnCreateEventScreen()\"\n            },\n            \"keyword\": \"Given \"\n          },\n          {\n            \"result\": {\n              \"duration\": 8127000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 24,\n            \"name\": \"user clicks on privacy setting and selects privacy\",\n            \"match\": {\n              \"location\": \"parallel.MSHAPP_1028_Stepdefs.userClicksOnPrivacySettingAndSelectsPrivacy()\"\n            },\n            \"keyword\": \"And \"\n          },\n          {\n            \"result\": {\n              \"duration\": 101467000000,\n              \"status\": \"passed\"\n            },\n            \"line\": 25,\n            \"name\": \"the selected privacy type should be populated\",\n            \"match\": {\n              \"location\": \"parallel.MSHAPP_1028_Stepdefs.theSelectedPrivacyTypeShouldBePopulated()\"\n            },\n            \"keyword\": \"Then \"\n          }\n        ],\n        \"tags\": [\n          {\n            \"name\": \"@MSHAPP-1028\"\n          }\n        ]\n      }\n    ],\n    \"name\": \"MSHAPP-1028 Registry Privacy Settings -Tell me about\",\n    \"description\": \"\",\n    \"id\": \"mshapp-1028-registry-privacy-settings--tell-me-about\",\n    \"keyword\": \"Feature\",\n    \"uri\": \"file:src/test/resources/Features/MSHAPP-1028.feature\",\n    \"tags\": [\n      {\n        \"name\": \"@MSHAPP-1028\",\n        \"type\": \"Tag\",\n        \"location\": {\n          \"line\": 1,\n          \"column\": 1\n        }\n      }\n    ]\n  }\n]
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/ResultsMobile/cucumber.json b/target/ResultsMobile/cucumber.json
+--- a/target/ResultsMobile/cucumber.json	(revision b7b071cb6f94e0994d668744f5ea2aa74d2e9a80)
++++ b/target/ResultsMobile/cucumber.json	(date 1657611350456)
+@@ -1,240 +1,0 @@
+-[
+-  {
+-    "line": 2,
+-    "elements": [
+-      {
+-        "start_timestamp": "2022-07-06T11:09:17.259Z",
+-        "line": 4,
+-        "name": "verify whether user is able to navigate registry dashboard",
+-        "description": "",
+-        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-whether-user-is-able-to-navigate-registry-dashboard",
+-        "type": "scenario",
+-        "keyword": "Scenario",
+-        "steps": [
+-          {
+-            "result": {
+-              "duration": 160966000000,
+-              "status": "passed"
+-            },
+-            "line": 6,
+-            "name": "user launches the apps",
+-            "match": {
+-              "location": "parallel.MSHAPP_1025_StepDefs.userLaunchesTheApp()"
+-            },
+-            "keyword": "Given "
+-          },
+-          {
+-            "result": {
+-              "duration": 3497000000,
+-              "status": "passed"
+-            },
+-            "line": 7,
+-            "name": "user click on registry in bottom navigation bar",
+-            "match": {
+-              "location": "parallel.MSHAPP_1025_StepDefs.userClickOnRegistryInBottomNavigationBar()"
+-            },
+-            "keyword": "When "
+-          },
+-          {
+-            "result": {
+-              "duration": 1005000000,
+-              "status": "passed"
+-            },
+-            "line": 8,
+-            "name": "user lands on registry screen",
+-            "match": {
+-              "location": "parallel.MSHAPP_1025_StepDefs.userLandsOnRegistryScreen()"
+-            },
+-            "keyword": "Then "
+-          }
+-        ],
+-        "tags": [
+-          {
+-            "name": "@MSHAPP-1028"
+-          }
+-        ]
+-      },
+-      {
+-        "start_timestamp": "2022-07-06T11:12:02.806Z",
+-        "line": 10,
+-        "name": "Verify user is navigated to create registry screen",
+-        "description": "",
+-        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-user-is-navigated-to-create-registry-screen",
+-        "type": "scenario",
+-        "keyword": "Scenario",
+-        "steps": [
+-          {
+-            "result": {
+-              "duration": 1133000000,
+-              "status": "passed"
+-            },
+-            "line": 11,
+-            "name": "user is on registry screen",
+-            "match": {
+-              "location": "parallel.MSHAPP_1025_StepDefs.userIsOnRegistryScreen()"
+-            },
+-            "keyword": "Given "
+-          },
+-          {
+-            "result": {
+-              "duration": 3621000000,
+-              "status": "passed"
+-            },
+-            "line": 12,
+-            "name": "user clicks on create registry",
+-            "match": {
+-              "location": "parallel.MSHAPP_1025_StepDefs.userClicksOnCreateRegistry()"
+-            },
+-            "keyword": "When "
+-          },
+-          {
+-            "result": {
+-              "duration": 1091000000,
+-              "status": "passed"
+-            },
+-            "line": 13,
+-            "name": "user lands on sign in screen",
+-            "match": {
+-              "location": "parallel.MSHAPP_1025_StepDefs.userLandsOnSignInScreen()"
+-            },
+-            "keyword": "Then "
+-          }
+-        ],
+-        "tags": [
+-          {
+-            "name": "@MSHAPP-1028"
+-          }
+-        ]
+-      },
+-      {
+-        "start_timestamp": "2022-07-06T11:12:08.669Z",
+-        "line": 21,
+-        "name": "verify whether user is able to login",
+-        "description": "",
+-        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-whether-user-is-able-to-login;;2",
+-        "type": "scenario",
+-        "keyword": "Scenario Outline",
+-        "steps": [
+-          {
+-            "result": {
+-              "duration": 1121000000,
+-              "status": "passed"
+-            },
+-            "line": 16,
+-            "name": "user is on sign screen",
+-            "match": {
+-              "location": "parallel.MSHAPP_1025_StepDefs.userIsOnSignScreen()"
+-            },
+-            "keyword": "Given "
+-          },
+-          {
+-            "result": {
+-              "duration": 10527000000,
+-              "status": "passed"
+-            },
+-            "line": 17,
+-            "name": "user enter username \"bala3@test.com\" and password \"test@1234\" clicks on login in sign in page",
+-            "match": {
+-              "arguments": [
+-                {
+-                  "val": "\"bala3@test.com\"",
+-                  "offset": 20
+-                },
+-                {
+-                  "val": "\"test@1234\"",
+-                  "offset": 50
+-                }
+-              ],
+-              "location": "parallel.MSHAPP_1025_StepDefs.userEnterUsernameAndPasswordClicksOnLoginInSignInPage(java.lang.String,java.lang.String)"
+-            },
+-            "keyword": "And "
+-          },
+-          {
+-            "result": {
+-              "duration": 3223000000,
+-              "status": "passed"
+-            },
+-            "line": 18,
+-            "name": "user should land on create registry screen one",
+-            "match": {
+-              "location": "parallel.MSHAPP_1025_StepDefs.userShouldLandOnCreateRegistryScreenOne()"
+-            },
+-            "keyword": "Then "
+-          }
+-        ],
+-        "tags": [
+-          {
+-            "name": "@MSHAPP-1028"
+-          }
+-        ]
+-      },
+-      {
+-        "start_timestamp": "2022-07-06T11:12:23.550Z",
+-        "line": 22,
+-        "name": "verify user is able select privacy setting",
+-        "description": "",
+-        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-user-is-able-select-privacy-setting",
+-        "type": "scenario",
+-        "keyword": "Scenario",
+-        "steps": [
+-          {
+-            "result": {
+-              "duration": 1032000000,
+-              "status": "passed"
+-            },
+-            "line": 23,
+-            "name": "user  is on create event screen",
+-            "match": {
+-              "location": "parallel.MSHAPP_1026_StepDefs.userIsOnCreateEventScreen()"
+-            },
+-            "keyword": "Given "
+-          },
+-          {
+-            "result": {
+-              "duration": 8127000000,
+-              "status": "passed"
+-            },
+-            "line": 24,
+-            "name": "user clicks on privacy setting and selects privacy",
+-            "match": {
+-              "location": "parallel.MSHAPP_1028_Stepdefs.userClicksOnPrivacySettingAndSelectsPrivacy()"
+-            },
+-            "keyword": "And "
+-          },
+-          {
+-            "result": {
+-              "duration": 101467000000,
+-              "status": "passed"
+-            },
+-            "line": 25,
+-            "name": "the selected privacy type should be populated",
+-            "match": {
+-              "location": "parallel.MSHAPP_1028_Stepdefs.theSelectedPrivacyTypeShouldBePopulated()"
+-            },
+-            "keyword": "Then "
+-          }
+-        ],
+-        "tags": [
+-          {
+-            "name": "@MSHAPP-1028"
+-          }
+-        ]
+-      }
+-    ],
+-    "name": "MSHAPP-1028 Registry Privacy Settings -Tell me about",
+-    "description": "",
+-    "id": "mshapp-1028-registry-privacy-settings--tell-me-about",
+-    "keyword": "Feature",
+-    "uri": "file:src/test/resources/Features/MSHAPP-1028.feature",
+-    "tags": [
+-      {
+-        "name": "@MSHAPP-1028",
+-        "type": "Tag",
+-        "location": {
+-          "line": 1,
+-          "column": 1
+-        }
+-      }
+-    ]
+-  }
+-]
+\ No newline at end of file

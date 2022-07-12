@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_12_07_22,_2_18_pm_[Changes]" date="1657615730707" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_07_22,_2_18_pm_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 12/07/22, 2:18 pm [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value=". gitignore" />
+    <option name="AFTER_PATH" value=".gitignore" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_07_22,_2_18_pm_[Changes]/.gitignore" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/pom/wsi/PermissionPage.class" />
+    <option name="AFTER_PATH" value="target/classes/pom/wsi/PermissionPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_07_22,_2_18_pm_[Changes]/PermissionPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/test-classes/parallel/MSHAPP_1025_StepDefs.class" />
+    <option name="AFTER_PATH" value="target/test-classes/parallel/MSHAPP_1025_StepDefs.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_07_22,_2_18_pm_[Changes]/MSHAPP_1025_StepDefs.class" />
+  </binary>
+</changelist>
