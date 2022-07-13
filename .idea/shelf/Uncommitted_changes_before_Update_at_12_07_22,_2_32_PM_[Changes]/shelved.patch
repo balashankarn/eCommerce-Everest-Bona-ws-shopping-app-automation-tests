@@ -1,0 +1,78 @@
+Index: src/test/java/parallel/RunCucumberTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package parallel;\n\nimport java.io.IOException;\n\nimport org.junit.AfterClass;\nimport org.junit.runner.RunWith;\n\nimport com.utilities.JvmReport;\n\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\n\n\n@RunWith(Cucumber.class)\n@CucumberOptions(features = {\"src/test/resources/Features\"},\n        glue = {\"parallel\"},\n        dryRun = false,\n        tags = \"@editemail\",\n        plugin = {\"pretty\", \"json:target/ResultsMobile/cucumber.json\"},\n        monochrome = true)\npublic class RunCucumberTest {\n\n    @AfterClass\n    public static void afterClass() throws IOException {\n        JvmReport.generateReport(System.getProperty(\"user.dir\") + \"/target/ResultsMobile/cucumber.json\");\n\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/parallel/RunCucumberTest.java b/src/test/java/parallel/RunCucumberTest.java
+--- a/src/test/java/parallel/RunCucumberTest.java	(revision 9a6153299be1c5c575f64beff880e50a008ff846)
++++ b/src/test/java/parallel/RunCucumberTest.java	(date 1657113238594)
+@@ -15,7 +15,7 @@
+ @CucumberOptions(features = {"src/test/resources/Features"},
+         glue = {"parallel"},
+         dryRun = false,
+-        tags = "@editemail",
++        tags = "@signin",
+         plugin = {"pretty", "json:target/ResultsMobile/cucumber.json"},
+         monochrome = true)
+ public class RunCucumberTest {
+Index: .idea/runConfigurations.xml
+===================================================================
+diff --git a/.idea/runConfigurations.xml b/.idea/runConfigurations.xml
+deleted file mode 100644
+--- a/.idea/runConfigurations.xml	(revision 9a6153299be1c5c575f64beff880e50a008ff846)
++++ /dev/null	(revision 9a6153299be1c5c575f64beff880e50a008ff846)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="RunConfigurationProducerService">
+-    <option name="ignoredProducers">
+-      <set>
+-        <option value="com.android.tools.idea.compose.preview.runconfiguration.ComposePreviewRunConfigurationProducer" />
+-      </set>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_867_StepDefs.java\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/Hooks.java\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_172_StepDefs.java\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_176_StepDef.java\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_341_StepDefs.java\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_874_StepDefs.java\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/RunCucumberTest.java\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_1025_StepDefs.java\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/Login_StepDef.java\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_177_StepDefs.java\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_346_StepDef.java\n/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_866_Stepdefs.java\n/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_172_StepDefs.java\n/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_524_StepDefs.java\n/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_176_StepDef.java\n/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/Hooks.java\n/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/RunCucumberTest.java\n/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/Login_StepDef.java\n/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_346_StepDef.java\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst b/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+--- a/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst	(revision 9a6153299be1c5c575f64beff880e50a008ff846)
++++ b/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst	(date 1657107365322)
+@@ -1,21 +1,14 @@
+-
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_867_StepDefs.java
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/Hooks.java
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_172_StepDefs.java
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_176_StepDef.java
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_341_StepDefs.java
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_874_StepDefs.java
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/RunCucumberTest.java
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_1025_StepDefs.java
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/Login_StepDef.java
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_177_StepDefs.java
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_346_StepDef.java
+-/Users/balashankarn/Desktop/WSGC_Mobile_App/src/test/java/parallel/MSHAPP_866_Stepdefs.java
++/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_874_StepDefs.java
++/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_176_StepDef.java
++/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_177_StepDefs.java
++/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_867_StepDefs.java
++/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/Login_StepDef.java
++/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_1026_StepDefs.java
++/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_341_StepDefs.java
+ /Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_172_StepDefs.java
++/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_1025_StepDefs.java
+ /Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_524_StepDefs.java
+-/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_176_StepDef.java
+ /Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/Hooks.java
+ /Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/RunCucumberTest.java
+-/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/Login_StepDef.java
++/Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_866_Stepdefs.java
+ /Users/kirubanithi_r/Documents/Everest/src/test/java/parallel/MSHAPP_346_StepDef.java
+-

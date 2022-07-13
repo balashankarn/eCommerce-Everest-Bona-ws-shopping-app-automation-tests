@@ -1,139 +1,47 @@
 [
   {
-    "line": 2,
+    "line": 1,
     "elements": [
       {
-        "start_timestamp": "2022-07-06T11:09:17.259Z",
-        "line": 4,
-        "name": "verify whether user is able to navigate registry dashboard",
+        "start_timestamp": "2022-07-13T10:16:29.607Z",
+        "line": 11,
+        "name": "Sign in",
         "description": "",
-        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-whether-user-is-able-to-navigate-registry-dashboard",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 160966000000,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "user launches the apps",
-            "match": {
-              "location": "parallel.MSHAPP_1025_StepDefs.userLaunchesTheApp()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 3497000000,
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "user click on registry in bottom navigation bar",
-            "match": {
-              "location": "parallel.MSHAPP_1025_StepDefs.userClickOnRegistryInBottomNavigationBar()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1005000000,
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "user lands on registry screen",
-            "match": {
-              "location": "parallel.MSHAPP_1025_StepDefs.userLandsOnRegistryScreen()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@MSHAPP-1028"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-07-06T11:12:02.806Z",
-        "line": 10,
-        "name": "Verify user is navigated to create registry screen",
-        "description": "",
-        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-user-is-navigated-to-create-registry-screen",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1133000000,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "user is on registry screen",
-            "match": {
-              "location": "parallel.MSHAPP_1025_StepDefs.userIsOnRegistryScreen()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 3621000000,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "user clicks on create registry",
-            "match": {
-              "location": "parallel.MSHAPP_1025_StepDefs.userClicksOnCreateRegistry()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1091000000,
-              "status": "passed"
-            },
-            "line": 13,
-            "name": "user lands on sign in screen",
-            "match": {
-              "location": "parallel.MSHAPP_1025_StepDefs.userLandsOnSignInScreen()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@MSHAPP-1028"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-07-06T11:12:08.669Z",
-        "line": 21,
-        "name": "verify whether user is able to login",
-        "description": "",
-        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-whether-user-is-able-to-login;;2",
+        "id": "sign-in;sign-in;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 1121000000,
+              "duration": 28410000000,
               "status": "passed"
             },
-            "line": 16,
-            "name": "user is on sign screen",
+            "line": 5,
+            "name": "user launches apps and clicks on account setting button",
             "match": {
-              "location": "parallel.MSHAPP_1025_StepDefs.userIsOnSignScreen()"
+              "location": "parallel.Login_StepDef.userLaunchesAppsAndClicksOnAccountSettingButton()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 10527000000,
+              "duration": 43363000000,
               "status": "passed"
             },
-            "line": 17,
-            "name": "user enter username \"bala3@test.com\" and password \"test@1234\" clicks on login in sign in page",
+            "line": 6,
+            "name": "user clicks sign in option",
+            "match": {
+              "location": "parallel.Login_StepDef.userClicksSignInOption()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 13532000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user enter username \"bala3@test.com\" and password \"test@1234\" clicks on login",
             "match": {
               "arguments": [
                 {
@@ -145,96 +53,35 @@
                   "offset": 50
                 }
               ],
-              "location": "parallel.MSHAPP_1025_StepDefs.userEnterUsernameAndPasswordClicksOnLoginInSignInPage(java.lang.String,java.lang.String)"
+              "location": "parallel.Login_StepDef.userEnterUsernameAndPasswordClicksOnLogin(java.lang.String,java.lang.String)"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 3223000000,
+              "duration": 4022000000,
               "status": "passed"
             },
-            "line": 18,
-            "name": "user should land on create registry screen one",
+            "line": 8,
+            "name": "user lands on dashboard screen",
             "match": {
-              "location": "parallel.MSHAPP_1025_StepDefs.userShouldLandOnCreateRegistryScreenOne()"
+              "location": "parallel.Login_StepDef.userLandsOnDashboardScreen()"
             },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1028"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-07-06T11:12:23.550Z",
-        "line": 22,
-        "name": "verify user is able select privacy setting",
-        "description": "",
-        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-user-is-able-select-privacy-setting",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1032000000,
-              "status": "passed"
-            },
-            "line": 23,
-            "name": "user  is on create event screen",
-            "match": {
-              "location": "parallel.MSHAPP_1026_StepDefs.userIsOnCreateEventScreen()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 8127000000,
-              "status": "passed"
-            },
-            "line": 24,
-            "name": "user clicks on privacy setting and selects privacy",
-            "match": {
-              "location": "parallel.MSHAPP_1028_Stepdefs.userClicksOnPrivacySettingAndSelectsPrivacy()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 101467000000,
-              "status": "passed"
-            },
-            "line": 25,
-            "name": "the selected privacy type should be populated",
-            "match": {
-              "location": "parallel.MSHAPP_1028_Stepdefs.theSelectedPrivacyTypeShouldBePopulated()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@MSHAPP-1028"
+            "name": "@signin"
           }
         ]
       }
     ],
-    "name": "MSHAPP-1028 Registry Privacy Settings -Tell me about",
+    "name": "Sign In",
     "description": "",
-    "id": "mshapp-1028-registry-privacy-settings--tell-me-about",
+    "id": "sign-in",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/Features/MSHAPP-1028.feature",
-    "tags": [
-      {
-        "name": "@MSHAPP-1028",
-        "type": "Tag",
-        "location": {
-          "line": 1,
-          "column": 1
-        }
-      }
-    ]
+    "uri": "file:src/test/resources/Features/Login.feature",
+    "tags": []
   }
 ]

@@ -35,6 +35,10 @@ public class LoginPage extends CommonActions {
     }
 
 
+    @iOSXCUITFindBy(accessibility = "CONTINUE AS GUEST")
+    private MobileElement btnContinueAsGuest;
+    @iOSXCUITFindBy(accessibility = "START SHOPPING")
+    private MobileElement btnStartShopping;
     @iOSXCUITFindBy(accessibility = "ACCOUNT")
     private MobileElement tbrAccount;
     @iOSXCUITFindBy(id = "SIGN IN")
@@ -65,8 +69,13 @@ public class LoginPage extends CommonActions {
 
 
     public void navigatingToSignin() {
+        WaitForMobileElement(btnContinueAsGuest);
+        ClickOnMobileElement(btnContinueAsGuest);
 
-        //  DriverManager.getDriver().launchApp();
+        WaitForMobileElement(btnStartShopping);
+        ClickOnMobileElement(btnStartShopping);
+
+
         WaitForMobileElement(tbrAccount);
         ClickOnMobileElement(tbrAccount);
     }
