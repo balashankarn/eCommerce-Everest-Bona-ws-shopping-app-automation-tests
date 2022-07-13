@@ -187,4 +187,14 @@ public class RegistryPage extends CommonActions {
 
    }
 
+   public void userClicksOnNextButton(){
+        try {
+            WaitForMobileElement(btnNext);
+            ClickOnMobileElement(btnNext);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+   }
+
+
 }

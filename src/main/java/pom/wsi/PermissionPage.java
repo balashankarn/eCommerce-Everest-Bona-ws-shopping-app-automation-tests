@@ -26,6 +26,12 @@ public class PermissionPage extends CommonActions {
     private MobileElement btnAllowWhileUsingApp;
     @iOSXCUITFindBy(accessibility = "Allow Once")
     private MobileElement btnAllowOnce;
+    @iOSXCUITFindBy(accessibility = "CONTINUE AS GUEST")
+    private MobileElement btnContinueAsGuest;
+    @iOSXCUITFindBy(accessibility = "START SHOPPING")
+    private MobileElement btnStartShopping;
+
+
 
     public void clickOnAllowOnce() {
         try {
@@ -35,5 +41,16 @@ public class PermissionPage extends CommonActions {
             e.printStackTrace();
         }
 
+    }
+
+    public void continueShopping(){
+        try {
+            WaitForMobileElement(btnContinueAsGuest);
+            ClickOnMobileElement(btnContinueAsGuest);
+            WaitForMobileElement(btnStartShopping);
+            ClickOnMobileElement(btnStartShopping);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

@@ -23,7 +23,8 @@ public class MSHAPP_1025_StepDefs {
         registryPage = new RegistryPage(DriverManager.getDriver());
         permissionPage = new PermissionPage(DriverManager.getDriver());
         login =new LoginPage(DriverManager.getDriver());
-        permissionPage.clickOnAllowOnce();
+      //  permissionPage.clickOnAllowOnce();
+        permissionPage.continueShopping();
     }
 
     @When("user click on registry in bottom navigation bar")
