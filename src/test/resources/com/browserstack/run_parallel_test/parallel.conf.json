@@ -6,7 +6,7 @@
   "capabilities": {
     "project": "Pb Kids Shopping app",
     "build": "Native",
-    "name": "Login",
+    "name": "Registry Module",
     "browserstack.debug": true,
     "app": "bs://<app-id>"
   },

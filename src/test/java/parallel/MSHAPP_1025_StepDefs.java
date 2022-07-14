@@ -29,12 +29,14 @@ public class MSHAPP_1025_StepDefs {
 
     @When("user click on registry in bottom navigation bar")
     public void userClickOnRegistryInBottomNavigationBar() {
+
         registryPage.userClickOnRegistry();
 
     }
 
     @Then("user lands on registry screen")
     public void userLandsOnRegistryScreen() {
+        registryPage =new RegistryPage(DriverManager.getDriver());
         registryPage.userLandsOnRegistry();
 
     }
@@ -47,7 +49,7 @@ public class MSHAPP_1025_StepDefs {
 
     @When("user clicks on create registry")
     public void userClicksOnCreateRegistry() {
-        registryPage.userClickOnFindRegistry();
+        registryPage.userClickOnCreateRegistry();
     }
 
     @Then("user lands on sign in screen")
@@ -69,9 +71,12 @@ public class MSHAPP_1025_StepDefs {
 
     @And("user enter username {string} and password {string} clicks on login in sign in page")
     public void userEnterUsernameAndPasswordClicksOnLoginInSignInPage(String username, String password) {
-        registryPage.userEnterUserName(username);
-        registryPage.userEnterPassword(password);
-        registryPage.clickLoginBth();
+
+
+          registryPage.userEnterUserName(username);
+          registryPage.userEnterPassword(password);
+          registryPage.clickLoginBth();
+
     }
 
     @And("user quits the screen")

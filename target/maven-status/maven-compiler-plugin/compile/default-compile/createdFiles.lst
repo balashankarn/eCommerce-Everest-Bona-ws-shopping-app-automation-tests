@@ -1,3 +1,4 @@
+com/reusableMethods/CommonActions$1.class
 pom/wsi/PermissionPage.class
 com/utilities/LoggerClass.class
 com/driverfactory/manager/AndriodDriverManager.class
@@ -23,4 +24,5 @@ pom/wsi/CheckoutPage.class
 com/driverfactory/manager/AndriodDriverManager$1.class
 com/reusableMethods/Screenshots.class
 com/driverfactory/Factory$1.class
+com/reusableMethods/CommonActions$Direction.class
 com/utilities/JvmReport.class
