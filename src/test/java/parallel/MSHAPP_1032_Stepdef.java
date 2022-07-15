@@ -70,11 +70,7 @@ public class MSHAPP_1032_Stepdef {
 
     @When("user scrolls to the bottom of the page")
     public void userScrollsToTheBottomOfThePage() {
-
   registryPage.userScrollToBottom();
-
-
-
     }
 
     @Then("user clicks on create registry in the bottom of the screen")
