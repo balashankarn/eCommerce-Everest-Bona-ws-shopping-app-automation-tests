@@ -43,6 +43,10 @@ public class LoginPage extends CommonActions {
     private MobileElement tbrAccount;
     @iOSXCUITFindBy(id = "SIGN IN")
     private MobileElement btnSignin;
+
+    @iOSXCUITFindBy(accessibility = "SIGN IN")
+    private MobileElement btnSignin2;
+
     @iOSXCUITFindBy(accessibility = "Regression")
     private MobileElement btnresgression;
     @iOSXCUITFindBy(accessibility = "authentication_sign_in_button")
@@ -69,8 +73,6 @@ public class LoginPage extends CommonActions {
 
 
     public void navigatingToSignin() {
-        WaitForMobileElement(btnContinueAsGuest);
-        ClickOnMobileElement(btnContinueAsGuest);
 
         WaitForMobileElement(btnStartShopping);
         ClickOnMobileElement(btnStartShopping);
@@ -96,8 +98,8 @@ public class LoginPage extends CommonActions {
     }
 
     public void clickOnSignin() {
-        WaitForMobileElement(btnSignin);
-        ClickOnMobileElement(btnSignin);
+        WaitForMobileElement(btnSignin2);
+        ClickOnMobileElement(btnSignin2);
     }
 
     public void userEnterUserName(String username) {

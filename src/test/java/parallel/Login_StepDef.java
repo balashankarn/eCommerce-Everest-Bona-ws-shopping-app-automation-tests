@@ -59,10 +59,11 @@ public class Login_StepDef extends Factory {
 
     @When("user clicks sign in option")
     public void userClicksSignInOption() {
-        login.navigatingToSignin();
-        permissionPage.clickOnAllowOnce();
-        //	login.signOut();
         login.clickOnSignin();
+
+
+        //	login.signOut();
+
     }
 
     @And("user enter username {string} and password {string} clicks on login")
@@ -83,6 +84,8 @@ public class Login_StepDef extends Factory {
 
     @Then("user lands on dashboard screen")
     public void userLandsOnDashboardScreen() {
+        login.navigatingToSignin();
+        permissionPage.clickOnAllowOnce();
         login.userLandsOnDashboard();
 
 

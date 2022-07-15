@@ -27,7 +27,7 @@ public class AccountPage extends CommonActions {
     private MobileElement btnMyStore;
     @iOSXCUITFindBy(accessibility = "DESIGN TOOLS")
     private MobileElement btnDesignTool;
-    @iOSXCUITFindBy(accessibility = "CUSTOMER SERVICE")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"CUSTOMER SERVICE\"]")
     private MobileElement btnCustomerService;
     @iOSXCUITFindBy(accessibility = "SHOPPING PROFILES")
     private MobileElement btnShoppingProfile;
@@ -36,7 +36,8 @@ public class AccountPage extends CommonActions {
 
     public void accountDashBoard() {
         try {
-            WaitForMobileElement(btnCustomerService);
+            ScrollTo("","up",btnCustomerService);
+           // WaitForMobileElement(btnCustomerService);
             Assert.assertTrue(btnCustomerService.isDisplayed());
         } catch (Exception e) {
             e.printStackTrace();

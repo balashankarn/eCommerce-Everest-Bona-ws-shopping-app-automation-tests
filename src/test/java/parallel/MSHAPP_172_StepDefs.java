@@ -13,12 +13,12 @@ import pom.wsi.LoginPage;
 public class MSHAPP_172_StepDefs extends Factory {
     LoginPage login;
     Hooks hooks = new Hooks();
-    AccountPage accountPage;
-    AccountSettingPage accountSettingPage;
+    AccountPage accountPage = new AccountPage(DriverManager.getDriver());
+    AccountSettingPage accountSettingPage  = new AccountSettingPage((DriverManager.getDriver()));
 
     @Given("user is in dashboard screen")
     public void userIsInDashBoardScreen(){
-        accountPage = new AccountPage(DriverManager.getDriver());
+        //accountPage = new AccountPage(DriverManager.getDriver());
         accountPage.userInDashBoardScreen();
     }
 
@@ -43,7 +43,6 @@ public class MSHAPP_172_StepDefs extends Factory {
     @When("user scrolls to bottom of the screen")
     public void userScrollsToBottomOfTheScreen() {
         accountPage.scrollUp();
-
     }
 
     @And("user clicks on account setting option")
@@ -53,10 +52,12 @@ public class MSHAPP_172_StepDefs extends Factory {
 
     @Then("user should be navigated to account setting screen.")
     public void userShouldBeNavigatedToAccountSettingScreen() {
+
         accountSettingPage.verifyScreenUI();
-
-
     }
 
-
+    @Given("user is dashboard screen")
+    public void userIsDashboardScreen() {
+        accountPage.accountDashBoard();
+    }
 }

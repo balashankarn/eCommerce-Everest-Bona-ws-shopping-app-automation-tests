@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Everest" />
+        <module name="Wsgc_Mobile" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Everest" target="1.8" />
+      <module name="Wsgc_Mobile" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
