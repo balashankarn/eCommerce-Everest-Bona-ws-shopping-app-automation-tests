@@ -1,5 +1,6 @@
 package pom.wsi;
 
+import com.driverfactory.DriverManager;
 import com.reusableMethods.CommonActions;
 import com.utilities.ExcelReader;
 import io.appium.java_client.AppiumDriver;
@@ -7,20 +8,26 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static com.reusableMethods.CommonActions.Direction.DOWN;
+import static com.reusableMethods.CommonActions.Direction.UP;
 
 public class RegistryPage extends CommonActions {
     static ExcelReader reader = new ExcelReader();
     public static final Logger logger = LoggerFactory.getLogger(PermissionPage.class);
 
+   PermissionPage permissionPage = new PermissionPage(DriverManager.getDriver());
     public RegistryPage(AppiumDriver driver) {
 
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 
     }
-
+    @iOSXCUITFindBy(accessibility = "ACCOUNT")
+    private MobileElement tbrAccount;
     @iOSXCUITFindBy(accessibility = "REGISTRY")
     private MobileElement tbRegistry;
     @iOSXCUITFindBy(accessibility = "CREATE A REGISTRY")
@@ -49,9 +56,16 @@ public class RegistryPage extends CommonActions {
     private MobileElement spnPrivacySetting;
     @iOSXCUITFindBy(accessibility = "DONE")
    private MobileElement spnPrivacySettingDone;
+    @iOSXCUITFindBy(accessibility = "checkmark.rectangle")
+    private MobileElement chkAddress;
+    @iOSXCUITFindBy(accessibility = "START SHOPPING")
+    private MobileElement btnStartShopping;
 
     public void userClickOnRegistry() {
         try {
+//            WaitForMobileElement(tbrAccount);
+//            ClickOnMobileElement(tbrAccount);
+//            permissionPage.clickOnAllowOnce();
             WaitForMobileElement(tbRegistry);
             ClickOnMobileElement(tbRegistry);
         } catch (Exception e) {
@@ -60,18 +74,23 @@ public class RegistryPage extends CommonActions {
     }
 
     public void userLandsOnRegistry() {
+
+        WaitForMobileElement(btnCreateARegistry);
         Assert.assertTrue(btnCreateARegistry.isDisplayed());
         Assert.assertTrue(btnFindRegistry.isDisplayed());
-     //   Assert.assertTrue(btnNonLoggedInManageRegistry.isDisplayed());
     }
 
     public void userInRegistryScreen() {
+
+//        WaitForMobileElement(tbRegistry);
+//        ClickOnMobileElement(tbRegistry);
         Assert.assertTrue(btnFindRegistry.isDisplayed());
       //  Assert.assertTrue(btnNonLoggedInManageRegistry.isDisplayed());
         Assert.assertTrue(btnCreateARegistry.isDisplayed());
+
     }
 
-    public void userClickOnFindRegistry(){
+    public void userClickOnCreateRegistry(){
         try {
             WaitForMobileElement(btnCreateARegistry);
             ClickOnMobileElement(btnCreateARegistry);
@@ -81,8 +100,9 @@ public class RegistryPage extends CommonActions {
     }
 
    public  void userLandsOnSignIn(){
+
         Assert.assertTrue(txtUsername.isDisplayed());
-        Assert.assertTrue(txtPassword.isDisplayed());
+       Assert.assertTrue(txtPassword.isDisplayed());
    }
 
 
@@ -195,6 +215,51 @@ public class RegistryPage extends CommonActions {
             e.printStackTrace();
         }
    }
+public void userIsStepThreeScreen(){
+        try {
+            WaitForMobileElement(btnNext);
+            Assert.assertTrue(btnNext.isDisplayed());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+}
 
+public void startShopping(){
+        try {
+            WaitForMobileElement(btnStartShopping);
+            ClickOnMobileElement(btnStartShopping);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+}
+
+public void userScrollToBottom(){
+    waitFor(9000);
+    swipeScreen(UP);
+
+    waitFor(9000);
+    swipeScreen(UP);
+
+    waitFor(9000);
+    swipeScreen(UP);
+    waitFor(9000);
+    swipeScreen(UP);
+    waitFor(9000);
+    swipeScreen(UP);
+    waitFor(9000);
+    swipeScreen(UP);
+    waitFor(9000);
+    swipeScreen(UP);
+    waitFor(9000);
+    swipeScreen(UP);
+//waitFor(3000);
+//swipeScreen(UP);
+//waitFor(300);
+//swipeScreen(UP);
+    WaitForMobileElement(btnCreateARegistry);
+    Assert.assertTrue(btnCreateARegistry.isDisplayed());
+    Assert.assertTrue(btnFindRegistry.isDisplayed());
+    //   Assert.assertTrue(btnNonLoggedInManageRegistry.isDisplayed());
+}
 
 }

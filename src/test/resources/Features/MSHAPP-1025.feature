@@ -22,7 +22,15 @@ Feature: MSHAPP-1025:Optimized Create Registry -Step 1: First Name Last Name
           | bala3@test.com | test@1234 |
 
 
-
+#  Scenario Outline: verify whether user is able to navigate registry dashboard
+#    Given user launches the apps
+#    When user select to sign in
+#    And user enter username "<username>" and password "<password>" clicks on login in sign in page
+##    And user cliks on continue shopping
+#    Then user clicks on continue shopping
+#    Examples:
+#      | username       | password  |
+#      | bala3@test.com | test@1234 |
 
       
 
