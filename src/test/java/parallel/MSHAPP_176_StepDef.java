@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import pom.wsi.AccountPage;
 import pom.wsi.AccountSettingPage;
 import pom.wsi.CheckoutPage;
@@ -16,18 +17,17 @@ public class MSHAPP_176_StepDef extends Factory {
 
     LoginPage login;
     Hooks hooks = new Hooks();
-    AccountPage accountPage;
-    AccountSettingPage accountSettingPage;
+    AccountPage accountPage =  new AccountPage(DriverManager.getDriver());
+    AccountSettingPage accountSettingPage = new AccountSettingPage(DriverManager.getDriver());
 
     @Given("user is on account dashboard screen")
     public void userIsOnAccountDashboardScreen() {
-        accountPage = new AccountPage(DriverManager.getDriver());
         accountPage.accountDashBoard();
     }
 
     @And("user click on edit email option")
     public void userClickOnEditEmailOption() {
-        accountSettingPage = new AccountSettingPage(DriverManager.getDriver());
+
         accountSettingPage.navigateToEditEmail();
     }
 
@@ -38,28 +38,26 @@ public class MSHAPP_176_StepDef extends Factory {
 
     @Given("user is in edit email screen")
     public void userIsInEditEmailScreen() {
-        accountSettingPage = new AccountSettingPage(DriverManager.getDriver());
+
         accountSettingPage.verifyEditEmailScreen();
     }
 
-    @When("user should  be able to tap on both feilds")
-    public void userShouldBeAbleToTapOnBothFeilds() {
+    @When("user should  be able to tap on both fields")
+    public void userShouldBeAbleToTapOnBothFields() {
         accountSettingPage.userAbleToTapOnBothFeild();
     }
 
     @Then("UI should be as per the sketch")
     public void uiShouldBeAsPerTheSketch() {
-        accountSettingPage.verifyEntireEditEmailUI();
-
+     boolean status =   accountSettingPage.verifyEntireEditEmailUI();
+     Assert.assertTrue(status);
     }
-
 
     @Then("user should be navigated back to account setting screen")
-    public void userShouldBeNavigatedBackToAccountSettingScreen() {
-
-
+    public void userShouldBeNavigatedBackToAccountSettingScreen() throws InterruptedException {
+      boolean status =  accountSettingPage.userClicksOnCloseButton();
+      Assert.assertTrue(status);
     }
-
     @When("user navigate to account setting page")
     public void userNavigateToAccountSettingPage() {
         accountPage.navigateToAccountSettingPage();
@@ -69,7 +67,5 @@ public class MSHAPP_176_StepDef extends Factory {
     public void userEnterCurrentpasswordAndNewemailaddressClicksOnClose(String currentpassword, String newemailaddress) throws InterruptedException {
         accountSettingPage.userEnterCurrentPassword(currentpassword);
         accountSettingPage.userEnterEmailAddress(newemailaddress);
-        // accountSettingPage.userClicksOnCloseButton();
-
     }
 }

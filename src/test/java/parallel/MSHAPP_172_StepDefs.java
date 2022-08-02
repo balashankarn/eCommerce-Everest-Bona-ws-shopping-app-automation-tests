@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import pom.wsi.AccountPage;
 import pom.wsi.AccountSettingPage;
 import pom.wsi.LoginPage;
@@ -25,7 +26,8 @@ public class MSHAPP_172_StepDefs extends Factory {
 
     @When("user is able should be able to view all the elements on dashboard")
     public void userIsAbleShouldBeAbleToViewAllTheElementsOnDashboard() {
-        accountPage.verifyAllDashboardElements();
+     boolean status =   accountPage.verifyAllDashboardElements();
+     Assert.assertTrue(status);
 
     }
 
@@ -53,11 +55,25 @@ public class MSHAPP_172_StepDefs extends Factory {
     @Then("user should be navigated to account setting screen.")
     public void userShouldBeNavigatedToAccountSettingScreen() {
 
-        accountSettingPage.verifyScreenUI();
+     boolean status =   accountSettingPage.verifyScreenUI();
+     Assert.assertTrue(status);
     }
 
     @Given("user is dashboard screen")
     public void userIsDashboardScreen() {
         accountPage.accountDashBoard();
+    }
+
+    @Then("User should be in homepage")
+    public void user_should_be_in_homepage() {
+       boolean status = accountPage.verifyHomePageGetsDisplayed();
+        Assert.assertTrue(status);
+    }
+
+
+    @Then("User should be in Account page")
+    public void user_should_be_in_account_page() {
+        boolean status =  accountPage.verifyAccountPageGetDisplayed();
+        Assert.assertTrue(status);
     }
 }

@@ -15,7 +15,6 @@ public class DriverFactory {
 	//	String platform = "IOS";
 		PlatformList platformType = PlatformList.valueOf(platform.toUpperCase());
         switch (platformType) {
-
             case ANDROID:
                 driver = new AndriodDriverManager().createAndroidDriver(target);
                 break;

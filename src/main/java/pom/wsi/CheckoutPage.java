@@ -33,7 +33,7 @@ public class CheckoutPage extends CommonActions {
 
     public void userClickOnCart() {
         try {
-            WaitForMobileElement(tbrCart);
+            waitForMobileElement(tbrCart);
             tbrCart.click();
         } catch (Exception e) {
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class CheckoutPage extends CommonActions {
 
     public void userLandsOnCheckout() {
         try {
-            WaitForMobileElement(btnCheckout);
+            waitForMobileElement(btnCheckout);
             Assert.assertTrue(btnCheckout.isDisplayed());
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,7 +53,7 @@ public class CheckoutPage extends CommonActions {
 
     public void userIsOnCheckoutPage() {
         try {
-            WaitForMobileElement(btnCheckout);
+            waitForMobileElement(btnCheckout);
             Assert.assertTrue(btnCheckout.isDisplayed());
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,7 +63,7 @@ public class CheckoutPage extends CommonActions {
     public void userClickOnCheckOut() {
 
         try {
-            WaitForMobileElement(btnCheckout);
+            waitForMobileElement(btnCheckout);
             btnCheckout.click();
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,7 +73,7 @@ public class CheckoutPage extends CommonActions {
 
     public void userLandsonSignInPage() {
         try {
-            WaitForMobileElement(btnSignin);
+            waitForMobileElement(btnSignin);
             Assert.assertTrue(btnSignin.isDisplayed());
         } catch (Exception e) {
             e.printStackTrace();
@@ -82,7 +82,7 @@ public class CheckoutPage extends CommonActions {
 
     public void userIsOnSignInPage() {
         try {
-            WaitForMobileElement(btnSignin);
+            waitForMobileElement(btnSignin);
             Assert.assertTrue(btnSignin.isDisplayed());
             Assert.assertTrue(btnCheckoutAsGuest.isDisplayed());
         } catch (Exception e) {
@@ -93,7 +93,7 @@ public class CheckoutPage extends CommonActions {
 
     public void userClicksOnClosebtn() {
         try {
-            WaitForMobileElement(btnClose);
+            waitForMobileElement(btnClose);
             Assert.assertTrue(btnClose.isDisplayed());
             btnClose.click();
         } catch (Exception e) {
@@ -104,7 +104,7 @@ public class CheckoutPage extends CommonActions {
     public void userLandsOnCartPage() {
 
         try {
-            WaitForMobileElement(btnCheckout);
+            waitForMobileElement(btnCheckout);
             Assert.assertTrue(btnCheckout.isDisplayed());
             DriverManager.getDriver().quit();
             // DriverManager.quit();

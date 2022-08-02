@@ -33,12 +33,16 @@ public class PermissionPage extends CommonActions {
     @iOSXCUITFindBy(accessibility = "SIGN IN")
     private MobileElement btnSignIn;
 
+    @iOSXCUITFindBy(accessibility = "Allow")
+    private MobileElement allowButton;
+
+
 
 
     public void clickOnAllowOnce() {
-        try {
-            WaitForMobileElement(btnAllowWhileUsingApp);
-            ClickOnMobileElement(btnAllowWhileUsingApp);
+        try{
+            implicitWait(15);
+            btnAllowWhileUsingApp.click();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -49,10 +53,10 @@ public class PermissionPage extends CommonActions {
         try {
           //  WaitForMobileElement(btnSignIn);
             //ClickOnMobileElement(btnSignIn);
-          WaitForMobileElement(btnContinueAsGuest);
-            ClickOnMobileElement(btnContinueAsGuest);
-            WaitForMobileElement(btnStartShopping);
-            ClickOnMobileElement(btnStartShopping);
+          waitForMobileElement(btnContinueAsGuest);
+            clickOnMobileElement(btnContinueAsGuest);
+            waitForMobileElement(btnStartShopping);
+            clickOnMobileElement(btnStartShopping);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -60,8 +64,8 @@ public class PermissionPage extends CommonActions {
 
     public void continueSignIn(){
         try {
-            WaitForMobileElement(btnSignIn);
-            ClickOnMobileElement(btnSignIn);
+            waitForMobileElement(btnSignIn);
+            clickOnMobileElement(btnSignIn);
         }catch (Exception e){
             e.printStackTrace();
         }

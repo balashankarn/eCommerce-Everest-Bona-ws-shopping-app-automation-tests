@@ -13,8 +13,8 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features= {"src/test/resources/Features"},
 		glue= {"parallel"},
-		dryRun=false,
-		tags= "@MSHAPP-1025",
+		dryRun= false,
+		tags= "@editemail",
 		plugin= {"pretty", "json:target/ResultsMobile/cucumber.json"},
 		monochrome = true)
 public class RunCucumberTest {

@@ -60,26 +60,13 @@ public class Login_StepDef extends Factory {
     @When("user clicks sign in option")
     public void userClicksSignInOption() {
         login.clickOnSignin();
-
-
-        //	login.signOut();
-
     }
 
     @And("user enter username {string} and password {string} clicks on login")
     public void userEnterUsernameAndPasswordClicksOnLogin(String username, String password) {
-
-        //	hooks.launchBrowser();
-        //	login=new LoginPage(DriverManager.getDriver());
-
-        //	DriverManager.getDriver().hideKeyboard();
         login.userEnterUserName(username);
-//    	swipeScreen(5,5,5,1);
-        //DriverManager.getDriver().navigate().back();
         login.userEnterPassword(password);
         login.clickLoginBth();
-
-
     }
 
     @Then("user lands on dashboard screen")
@@ -87,8 +74,6 @@ public class Login_StepDef extends Factory {
         login.navigatingToSignin();
         permissionPage.clickOnAllowOnce();
         login.userLandsOnDashboard();
-
-
     }
 
 

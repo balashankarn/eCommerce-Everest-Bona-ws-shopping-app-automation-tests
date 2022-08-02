@@ -34,7 +34,7 @@ public class OrderHistoryPage extends CommonActions {
 
     public void accountPage(){
         try {
-            WaitForMobileElement(btnAccountPage);
+            waitForMobileElement(btnAccountPage);
             Assert.assertTrue(btnAccountPage.isDisplayed());
         }catch (Exception e){
             e.printStackTrace();
@@ -43,7 +43,7 @@ public class OrderHistoryPage extends CommonActions {
 
     public void accountPageButtonClick(){
         try {
-            ClickOnMobileElement(btnAccountPage);
+            clickOnMobileElement(btnAccountPage);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -51,9 +51,9 @@ public class OrderHistoryPage extends CommonActions {
 
     public void accountPageClickOrderHistory(){
         try {
-            WaitForMobileElement(btnOrderHistory);
+            waitForMobileElement(btnOrderHistory);
             Assert.assertTrue(btnOrderHistory.isDisplayed());
-            ClickOnMobileElement(btnOrderHistory);
+            clickOnMobileElement(btnOrderHistory);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -61,9 +61,9 @@ public class OrderHistoryPage extends CommonActions {
 
    public void userIsInOrderHistoryPage(){
        try {
-           WaitForMobileElement(textOrderHistory);
+           waitForMobileElement(textOrderHistory);
            Assert.assertTrue(textOrderHistory.isDisplayed());
-           WaitForMobileElement(textSearchByOrder);
+           waitForMobileElement(textSearchByOrder);
            Assert.assertTrue(textSearchByOrder.isDisplayed());
            DriverManager.getDriver().quit();
        }catch (Exception e){

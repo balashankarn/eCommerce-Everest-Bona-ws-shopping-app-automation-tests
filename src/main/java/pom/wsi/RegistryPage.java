@@ -66,8 +66,8 @@ public class RegistryPage extends CommonActions {
 //            WaitForMobileElement(tbrAccount);
 //            ClickOnMobileElement(tbrAccount);
 //            permissionPage.clickOnAllowOnce();
-            WaitForMobileElement(tbRegistry);
-            ClickOnMobileElement(tbRegistry);
+            waitForMobileElement(tbRegistry);
+            clickOnMobileElement(tbRegistry);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,15 +75,15 @@ public class RegistryPage extends CommonActions {
 
     public void userLandsOnRegistry() {
 
-        WaitForMobileElement(btnCreateARegistry);
+        waitForMobileElement(btnCreateARegistry);
         Assert.assertTrue(btnCreateARegistry.isDisplayed());
         Assert.assertTrue(btnFindRegistry.isDisplayed());
     }
 
     public void userInRegistryScreen() {
 
-//        WaitForMobileElement(tbRegistry);
-//        ClickOnMobileElement(tbRegistry);
+//        waitForMobileElement(tbRegistry);
+//        clickOnMobileElement(tbRegistry);
         Assert.assertTrue(btnFindRegistry.isDisplayed());
       //  Assert.assertTrue(btnNonLoggedInManageRegistry.isDisplayed());
         Assert.assertTrue(btnCreateARegistry.isDisplayed());
@@ -92,8 +92,8 @@ public class RegistryPage extends CommonActions {
 
     public void userClickOnCreateRegistry(){
         try {
-            WaitForMobileElement(btnCreateARegistry);
-            ClickOnMobileElement(btnCreateARegistry);
+            waitForMobileElement(btnCreateARegistry);
+            clickOnMobileElement(btnCreateARegistry);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -112,17 +112,17 @@ public class RegistryPage extends CommonActions {
    }
 
    public void userShouldLandOnCreateRegistryScreenOne(){
-        WaitForMobileElement(btnNext);
+        waitForMobileElement(btnNext);
         Assert.assertTrue(btnNext.isDisplayed());
    }
 
    public void userIsOnCreateEventScreen(){
-       WaitForMobileElement(btnNext);
+       waitForMobileElement(btnNext);
         Assert.assertTrue(btnNext.isDisplayed());
    }
     public void userEnterUserName(String username) {
         try {
-            WaitForMobileElement(txtUsername);
+            waitForMobileElement(txtUsername);
             txtUsername.sendKeys(username);
         } catch (Exception e) {
             e.printStackTrace();
@@ -130,7 +130,7 @@ public class RegistryPage extends CommonActions {
     }
     public void userEnterPassword(String password) {
         try {
-            WaitForMobileElement(txtPassword);
+            waitForMobileElement(txtPassword);
             txtPassword.sendKeys(password);
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,7 +138,7 @@ public class RegistryPage extends CommonActions {
     }
 
     public void clickLoginBth() {
-        WaitForMobileElement(btnLogin);
+        waitForMobileElement(btnLogin);
         btnLogin.click();
     }
 
@@ -146,26 +146,26 @@ public class RegistryPage extends CommonActions {
     public void selectEvenType(){
 
         try {
-            WaitForMobileElement(spnSelectEventType);
-            ClickOnMobileElement(spnSelectEventType);
-            WaitForMobileElement(spnSelectEventTypeDone);
-            ClickOnMobileElement(spnSelectEventTypeDone);
+            waitForMobileElement(spnSelectEventType);
+            clickOnMobileElement(spnSelectEventType);
+            waitForMobileElement(spnSelectEventTypeDone);
+            clickOnMobileElement(spnSelectEventTypeDone);
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
     public void selectedEventTypeShouldBePopulated(){
-        WaitForMobileElement(btnNext);
+        waitForMobileElement(btnNext);
         Assert.assertTrue(btnNext.isDisplayed());
     }
 
    public void userClicksOnEvenTypeAndSelectsEventDate(){
         try {
-            WaitForMobileElement(spnSelectEventDate);
-            ClickOnMobileElement(spnSelectEventDate);
-            WaitForMobileElement(spnEventDate);
-            ClickOnMobileElement(spnEventDate);
+            waitForMobileElement(spnSelectEventDate);
+            clickOnMobileElement(spnSelectEventDate);
+            waitForMobileElement(spnEventDate);
+            clickOnMobileElement(spnEventDate);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -175,7 +175,7 @@ public class RegistryPage extends CommonActions {
    }
 
    public void theSelectDateAndEventShouldBeDisplayedthere(){
-       WaitForMobileElement(btnNext);
+       waitForMobileElement(btnNext);
        Assert.assertTrue(btnNext.isDisplayed());
    }
 
@@ -187,10 +187,10 @@ public class RegistryPage extends CommonActions {
 
    public void userClicksOnPrivacySettingAndSelectsPrivacy(){
         try {
-            WaitForMobileElement(spnPrivacySetting);
-            ClickOnMobileElement(spnPrivacySetting);
-            WaitForMobileElement(spnPrivacySettingDone);
-            ClickOnMobileElement(spnPrivacySettingDone);
+            waitForMobileElement(spnPrivacySetting);
+            clickOnMobileElement(spnPrivacySetting);
+            waitForMobileElement(spnPrivacySettingDone);
+            clickOnMobileElement(spnPrivacySettingDone);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -199,7 +199,7 @@ public class RegistryPage extends CommonActions {
 
    public void theSelectedPrivacyTypeShouldBePopulated(){
       try {
-          WaitForMobileElement(btnNext);
+          waitForMobileElement(btnNext);
           Assert.assertTrue(btnNext.isDisplayed());
       }catch (Exception e){
        e.printStackTrace();
@@ -209,15 +209,15 @@ public class RegistryPage extends CommonActions {
 
    public void userClicksOnNextButton(){
         try {
-            WaitForMobileElement(btnNext);
-            ClickOnMobileElement(btnNext);
+            waitForMobileElement(btnNext);
+            clickOnMobileElement(btnNext);
         }catch (Exception e){
             e.printStackTrace();
         }
    }
 public void userIsStepThreeScreen(){
         try {
-            WaitForMobileElement(btnNext);
+            waitForMobileElement(btnNext);
             Assert.assertTrue(btnNext.isDisplayed());
         }catch (Exception e){
             e.printStackTrace();
@@ -226,8 +226,8 @@ public void userIsStepThreeScreen(){
 
 public void startShopping(){
         try {
-            WaitForMobileElement(btnStartShopping);
-            ClickOnMobileElement(btnStartShopping);
+            waitForMobileElement(btnStartShopping);
+            clickOnMobileElement(btnStartShopping);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -256,7 +256,7 @@ public void userScrollToBottom(){
 //swipeScreen(UP);
 //waitFor(300);
 //swipeScreen(UP);
-    WaitForMobileElement(btnCreateARegistry);
+    waitForMobileElement(btnCreateARegistry);
     Assert.assertTrue(btnCreateARegistry.isDisplayed());
     Assert.assertTrue(btnFindRegistry.isDisplayed());
     //   Assert.assertTrue(btnNonLoggedInManageRegistry.isDisplayed());

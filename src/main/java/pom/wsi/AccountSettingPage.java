@@ -9,6 +9,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +23,7 @@ public class AccountSettingPage extends CommonActions {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @iOSXCUITFindBy(accessibility = "CHANGE")
+    @iOSXCUITFindBy(id = "CHANGE")
     private MobileElement btnPasswordChange;
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"EDIT\"])[2]")
     private MobileElement btnEmailEdit;
@@ -32,133 +33,123 @@ public class AccountSettingPage extends CommonActions {
     private MobileElement txtCurrentPasswordEditEmail;
     @iOSXCUITFindBy(accessibility = "authtextfield_email_textfield")
     private MobileElement txtNewEmailAddressEditEmail;
-    @iOSXCUITFindBy(accessibility = "SAVE")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name='SAVE']")
     private MobileElement btnSaveEditEmail;
-    @iOSXCUITFindBy(accessibility = "xmark")
+    @iOSXCUITFindBy(id = "Close")
     private MobileElement btnCloseEditEmail;
-    @iOSXCUITFindBy(accessibility = "Change Password")
+    @iOSXCUITFindBy(id = "Change Password")
     private MobileElement changePasswordHeader;
-    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeSecureTextField[@name=\"authtextfield_password_textfield\"])[1]")
+    @iOSXCUITFindBy(xpath ="//XCUIElementTypeOther/XCUIElementTypeSecureTextField[1]")
+    private MobileElement currentPassword;
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeSecureTextField[2]")
+    private MobileElement newPassword;
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField")
+    private MobileElement newEmailAddress;
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeSecureTextField")
+    private MobileElement newEmailPassword;
+    @iOSXCUITFindBy(id = "(//XCUIElementTypeSecureTextField[@name='authtextfield_password_textfield'])[1]")
     private MobileElement txtCurrentPassword;
-    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeSecureTextField[@name=\"authtextfield_password_textfield\"])[2]")
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeSecureTextField[@name='authtextfield_password_textfield'])[2]")
     private MobileElement txtNewPassword;
+    @iOSXCUITFindBy(accessibility = "CREATE ACCOUNT")
+    private MobileElement createAccount;
+    @iOSXCUITFindBy(id = "ACCOUNT SETTINGS")
+    private MobileElement accountSetting;
+    @iOSXCUITFindBy(id = "MY PROFILE")
+    private MobileElement myProfile;
+
+
 
     public void navigateToEditEmail() {
-
-        try {
-            WaitForMobileElement(btnEmailEdit);
+            waitForMobileElement(btnEmailEdit);
             btnEmailEdit.click();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
     }
 
     public void verifyEditEmailScreen() {
-        WaitForMobileElement(editEmailAddressHeader);
-        Assert.assertTrue(editEmailAddressHeader.isDisplayed());
-        WaitForMobileElement(txtCurrentPasswordEditEmail);
-        Assert.assertTrue(txtCurrentPasswordEditEmail.isDisplayed());
+        waitForMobileElement(newEmailAddress);
+            newEmailAddress.isDisplayed();
+            editEmailAddressHeader.isDisplayed();
+            newEmailPassword.isDisplayed();
     }
 
-    public void verifyEntireEditEmailUI() {
+    public boolean verifyEntireEditEmailUI() {
+        waitForMobileElement(newEmailPassword);
         try {
-            WaitForMobileElement(txtCurrentPasswordEditEmail);
-            Assert.assertTrue(txtCurrentPasswordEditEmail.isDisplayed());
-            Assert.assertTrue(txtNewEmailAddressEditEmail.isDisplayed());
-            Assert.assertTrue(btnSaveEditEmail.isDisplayed());
-            //   Assert.assertTrue(btnCloseEditEmail.isDisplayed());
-        } catch (Exception e) {
-            e.printStackTrace();
+            newEmailPassword.isDisplayed();
+            newEmailAddress.isDisplayed();
+            btnSaveEditEmail.isDisplayed();
+            btnCloseEditEmail.isDisplayed();
+            return true;
+        }catch(Exception e){
+            return false;
         }
-
 
     }
 
     public void userAbleToTapOnBothFeild() {
-        WaitForMobileElement(txtCurrentPasswordEditEmail);
-        txtCurrentPassword.click();
-        txtCurrentPassword.sendKeys("hello");
-        txtCurrentPassword.clear();
-        WaitForMobileElement(txtNewEmailAddressEditEmail);
-        txtNewEmailAddressEditEmail.click();
-        txtNewEmailAddressEditEmail.sendKeys("bala@123.com");
-        txtNewEmailAddressEditEmail.clear();
-        DriverManager.getDriver().hideKeyboard();
+        clickOnMobileElement(newEmailAddress);
+        clickOnMobileElement(newEmailPassword);
     }
 
     public void userEnterCurrentPassword(String currentpassword) {
-        try {
-            WaitForMobileElement(txtCurrentPasswordEditEmail);
-            txtCurrentPassword.sendKeys(currentpassword);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        waitForMobileElement(currentPassword);
+        currentPassword.sendKeys(currentpassword);
     }
 
     public void userEnterEmailAddress(String newemailaddress) {
+        waitForMobileElement(newEmailAddress);
+        newEmailAddress.sendKeys(newemailaddress);
+    }
+
+    public boolean userClicksOnCloseButton() throws InterruptedException {
         try {
-            WaitForMobileElement(txtNewEmailAddressEditEmail);
-            txtNewEmailAddressEditEmail.sendKeys(newemailaddress);
-        } catch (Exception e) {
-            e.printStackTrace();
+            Actions act = new Actions(driver);
+            act.moveToElement(btnCloseEditEmail).click().perform();
+            waitVisibilityOfElement(accountSetting);
+            accountSetting.isDisplayed();
+            myProfile.isDisplayed();
+            return true;
+        }catch(Exception e){
+            return false;
         }
 
     }
 
-    public void userClicksOnCloseButton() throws InterruptedException {
-
-        //TouchActionClick(btnCloseEditEmail);
-        driver.navigate().back();
-
-    }
-
-    public void verifyScreenUI() {
-
-        WaitForMobileElement(btnPasswordChange);
-        Assert.assertTrue(btnEmailEdit.isDisplayed());
-        Assert.assertTrue(btnPasswordChange.isDisplayed());
+    public boolean  verifyScreenUI() {
+        waitForMobileElement(btnPasswordChange);
+        return btnPasswordChange.isDisplayed();
     }
 
     public void viewChangeOption() {
-        WaitForMobileElement(btnPasswordChange);
+        waitForMobileElement(btnPasswordChange);
         Assert.assertTrue(btnPasswordChange.isDisplayed());
     }
 
-
     public void navigateToChangePassword() {
-        WaitForMobileElement(btnPasswordChange);
+        waitForMobileElement(btnPasswordChange);
         btnPasswordChange.click();
-
     }
 
-    public void passwordScreenUI() {
-        WaitForMobileElement(changePasswordHeader);
-        Assert.assertTrue(changePasswordHeader.isDisplayed());
-        Assert.assertTrue(txtCurrentPassword.isDisplayed());
-        Assert.assertTrue(txtNewPassword.isDisplayed());
+    public boolean passwordScreenUI() {
+        waitForMobileElement(currentPassword);
+        try {
+            changePasswordHeader.isDisplayed();
+            currentPassword.isDisplayed();
+            newPassword.isDisplayed();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     public void userClickSOnCurrentPassword() {
-        try {
-            WaitForMobileElement(txtCurrentPassword);
-            txtCurrentPassword.click();
-            txtNewPassword.click();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        clickOnMobileElement(currentPassword);
+        clickOnMobileElement(newPassword);
     }
 
     public void userEnterNewPassword(String newpassword) {
-        try {
-            WaitForMobileElement(txtNewPassword);
-            txtNewPassword.sendKeys(newpassword);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+            waitForMobileElement(newPassword);
+            newPassword.sendKeys(newpassword);
     }
 
     public void closeTheApp() {

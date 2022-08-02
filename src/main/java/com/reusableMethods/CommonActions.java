@@ -11,10 +11,12 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.RandomStringUtils;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -46,11 +48,15 @@ import io.appium.java_client.android.nativekey.PressesKey;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static io.appium.java_client.touch.offset.PointOption.point;
+
 public class CommonActions {
     public static String platformName = null;
     public static Properties props;
     public static Logger logger = Logger.getLogger(String.valueOf(CommonActions.class));
-    public static RemoteWebDriver driver = DriverManager.getDriver();
+    //public static RemoteWebDriver driver = DriverManager.getDriver();
+    public static AppiumDriver<MobileElement> driver = DriverManager.getDriver();
     public static String ConfigurationFile = System.getProperty("user.dir") + "/Configs/Configuration.properties";
     public static WebElement element = null;
     public static String mainWindow = null;
@@ -92,6 +98,7 @@ public class CommonActions {
             FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(t))
                     .pollingEvery(Duration.ofMillis(ts)).ignoring(Exception.class);
             wait.until(ExpectedConditions.visibilityOf(element));
+
             return true;
         } catch (Exception e) {
             return false;
@@ -125,8 +132,8 @@ public class CommonActions {
         Dimension dimension = DriverManager.getDriver().manage().window().getSize();
         int scrollStart = (int) (dimension.getHeight() * 0.5);
         int scrollEnd = (int) (dimension.getHeight() * 0.2);
-        new TouchAction((PerformsTouchActions) DriverManager.getDriver()).press(PointOption.point(0, scrollStart))
-                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1))).moveTo(PointOption.point(0, scrollEnd))
+        new TouchAction((PerformsTouchActions) DriverManager.getDriver()).press(point(0, scrollStart))
+                .waitAction(waitOptions(Duration.ofSeconds(1))).moveTo(point(0, scrollEnd))
                 .release().perform();
     }
 
@@ -155,9 +162,9 @@ public class CommonActions {
         int toXLocation = firdelement.getLocation().x;
 
         TouchAction action = new TouchAction((PerformsTouchActions) DriverManager.getDriver());
-        action.press(PointOption.point(fromXLocation, midOfY))
-                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(3)))
-                .moveTo(PointOption.point(toXLocation, midOfY)).release().perform();
+        action.press(point(fromXLocation, midOfY))
+                .waitAction(waitOptions(Duration.ofSeconds(3)))
+                .moveTo(point(toXLocation, midOfY)).release().perform();
 
     }
 
@@ -169,9 +176,9 @@ public class CommonActions {
         int fromXLocation = secondElement.getLocation().x;
         int toXLocation = firdelement.getLocation().x;
         TouchAction action = new TouchAction((PerformsTouchActions) DriverManager.getDriver());
-        action.press(PointOption.point(fromXLocation, midOfY))
-                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(3)))
-                .moveTo(PointOption.point(toXLocation, midOfY)).release().perform();
+        action.press(point(fromXLocation, midOfY))
+                .waitAction(waitOptions(Duration.ofSeconds(3)))
+                .moveTo(point(toXLocation, midOfY)).release().perform();
 
     }
 
@@ -216,7 +223,7 @@ public class CommonActions {
         }
     }
 
-    public void ScrollTo(String Scroll, String direction, MobileElement element) {
+    public void scrollTo(String Scroll, String direction, MobileElement element) {
         if ("ANDROID".equalsIgnoreCase(platformName)) {
             DriverManager.getDriver().findElement(MobileBy.AndroidUIAutomator(
                     "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(" + Scroll
@@ -236,7 +243,7 @@ public class CommonActions {
         }
     }
 
-    public void ScrollToMobileElement(String Scroll) {
+    public void scrollToMobileElement(String Scroll) {
         MobileElement element = (MobileElement) DriverManager.getDriver().findElement(
                 MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).instance(0)"
                         + ".scrollIntoView(new UiSelector().text(" + Scroll + "))"));
@@ -274,7 +281,7 @@ public class CommonActions {
 
     }
 
-    public String RandomStringGenerate() {
+    public String randomStringGenerate() {
         return RandomStringUtils.randomAlphanumeric(20);
     }
 
@@ -323,7 +330,7 @@ public class CommonActions {
         }
     }
 
-    public static String RandomStringGenerate(int count) {
+    public static String randomStringGenerate(int count) {
 
         return RandomStringUtils.randomAlphanumeric(count);
 
@@ -344,8 +351,8 @@ public class CommonActions {
         Dimension dimension = DriverManager.getDriver().manage().window().getSize();
         int scrollStart = (int) (dimension.getHeight() * 0.20);
         int scrollEnd = (int) (dimension.getHeight() * 0.80);
-        new TouchAction((PerformsTouchActions) driver).press(PointOption.point(2, scrollStart))
-                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1))).moveTo(PointOption.point(2, scrollEnd))
+        new TouchAction((PerformsTouchActions) driver).press(point(2, scrollStart))
+                .waitAction(waitOptions(Duration.ofSeconds(1))).moveTo(point(2, scrollEnd))
                 .release().perform();
     }
 
@@ -354,54 +361,67 @@ public class CommonActions {
         int scrollStart = (int) (dimension.getWidth() * 0.8);
         int scrollEnd = (int) (dimension.getWidth() * 0.4);
         int y = (int) (dimension.getHeight() / 2);
-        new TouchAction((PerformsTouchActions) driver).press(PointOption.point(scrollStart, y))
-                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1))).moveTo(PointOption.point(scrollEnd, y))
+        new TouchAction((PerformsTouchActions) driver).press(point(scrollStart, y))
+                .waitAction(waitOptions(Duration.ofSeconds(1))).moveTo(point(scrollEnd, y))
                 .release().perform();
     }
 
 
-    public static void ClickOnMobileElement(MobileElement element) {
-        MobileElement mobelement = (MobileElement) exwait.until(ExpectedConditions.visibilityOf(element));
-        waitFor(2000);
-        mobelement.click();
+    public static void clickOnMobileElement(MobileElement element) {
+       waitVisibilityOfElement(element);
+        boolean status = true;
+        for(int i=0; i<10; i++) {
+
+            try {
+                waitFor(1000);
+                element.click();
+                status = true;
+                break;
+            }catch(Exception e) {
+
+                status = false;
+                waitFor(1000);
+            }
+        }
+
+        Assert.assertTrue(status);
     }
 
-    public static void SendKeysOnMobileElement(MobileElement element, String Value) {
-        MobileElement mobelement = (MobileElement) exwait.until(ExpectedConditions.visibilityOf(element));
-        mobelement.clear();
-        mobelement.sendKeys(Value);
+    public static void sendKeysOnMobileElement(MobileElement element, String Value) {
+        waitVisibilityOfElement(element);
+       // element.clear();
+        element.sendKeys(Value);
     }
 
-    public static void SendKeysOnMobileElementList(MobileElement mobileElement, String Value) {
-        MobileElement mobelement = (MobileElement) exwait
-                .until(ExpectedConditions.visibilityOf((WebElement) mobileElement));
-        // mobelement.clear();
-        mobelement.sendKeys(Value);
+    public static void sendKeysOnMobileElementList(MobileElement mobileElement, String value) {
+        waitVisibilityOfElement(mobileElement);
+        mobileElement.sendKeys();
+        element.sendKeys(value);
     }
 
-    public static void SendKeysWithoutClear(MobileElement element, String Value) {
-        MobileElement mobelement = (MobileElement) exwait.until(ExpectedConditions.visibilityOf(element));
-        mobelement.sendKeys(Value);
+    public static void sendKeysWithoutClear(MobileElement mobileElement, String Value) {
+        waitVisibilityOfElement(mobileElement);
+        mobileElement.sendKeys(Value);
     }
 
-    public static boolean WaitForMobileElement(MobileElement element) {
+    public static boolean waitForMobileElement(MobileElement element) {
         exwait.until(ExpectedConditions.visibilityOf(element));
         return true;
     }
 
-    public static void WaitForMobileElementList(List<MobileElement> title_MoreOptions) {
+    public static void waitForMobileElementList(List<MobileElement> title_MoreOptions) {
         exwait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy((By) title_MoreOptions));
 
     }
 
-    public static void TouchActionClick(MobileElement element) throws InterruptedException {
+    public static void touchActionClick(MobileElement element) throws InterruptedException {
         MobileElement mobelement = (MobileElement) exwait.until(ExpectedConditions.visibilityOf(element));
         TouchActions act = new TouchActions(DriverManager.getDriver());
         act.click(mobelement).build().perform();
 
     }
 
-    public static boolean IsDisplayedMobileElement(MobileElement element) {
+    public static boolean isDisplayedMobileElement(MobileElement element) {
         MobileElement mobelement = (MobileElement) exwait.until(ExpectedConditions.visibilityOf(element));
         return mobelement.isDisplayed();
 
@@ -424,7 +444,7 @@ public class CommonActions {
 
     }
 
-    public void IosButtonClick(String string) {
+    public void iosButtonClick(String string) {
         waitFor(6000);
         MobileElement element = (MobileElement) driver
                 .findElementByXPath("//XCUIElementTypeButton[@name='" + string + "']");
@@ -436,7 +456,7 @@ public class CommonActions {
         Point point = element.getLocation();
         int xcord = point.getX();
         int ycord = point.getY();
-        new TouchAction((PerformsTouchActions) DriverManager.getDriver()).tap(PointOption.point(xcord, ycord)).perform();
+        new TouchAction((PerformsTouchActions) DriverManager.getDriver()).tap(point(xcord, ycord)).perform();
     }
 
     public static void MobDragAndDrop(MobileElement element1, MobileElement element2) {
@@ -449,8 +469,8 @@ public class CommonActions {
         Dimension dimension = DriverManager.getDriver().manage().window().getSize();
         int scrollStart = (int) (dimension.getHeight() * 0.20);
         int scrollEnd = (int) (dimension.getHeight() * 0.50);
-        new TouchAction((PerformsTouchActions) driver).press(PointOption.point(2, scrollStart))
-                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1))).moveTo(PointOption.point(2, scrollEnd))
+        new TouchAction((PerformsTouchActions) driver).press(point(2, scrollStart))
+                .waitAction(waitOptions(Duration.ofSeconds(1))).moveTo(point(2, scrollEnd))
                 .release().perform();
     }
 
@@ -498,20 +518,20 @@ public class CommonActions {
         Dimension dims = DriverManager.getDriver().manage().window().getSize();
 
         // init start point = center of screen
-        pointOptionStart = PointOption.point(dims.width / 2, dims.height / 2);
+        pointOptionStart = point(dims.width / 2, dims.height / 2);
 
         switch (dir) {
             case DOWN: // center of footer
-                pointOptionEnd = PointOption.point(dims.width / 2, dims.height - edgeBorder);
+                pointOptionEnd = point(dims.width / 2, dims.height - edgeBorder);
                 break;
             case UP: // center of header
-                pointOptionEnd = PointOption.point(dims.width / 2, edgeBorder);
+                pointOptionEnd = point(dims.width / 2, edgeBorder);
                 break;
             case LEFT: // center of left side
-                pointOptionEnd = PointOption.point(edgeBorder, dims.height / 2);
+                pointOptionEnd = point(edgeBorder, dims.height / 2);
                 break;
             case RIGHT: // center of right side
-                pointOptionEnd = PointOption.point(dims.width - edgeBorder, dims.height / 2);
+                pointOptionEnd = point(dims.width - edgeBorder, dims.height / 2);
                 break;
             default:
                 throw new IllegalArgumentException("swipeScreen(): dir: '" + dir + "' NOT supported");
@@ -522,7 +542,7 @@ public class CommonActions {
             new TouchAction(DriverManager.getDriver())
                     .press(pointOptionStart)
                     // a bit more reliable when we add small wait
-                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(PRESS_TIME)))
+                    .waitAction(waitOptions(Duration.ofMillis(PRESS_TIME)))
                     .moveTo(pointOptionEnd)
                     .release().perform();
         } catch (Exception e) {
@@ -545,6 +565,33 @@ public class CommonActions {
         RIGHT;
     }
 
+public void implicitWait(int waitTime)
+{
+    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+}
+
+    public static WebDriverWait webDriverWait() {
+        return new WebDriverWait(driver, 40);
+    }
+    public static void waitVisibilityOfElement(MobileElement element) {
+        webDriverWait().until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static void doubleClickOnElement(MobileElement element){
+        Actions act = new Actions(driver);
+        act.doubleClick(element).click().build().perform();
+    }
+
+    public void scrollByPercentage(double startX, double startY, double endY){
+
+        Dimension  size = driver.manage().window().getSize();
+      int  startX1 = (int) (size.width * startX);
+      int  startY1 = (int) (size.height * startY);
+      int  endY1 = (int) (size.height * endY);
+        new TouchAction((PerformsTouchActions) driver).press(point(startX1, startY1 )).waitAction(waitOptions(Duration.ofMillis(1000)))
+                .moveTo(point(startX1, endY1)).release().perform();
+
+    }
 
 
 }

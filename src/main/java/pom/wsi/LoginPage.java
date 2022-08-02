@@ -23,9 +23,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 
 public class LoginPage extends CommonActions {
-
     static ExcelReader reader = new ExcelReader();
-
     public static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
     TabBarPage tabBarPage;
     PermissionPage permissionPage;
@@ -37,12 +35,16 @@ public class LoginPage extends CommonActions {
 
     @iOSXCUITFindBy(accessibility = "CONTINUE AS GUEST")
     private MobileElement btnContinueAsGuest;
-    @iOSXCUITFindBy(accessibility = "START SHOPPING")
+    @iOSXCUITFindBy(id = "START SHOPPING")
     private MobileElement btnStartShopping;
     @iOSXCUITFindBy(accessibility = "ACCOUNT")
     private MobileElement tbrAccount;
+
     @iOSXCUITFindBy(id = "SIGN IN")
     private MobileElement btnSignin;
+
+    @iOSXCUITFindBy(id = "Allow")
+    private MobileElement allowBtn;
 
     @iOSXCUITFindBy(accessibility = "SIGN IN")
     private MobileElement btnSignin2;
@@ -51,12 +53,18 @@ public class LoginPage extends CommonActions {
     private MobileElement btnresgression;
     @iOSXCUITFindBy(accessibility = "authentication_sign_in_button")
     private MobileElement btnLogin;
-    @iOSXCUITFindBy(accessibility = "authtextfield_email_textfield")
+    @iOSXCUITFindBy(id = "TURN ON NOTIFICATIONS")
+    private MobileElement turnOnNotifications;
+
+    @iOSXCUITFindBy(accessibility = "Allow")
+    private MobileElement allowButton;
+    @iOSXCUITFindBy(id = "authtextfield_email_textfield")
     private MobileElement txtUsername;
-    @iOSXCUITFindBy(accessibility = "authtextfield_password_textfield")
+    @iOSXCUITFindBy(id = "authtextfield_password_textfield")
     private MobileElement txtPassword;
     @iOSXCUITFindBy(accessibility = "OK")
     private MobileElement btnOK;
+
     @iOSXCUITFindBy(accessibility = "User Name")
     private MobileElement dashboard_Element;
     //@iOSXCUITFindBy(accessibility = "Debug")
@@ -74,23 +82,19 @@ public class LoginPage extends CommonActions {
 
     public void navigatingToSignin() {
 
-        WaitForMobileElement(btnStartShopping);
-        ClickOnMobileElement(btnStartShopping);
-
-
-        WaitForMobileElement(tbrAccount);
-        ClickOnMobileElement(tbrAccount);
+        clickOnMobileElement(btnStartShopping);
+        clickOnMobileElement(tbrAccount);
     }
 
     public void selectEnviornment() {
         try {
-            WaitForMobileElement(debug);
-            ClickOnMobileElement(debug);
-            WaitForMobileElement(selct_Site);
-            ClickOnMobileElement(selct_Site);
-            WaitForMobileElement(btnresgression);
+            waitForMobileElement(debug);
+            clickOnMobileElement(debug);
+            waitForMobileElement(selct_Site);
+            clickOnMobileElement(selct_Site);
+            waitForMobileElement(btnresgression);
             // ClickOnMobileElement(btnresgression);
-            ClickOnMobileElement(btnQA41);
+            clickOnMobileElement(btnQA41);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -98,41 +102,56 @@ public class LoginPage extends CommonActions {
     }
 
     public void clickOnSignin() {
-        WaitForMobileElement(btnSignin2);
-        ClickOnMobileElement(btnSignin2);
+        clickOnMobileElement(btnSignin);
+
     }
 
     public void userEnterUserName(String username) {
-        try {
-            WaitForMobileElement(txtUsername);
-            txtUsername.sendKeys(username);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        waitVisibilityOfElement(txtUsername);
+        txtUsername.click();
+        sendKeysOnMobileElement(txtUsername,username);
+
     }
 
     public void userEnterPassword(String password) {
-        try {
-            WaitForMobileElement(txtPassword);
+            waitForMobileElement(txtPassword);
             txtPassword.sendKeys(password);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void clickLoginBth() {
-        WaitForMobileElement(btnLogin);
-        btnLogin.click();
+        clickOnMobileElement(btnLogin);
+        try{
+            implicitWait(8);
+            allowButton.click();
+        }catch(Exception e){
+
+        }
+        waitVisibilityOfElement(turnOnNotifications);
+        try{
+        for(int i=0; i<5; i++) {
+            turnOnNotifications.click();
+            if (allowBtn.isDisplayed()) {
+                allowButton.click();
+                break;
+            }
+        }
+        }catch(Exception e){
+
+            }
+
+
     }
 
+
+
     public void userLandsOnDashboard() {
-        try {
-            WaitForMobileElement(tbrAccount);
-            //
-            tbrAccount.click();
-        } catch (Exception e) {
-            WaitForMobileElement(btnOK);
-            btnOK.click();
+
+            waitForMobileElement(tbrAccount);
+            try {
+                implicitWait(15);
+                btnOK.click();
+            }catch(Exception e){
+
 
         }
     }
@@ -147,7 +166,7 @@ public class LoginPage extends CommonActions {
     public void signOut(){
         swipeUp();
         Assert.assertTrue(btnAccountSetting.isDisplayed());
-        ClickOnMobileElement(btnAccountSetting);
+        clickOnMobileElement(btnAccountSetting);
         scrollDown();
     }
 
