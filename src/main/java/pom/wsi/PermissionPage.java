@@ -1,5 +1,6 @@
 package pom.wsi;
 
+import com.driverfactory.DriverManager;
 import com.reusableMethods.CommonActions;
 import com.utilities.ExcelReader;
 import io.appium.java_client.AppiumDriver;
@@ -11,14 +12,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class PermissionPage extends CommonActions {
+    LoginPage login;
     static ExcelReader reader = new ExcelReader();
     public static final Logger logger = LoggerFactory.getLogger(PermissionPage.class);
 
     public PermissionPage(AppiumDriver driver) {
-
+    //    login =new LoginPage(DriverManager.getDriver());
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 
     }
+
 
     @iOSXCUITFindBy(accessibility = "Don’t Allow")
     private MobileElement btnDontAllow;
@@ -50,16 +53,11 @@ public class PermissionPage extends CommonActions {
     }
 
     public void continueShopping(){
-        try {
-          //  WaitForMobileElement(btnSignIn);
-            //ClickOnMobileElement(btnSignIn);
-          waitForMobileElement(btnContinueAsGuest);
-            clickOnMobileElement(btnContinueAsGuest);
-            waitForMobileElement(btnStartShopping);
-            clickOnMobileElement(btnStartShopping);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        clickOnMobileElement(btnContinueAsGuest);
+        login = new LoginPage(driver);
+        login.turnOnNotifications();
+        waitForMobileElement(btnStartShopping);
+        clickOnMobileElement(btnStartShopping);
     }
 
     public void continueSignIn(){

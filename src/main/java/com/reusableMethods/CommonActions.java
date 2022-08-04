@@ -3,6 +3,7 @@ package com.reusableMethods;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
@@ -368,16 +369,16 @@ public class CommonActions {
 
 
     public static void clickOnMobileElement(MobileElement element) {
-       waitVisibilityOfElement(element);
+        waitVisibilityOfElement(element);
         boolean status = true;
-        for(int i=0; i<10; i++) {
+        for (int i = 0; i < 10; i++) {
 
             try {
                 waitFor(1000);
                 element.click();
                 status = true;
                 break;
-            }catch(Exception e) {
+            } catch (Exception e) {
 
                 status = false;
                 waitFor(1000);
@@ -389,7 +390,7 @@ public class CommonActions {
 
     public static void sendKeysOnMobileElement(MobileElement element, String Value) {
         waitVisibilityOfElement(element);
-       // element.clear();
+        // element.clear();
         element.sendKeys(Value);
     }
 
@@ -497,9 +498,10 @@ public class CommonActions {
     }
 
     public void quitBrowser() {
-        DriverManager.quit();
+        driver.closeApp();
 
     }
+
     public void swipeScreen(Direction dir) {
         System.out.println("swipeScreen(): dir: '" + dir + "'"); // always log your actions
 
@@ -565,33 +567,42 @@ public class CommonActions {
         RIGHT;
     }
 
-public void implicitWait(int waitTime)
-{
-    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-}
+    public void implicitWait(int waitTime) {
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    }
 
     public static WebDriverWait webDriverWait() {
         return new WebDriverWait(driver, 40);
     }
+
     public static void waitVisibilityOfElement(MobileElement element) {
         webDriverWait().until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void doubleClickOnElement(MobileElement element){
+    public static void doubleClickOnElement(MobileElement element) {
         Actions act = new Actions(driver);
         act.doubleClick(element).click().build().perform();
     }
 
-    public void scrollByPercentage(double startX, double startY, double endY){
+    public void scrollByPercentage(double startX, double startY, double endY) {
 
-        Dimension  size = driver.manage().window().getSize();
-      int  startX1 = (int) (size.width * startX);
-      int  startY1 = (int) (size.height * startY);
-      int  endY1 = (int) (size.height * endY);
-        new TouchAction((PerformsTouchActions) driver).press(point(startX1, startY1 )).waitAction(waitOptions(Duration.ofMillis(1000)))
+        Dimension size = driver.manage().window().getSize();
+        int startX1 = (int) (size.width * startX);
+        int startY1 = (int) (size.height * startY);
+        int endY1 = (int) (size.height * endY);
+        new TouchAction((PerformsTouchActions) driver).press(point(startX1, startY1)).waitAction(waitOptions(Duration.ofMillis(1000)))
                 .moveTo(point(startX1, endY1)).release().perform();
-
     }
 
-
+    public String getCurrentDate() {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+        String str = formatter.format(date);
+         return str;
+    }
 }
+
+
+
+
+

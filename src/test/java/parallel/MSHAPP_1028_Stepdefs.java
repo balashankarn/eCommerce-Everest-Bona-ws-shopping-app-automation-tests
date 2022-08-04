@@ -6,15 +6,11 @@ import io.cucumber.java.en.Then;
 import pom.wsi.*;
 
 public class MSHAPP_1028_Stepdefs {
-    LoginPage login;
-    Hooks hooks = new Hooks();
-    AccountPage accountPage;
-    AccountSettingPage accountSettingPage;
-    RegistryPage registryPage;
-    PermissionPage permissionPage;
+
+    RegistryPage registryPage = new RegistryPage(DriverManager.getDriver());
+
     @And("user clicks on privacy setting and selects privacy")
     public void userClicksOnPrivacySettingAndSelectsPrivacy() {
-        registryPage = new RegistryPage(DriverManager.getDriver());
         registryPage.userClicksOnPrivacySettingAndSelectsPrivacy();
     }
 

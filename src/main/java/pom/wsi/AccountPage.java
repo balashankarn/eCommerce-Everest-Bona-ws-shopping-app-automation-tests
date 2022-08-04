@@ -101,6 +101,7 @@ public class AccountPage extends CommonActions {
 
   public boolean verifyAccountPageGetDisplayed(){
         try {
+            waitFor(1500);
             clickOnMobileElement(tbrAccount);
             clickOnMobileElement(btnAllowWhileUsingApp);
             waitVisibilityOfElement(myOrders);

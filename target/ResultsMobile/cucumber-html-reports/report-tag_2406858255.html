@@ -74,7 +74,7 @@ $(document).ready(function() {
   <tbody>
     <tr class="info">
       <td>WSI_AutomationReport</td>
-            <td>28 Jul 2022, 12:39</td>
+            <td>04 Aug 2022, 13:58</td>
     </tr>
   </tbody>
 </table>
@@ -127,19 +127,19 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">@MSHAPP-1025</td>
-          <td >0</td>
-          <td      class="failed"    >3</td>
-          <td     class="skipped"   >7</td>
+          <td      class="passed"    >12</td>
           <td >0</td>
           <td >0</td>
-          <td class="total">10</td>
+          <td >0</td>
+          <td >0</td>
+          <td class="total">12</td>
 
+          <td  class="passed"    >3</td>
           <td >0</td>
-          <td  class="failed"    >3</td>
           <td class="total">3</td>
 
-          <td class="duration" data-value="27823266000">27.823</td>
-          <td class="failed">Failed</td>
+          <td class="duration" data-value="98692000000">1:38.692</td>
+          <td class="passed">Passed</td>
         </tr>
         </tbody>
 
@@ -181,12 +181,12 @@ $(document).ready(function() {
       </div>
 
   
-  <span class="lead-duration duration">27.533</span>
+  <span class="lead-duration duration">1:18.260</span>
 
 
-    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
     
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Scenario</span>
   <span class="name">verify whether user is able to navigate registry dashboard</span>
   
@@ -197,16 +197,16 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details  in ">
+  <div id="element-1" class="collapse collapsable-details ">
     
 
 
 
     
 <div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-2">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-2">
     
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
   
@@ -216,14 +216,14 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-2" class="inner-level collapse collapsable-details  in ">
+  <div id="steps-2" class="inner-level collapse collapsable-details ">
           <div class="step">
         
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Given</span>
   <span class="name">user launches the apps</span>
   
-  <span class="lead-duration duration">27.533</span>
+  <span class="lead-duration duration">32.271</span>
 
 </div>
 
@@ -231,115 +231,6 @@ $(document).ready(function() {
 
 
         
-
-  <div class="inner-level">
-    <div class="message indention">
-      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-3">
-          <a>java.lang.RuntimeException:</a>
-      </div>
-      <div id="msg-3" class="collapse collapsable-details  in ">
-        <pre>java.lang.RuntimeException: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup()
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:85)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.getFilledValue(AppiumByBuilder.java:92)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.createBy(AppiumByBuilder.java:148)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.getBys(DefaultElementByBuilder.java:133)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildMobileNativeBy(DefaultElementByBuilder.java:182)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildBy(DefaultElementByBuilder.java:216)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:66)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:53)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:1)
-	at org.openqa.selenium.support.pagefactory.DefaultFieldDecorator.decorate(DefaultFieldDecorator.java:56)
-	at io.appium.java_client.pagefactory.AppiumFieldDecorator.decorate(AppiumFieldDecorator.java:155)
-	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:113)
-	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
-	at pom.wsi.PermissionPage.&lt;init&gt;(PermissionPage.java:19)
-	at pom.wsi.RegistryPage.&lt;init&gt;(RegistryPage.java:23)
-	at parallel.MSHAPP_1025_StepDefs.userLaunchesTheApp(MSHAPP_1025_StepDefs.java:23)
-	at &#10045;.user launches the apps(file:///Users/rajesh_c1/Desktop/ShoppingApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/test/resources/Features/MSHAPP-1025.feature:6)
-Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup()
-	at java.base/java.lang.Class.getMethod(Class.java:2259)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:83)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.getFilledValue(AppiumByBuilder.java:92)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.createBy(AppiumByBuilder.java:148)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.getBys(DefaultElementByBuilder.java:133)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildMobileNativeBy(DefaultElementByBuilder.java:182)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildBy(DefaultElementByBuilder.java:216)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:66)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:53)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:1)
-	at org.openqa.selenium.support.pagefactory.DefaultFieldDecorator.decorate(DefaultFieldDecorator.java:56)
-	at io.appium.java_client.pagefactory.AppiumFieldDecorator.decorate(AppiumFieldDecorator.java:155)
-	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:113)
-	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
-	at pom.wsi.PermissionPage.&lt;init&gt;(PermissionPage.java:19)
-	at pom.wsi.RegistryPage.&lt;init&gt;(RegistryPage.java:23)
-	at parallel.MSHAPP_1025_StepDefs.userLaunchesTheApp(MSHAPP_1025_StepDefs.java:23)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
-	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
-	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
-	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
-	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
-	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
-	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
-	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
-	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)
-	at io.cucumber.core.runner.TestStep.run(TestStep.java:64)
-	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
-	at io.cucumber.core.runner.TestCase.run(TestCase.java:104)
-	at io.cucumber.core.runner.Runner.runPickle(Runner.java:71)
-	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:151)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:135)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:27)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:199)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:90)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:234)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
-	at org.testng.junit.JUnit4TestRunner.start(JUnit4TestRunner.java:74)
-	at org.testng.junit.JUnit4TestRunner.run(JUnit4TestRunner.java:65)
-	at org.testng.TestRunner$1.run(TestRunner.java:652)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.runJUnitWorkers(TestRunner.java:843)
-	at org.testng.TestRunner.privateRunJUnit(TestRunner.java:681)
-	at org.testng.TestRunner.run(TestRunner.java:585)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
-	at org.testng.TestNG.runSuites(TestNG.java:1039)
-	at org.testng.TestNG.run(TestNG.java:1007)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:135)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:146)
-	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
-</pre>
-      </div>
-    </div>
-  </div>
 
 
         
@@ -354,11 +245,63 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
       </div>
           <div class="step">
         
-<div class="brief skipped">
+<div class="brief passed">
   <span class="keyword indention">When</span>
+  <span class="name">User continue shopping as guest user</span>
+  
+  <span class="lead-duration duration">32.540</span>
+
+</div>
+
+        
+
+
+        
+
+
+        
+        
+
+        
+        
+  
+        
+
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
+  <span class="name">Sign out the app if already signed in</span>
+  
+  <span class="lead-duration duration">7.881</span>
+
+</div>
+
+        
+
+
+        
+
+
+        
+        
+
+        
+        
+  
+        
+
+
+      </div>
+          <div class="step">
+        
+<div class="brief passed">
+  <span class="keyword indention">And</span>
   <span class="name">user click on registry in bottom navigation bar</span>
   
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">3.578</span>
 
 </div>
 
@@ -380,11 +323,11 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
       </div>
           <div class="step">
         
-<div class="brief skipped">
+<div class="brief passed">
   <span class="keyword indention">Then</span>
   <span class="name">user lands on registry screen</span>
   
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">1.990</span>
 
 </div>
 
@@ -428,12 +371,12 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
       </div>
 
   
-  <span class="lead-duration duration">0.120</span>
+  <span class="lead-duration duration">6.941</span>
 
 
-    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-4">
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-3">
     
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Scenario</span>
   <span class="name">Verify user is navigated to create registry screen</span>
   
@@ -444,16 +387,16 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
   </span>
   <div class="description indention"></div>
 
-  <div id="element-4" class="collapse collapsable-details  in ">
+  <div id="element-3" class="collapse collapsable-details ">
     
 
 
 
     
 <div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-5">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-4">
     
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
   
@@ -463,14 +406,14 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
 
   </div>
 
-  <div id="steps-5" class="inner-level collapse collapsable-details  in ">
+  <div id="steps-4" class="inner-level collapse collapsable-details ">
           <div class="step">
         
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Given</span>
   <span class="name">user is on registry screen</span>
   
-  <span class="lead-duration duration">0.120</span>
+  <span class="lead-duration duration">2.642</span>
 
 </div>
 
@@ -478,115 +421,6 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
 
 
         
-
-  <div class="inner-level">
-    <div class="message indention">
-      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-6">
-          <a>java.lang.RuntimeException:</a>
-      </div>
-      <div id="msg-6" class="collapse collapsable-details  in ">
-        <pre>java.lang.RuntimeException: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup()
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:85)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.getFilledValue(AppiumByBuilder.java:92)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.createBy(AppiumByBuilder.java:148)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.getBys(DefaultElementByBuilder.java:133)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildMobileNativeBy(DefaultElementByBuilder.java:182)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildBy(DefaultElementByBuilder.java:216)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:66)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:53)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:1)
-	at org.openqa.selenium.support.pagefactory.DefaultFieldDecorator.decorate(DefaultFieldDecorator.java:56)
-	at io.appium.java_client.pagefactory.AppiumFieldDecorator.decorate(AppiumFieldDecorator.java:155)
-	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:113)
-	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
-	at pom.wsi.PermissionPage.&lt;init&gt;(PermissionPage.java:19)
-	at pom.wsi.RegistryPage.&lt;init&gt;(RegistryPage.java:23)
-	at parallel.MSHAPP_1025_StepDefs.userIsOnRegistryScreen(MSHAPP_1025_StepDefs.java:46)
-	at &#10045;.user is on registry screen(file:///Users/rajesh_c1/Desktop/ShoppingApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/test/resources/Features/MSHAPP-1025.feature:11)
-Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup()
-	at java.base/java.lang.Class.getMethod(Class.java:2259)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:83)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.getFilledValue(AppiumByBuilder.java:92)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.createBy(AppiumByBuilder.java:148)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.getBys(DefaultElementByBuilder.java:133)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildMobileNativeBy(DefaultElementByBuilder.java:182)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildBy(DefaultElementByBuilder.java:216)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:66)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:53)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:1)
-	at org.openqa.selenium.support.pagefactory.DefaultFieldDecorator.decorate(DefaultFieldDecorator.java:56)
-	at io.appium.java_client.pagefactory.AppiumFieldDecorator.decorate(AppiumFieldDecorator.java:155)
-	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:113)
-	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
-	at pom.wsi.PermissionPage.&lt;init&gt;(PermissionPage.java:19)
-	at pom.wsi.RegistryPage.&lt;init&gt;(RegistryPage.java:23)
-	at parallel.MSHAPP_1025_StepDefs.userIsOnRegistryScreen(MSHAPP_1025_StepDefs.java:46)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
-	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
-	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
-	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
-	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
-	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
-	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
-	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
-	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)
-	at io.cucumber.core.runner.TestStep.run(TestStep.java:64)
-	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
-	at io.cucumber.core.runner.TestCase.run(TestCase.java:104)
-	at io.cucumber.core.runner.Runner.runPickle(Runner.java:71)
-	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:151)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:135)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:27)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:199)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:90)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:234)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
-	at org.testng.junit.JUnit4TestRunner.start(JUnit4TestRunner.java:74)
-	at org.testng.junit.JUnit4TestRunner.run(JUnit4TestRunner.java:65)
-	at org.testng.TestRunner$1.run(TestRunner.java:652)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.runJUnitWorkers(TestRunner.java:843)
-	at org.testng.TestRunner.privateRunJUnit(TestRunner.java:681)
-	at org.testng.TestRunner.run(TestRunner.java:585)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
-	at org.testng.TestNG.runSuites(TestNG.java:1039)
-	at org.testng.TestNG.run(TestNG.java:1007)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:135)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:146)
-	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
-</pre>
-      </div>
-    </div>
-  </div>
 
 
         
@@ -601,11 +435,11 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
       </div>
           <div class="step">
         
-<div class="brief skipped">
+<div class="brief passed">
   <span class="keyword indention">When</span>
   <span class="name">user clicks on create registry</span>
   
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">2.668</span>
 
 </div>
 
@@ -627,11 +461,11 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
       </div>
           <div class="step">
         
-<div class="brief skipped">
+<div class="brief passed">
   <span class="keyword indention">Then</span>
   <span class="name">user lands on sign in screen</span>
   
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">1.631</span>
 
 </div>
 
@@ -675,12 +509,12 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
       </div>
 
   
-  <span class="lead-duration duration">0.168</span>
+  <span class="lead-duration duration">13.491</span>
 
 
-    <span data-toggle="collapse" class=" collapsable-control" data-target="#element-7">
+    <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-5">
     
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Scenario Outline</span>
   <span class="name">verify whether user is able to login</span>
   
@@ -691,16 +525,16 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
   </span>
   <div class="description indention"></div>
 
-  <div id="element-7" class="collapse collapsable-details  in ">
+  <div id="element-5" class="collapse collapsable-details ">
     
 
 
 
     
 <div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-8">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-6">
     
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
   
@@ -710,14 +544,14 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
 
   </div>
 
-  <div id="steps-8" class="inner-level collapse collapsable-details  in ">
+  <div id="steps-6" class="inner-level collapse collapsable-details ">
           <div class="step">
         
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Given</span>
   <span class="name">user is on sign screen</span>
   
-  <span class="lead-duration duration">0.168</span>
+  <span class="lead-duration duration">2.001</span>
 
 </div>
 
@@ -725,115 +559,6 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
 
 
         
-
-  <div class="inner-level">
-    <div class="message indention">
-      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-9">
-          <a>java.lang.RuntimeException:</a>
-      </div>
-      <div id="msg-9" class="collapse collapsable-details  in ">
-        <pre>java.lang.RuntimeException: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup()
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:85)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.getFilledValue(AppiumByBuilder.java:92)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.createBy(AppiumByBuilder.java:148)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.getBys(DefaultElementByBuilder.java:133)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildMobileNativeBy(DefaultElementByBuilder.java:182)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildBy(DefaultElementByBuilder.java:216)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:66)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:53)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:1)
-	at org.openqa.selenium.support.pagefactory.DefaultFieldDecorator.decorate(DefaultFieldDecorator.java:56)
-	at io.appium.java_client.pagefactory.AppiumFieldDecorator.decorate(AppiumFieldDecorator.java:155)
-	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:113)
-	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
-	at pom.wsi.PermissionPage.&lt;init&gt;(PermissionPage.java:19)
-	at pom.wsi.RegistryPage.&lt;init&gt;(RegistryPage.java:23)
-	at parallel.MSHAPP_1025_StepDefs.userIsOnSignScreen(MSHAPP_1025_StepDefs.java:62)
-	at &#10045;.user is on sign screen(file:///Users/rajesh_c1/Desktop/ShoppingApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/test/resources/Features/MSHAPP-1025.feature:16)
-Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup()
-	at java.base/java.lang.Class.getMethod(Class.java:2259)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:83)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.getFilledValue(AppiumByBuilder.java:92)
-	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.createBy(AppiumByBuilder.java:148)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.getBys(DefaultElementByBuilder.java:133)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildMobileNativeBy(DefaultElementByBuilder.java:182)
-	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildBy(DefaultElementByBuilder.java:216)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:66)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:53)
-	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:1)
-	at org.openqa.selenium.support.pagefactory.DefaultFieldDecorator.decorate(DefaultFieldDecorator.java:56)
-	at io.appium.java_client.pagefactory.AppiumFieldDecorator.decorate(AppiumFieldDecorator.java:155)
-	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:113)
-	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
-	at pom.wsi.PermissionPage.&lt;init&gt;(PermissionPage.java:19)
-	at pom.wsi.RegistryPage.&lt;init&gt;(RegistryPage.java:23)
-	at parallel.MSHAPP_1025_StepDefs.userIsOnSignScreen(MSHAPP_1025_StepDefs.java:62)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
-	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
-	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
-	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
-	at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
-	at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
-	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
-	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
-	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)
-	at io.cucumber.core.runner.TestStep.run(TestStep.java:64)
-	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
-	at io.cucumber.core.runner.TestCase.run(TestCase.java:104)
-	at io.cucumber.core.runner.Runner.runPickle(Runner.java:71)
-	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:151)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:135)
-	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:27)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:199)
-	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:90)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:234)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
-	at org.testng.junit.JUnit4TestRunner.start(JUnit4TestRunner.java:74)
-	at org.testng.junit.JUnit4TestRunner.run(JUnit4TestRunner.java:65)
-	at org.testng.TestRunner$1.run(TestRunner.java:652)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.runJUnitWorkers(TestRunner.java:843)
-	at org.testng.TestRunner.privateRunJUnit(TestRunner.java:681)
-	at org.testng.TestRunner.run(TestRunner.java:585)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
-	at org.testng.TestNG.runSuites(TestNG.java:1039)
-	at org.testng.TestNG.run(TestNG.java:1007)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:135)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:146)
-	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
-</pre>
-      </div>
-    </div>
-  </div>
 
 
         
@@ -848,11 +573,11 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
       </div>
           <div class="step">
         
-<div class="brief skipped">
+<div class="brief passed">
   <span class="keyword indention">And</span>
   <span class="name">user enter username <span class="argument">&quot;bala3@test.com&quot;</span> and password <span class="argument">&quot;test@1234&quot;</span> clicks on login in sign in page</span>
   
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">7.367</span>
 
 </div>
 
@@ -874,11 +599,11 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
       </div>
           <div class="step">
         
-<div class="brief skipped">
+<div class="brief passed">
   <span class="keyword indention">Then</span>
   <span class="name">user should land on create registry screen one</span>
   
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">3.012</span>
 
 </div>
 
@@ -900,11 +625,11 @@ Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy17.proxyClassLookup
       </div>
           <div class="step">
         
-<div class="brief skipped">
+<div class="brief passed">
   <span class="keyword indention">And</span>
   <span class="name">user quits the screen</span>
   
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">1.111</span>
 
 </div>
 

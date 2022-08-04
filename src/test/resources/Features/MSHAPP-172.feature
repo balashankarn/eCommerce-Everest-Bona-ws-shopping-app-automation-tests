@@ -1,9 +1,8 @@
-@AccountDashboard
+ @MSHAPP-172 @AccountDashboard
 Feature: MSHAPP-172 Account Dashboard: Signed In (basic version)
 
-
   Scenario Outline: Verify that user is able to Land into Account page
-    Given user launches apps and clicks on account setting button
+    Given user launches the apps
     When user clicks sign in option
     And user enter username "<username>" and password "<password>" clicks on login
     Then User should be in homepage
@@ -21,3 +20,4 @@ Feature: MSHAPP-172 Account Dashboard: Signed In (basic version)
   Scenario: Verify whether user is able to click on account setting option
     And user clicks on account setting option
     Then user should be navigated to account setting screen.
+    And user quits the screen

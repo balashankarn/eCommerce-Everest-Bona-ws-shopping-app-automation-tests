@@ -1,86 +1,79 @@
 package parallel;
 
 import com.driverfactory.DriverManager;
+import com.driverfactory.Factory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import pom.wsi.*;
 
-public class MSHAPP_1025_StepDefs {
-
-    LoginPage login;
-    Hooks hooks = new Hooks();
-    AccountPage accountPage;
-    AccountSettingPage accountSettingPage;
-    RegistryPage registryPage;
-    PermissionPage permissionPage;
+public class MSHAPP_1025_StepDefs extends Factory {
+    RegistryPage registryPage = new RegistryPage(DriverManager.getDriver());
+    PermissionPage permissionPage = new PermissionPage(DriverManager.getDriver());
 
 
-    @Given("user launches the apps")
-    public void userLaunchesTheApp() {
-        hooks.launchBrowser();
-        registryPage = new RegistryPage(DriverManager.getDriver());
-        permissionPage = new PermissionPage(DriverManager.getDriver());
-        login =new LoginPage(DriverManager.getDriver());
-      //  permissionPage.clickOnAllowOnce();
+    @Given("User continue shopping as guest user")
+    public void UserContinueShoppingAsGuestUser() {
         permissionPage.continueShopping();
     }
 
     @When("user click on registry in bottom navigation bar")
     public void userClickOnRegistryInBottomNavigationBar() {
-
         registryPage.userClickOnRegistry();
-
     }
 
     @Then("user lands on registry screen")
     public void userLandsOnRegistryScreen() {
-        registryPage =new RegistryPage(DriverManager.getDriver());
-        registryPage.userLandsOnRegistry();
-
+     boolean status =  registryPage.userLandsOnRegistry();
+     Assert.assertTrue(status);
     }
 
     @Given("user is on registry screen")
     public void userIsOnRegistryScreen() {
-        registryPage = new RegistryPage(DriverManager.getDriver());
-        registryPage.userInRegistryScreen();
+      boolean status =  registryPage.userInRegistryScreen();
+      Assert.assertTrue(status);
     }
-
     @When("user clicks on create registry")
-    public void userClicksOnCreateRegistry() {
+    public void userClicksOnCreateRegistry()
+    {
         registryPage.userClickOnCreateRegistry();
     }
-
     @Then("user lands on sign in screen")
-    public void userLandsOnSignInScreen() {
+    public void userLandsOnSignInScreen()
+    {
         registryPage.userLandsOnSignIn();
     }
-
     @Given("user is on sign screen")
     public void userIsOnSignScreen() {
-        registryPage = new RegistryPage(DriverManager.getDriver());
        registryPage.userIsOnSignIn();
-
     }
-
     @Then("user should land on create registry screen one")
     public void userShouldLandOnCreateRegistryScreenOne() {
- registryPage.userShouldLandOnCreateRegistryScreenOne();
+      registryPage.userShouldLandOnCreateRegistryScreenOne();
     }
-
     @And("user enter username {string} and password {string} clicks on login in sign in page")
     public void userEnterUsernameAndPasswordClicksOnLoginInSignInPage(String username, String password) {
-
-
           registryPage.userEnterUserName(username);
           registryPage.userEnterPassword(password);
           registryPage.clickLoginBth();
-
     }
-
     @And("user quits the screen")
-    public void userQuitsTheScreen() {
+    public void userQuitsTheScreen()
+    {
      registryPage.quitBrowser();
+    }
+    @Then("user navigate to back page")
+    public void user_navigate_to_back_page() {
+        registryPage.navigateToBackPage();
+    }
+    @Then("user sign out the application")
+    public void user_sign_out_the_application() {
+        registryPage.signOut();
+    }
+    @When("Sign out the app if already signed in")
+    public void sign_out_the_app_if_already_signed_in() {
+        registryPage.signOutIfAlreadySignedIn();
     }
 }

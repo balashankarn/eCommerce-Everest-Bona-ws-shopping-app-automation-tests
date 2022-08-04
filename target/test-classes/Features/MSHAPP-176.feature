@@ -1,8 +1,8 @@
-@editemail
+@MSHAPP-176 @EditEmail
 Feature: MSHAPP-176 Account Settings: Edit email: Form only; no text entry or submission yet
 
   Scenario Outline: Verify that user is able to Login into the App
-    Given user launches apps and clicks on account setting button
+    Given user launches the apps
     When user clicks sign in option
    And user enter username "<username>" and password "<password>" clicks on login
     Then User should be in homepage
@@ -25,6 +25,7 @@ Feature: MSHAPP-176 Account Settings: Edit email: Form only; no text entry or su
   Scenario Outline: Verify whether user close without saving data
     When user enter currentpassword "<currentpassword>" and newemailaddress "<newemailaddress>" clicks on close
     Then user should be navigated back to account setting screen
+    And user quits the screen
 
     Examples:
     | currentpassword  | |newemailaddress|

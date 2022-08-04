@@ -170,4 +170,27 @@ public class LoginPage extends CommonActions {
         scrollDown();
     }
 
+    public void turnOnNotifications(){
+
+        try{
+            implicitWait(8);
+            allowButton.click();
+        }catch(Exception e){
+
+        }
+        waitVisibilityOfElement(turnOnNotifications);
+        try{
+            for(int i=0; i<5; i++) {
+                turnOnNotifications.click();
+                if (allowBtn.isDisplayed()) {
+                    allowButton.click();
+                    break;
+                }
+            }
+        }catch(Exception e){
+
+        }
+
+    }
+
 }

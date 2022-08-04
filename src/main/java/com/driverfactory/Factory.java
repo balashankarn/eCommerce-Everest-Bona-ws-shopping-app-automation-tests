@@ -23,7 +23,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 
-public abstract class    Factory {
+public abstract class  Factory {
 
 	protected IOSDriver<IOSElement> createIOSDriver(Target target) {
 		return null;

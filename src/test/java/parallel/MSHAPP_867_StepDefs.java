@@ -1,5 +1,6 @@
 package parallel;
 
+import com.driverfactory.DriverManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,11 +10,9 @@ import pom.wsi.CheckoutPage;
 import pom.wsi.LoginPage;
 
 public class MSHAPP_867_StepDefs {
-    LoginPage login;
-    Hooks hooks = new Hooks();
-    AccountPage accountPage;
-    AccountSettingPage accountSettingPage;
-    CheckoutPage checkoutPage;
+
+    AccountPage accountPage = new AccountPage(DriverManager.getDriver());
+    CheckoutPage checkoutPage = new CheckoutPage(DriverManager.getDriver());
 
     @Given("user is account dashboard screen")
     public void userIsAccountDashBoardScree(){

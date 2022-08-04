@@ -20,16 +20,15 @@ public class RegistryPage extends CommonActions {
     static ExcelReader reader = new ExcelReader();
     public static final Logger logger = LoggerFactory.getLogger(PermissionPage.class);
 
-   PermissionPage permissionPage = new PermissionPage(DriverManager.getDriver());
     public RegistryPage(AppiumDriver driver) {
-
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-
     }
     @iOSXCUITFindBy(accessibility = "ACCOUNT")
     private MobileElement tbrAccount;
     @iOSXCUITFindBy(accessibility = "REGISTRY")
     private MobileElement tbRegistry;
+    @iOSXCUITFindBy(accessibility = "SIGN OUT")
+    private MobileElement signOut;
     @iOSXCUITFindBy(accessibility = "CREATE A REGISTRY")
     private MobileElement btnCreateARegistry;
     @iOSXCUITFindBy(accessibility = "FIND A REGISTRY")
@@ -44,12 +43,12 @@ public class RegistryPage extends CommonActions {
     private MobileElement btnNext;
     @iOSXCUITFindBy(accessibility = "authentication_sign_in_button")
     private MobileElement btnLogin;
-    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeTextField[@name=\"authtextfield_email_textfield\"])[4]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[4]")
     private MobileElement spnSelectEventType;
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[3]")
+    private MobileElement spnSelectEventDate;
     @iOSXCUITFindBy(accessibility = "DONE")
     private MobileElement spnSelectEventTypeDone;
-    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeTextField[@name=\"authtextfield_email_textfield\"])[3]\t\n")
-    private MobileElement spnSelectEventDate;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Tuesday, July 5\"]")
     private MobileElement spnEventDate;
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeTextField[@name=\"authtextfield_email_textfield\"])[4]")
@@ -60,51 +59,44 @@ public class RegistryPage extends CommonActions {
     private MobileElement chkAddress;
     @iOSXCUITFindBy(accessibility = "START SHOPPING")
     private MobileElement btnStartShopping;
+    @iOSXCUITFindBy(accessibility = "SIGN IN")
+    private MobileElement signIN;
+    @iOSXCUITFindBy(accessibility = "Allow While Using App")
+    private MobileElement btnAllowWhileUsingApp;
+    @iOSXCUITFindBy(accessibility = "setting")
+    private MobileElement btnAccountSetting;
 
     public void userClickOnRegistry() {
-        try {
-//            WaitForMobileElement(tbrAccount);
-//            ClickOnMobileElement(tbrAccount);
-//            permissionPage.clickOnAllowOnce();
-            waitForMobileElement(tbRegistry);
-            clickOnMobileElement(tbRegistry);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        waitForMobileElement(tbRegistry);
+        clickOnMobileElement(tbRegistry);
     }
-
-    public void userLandsOnRegistry() {
-
-        waitForMobileElement(btnCreateARegistry);
-        Assert.assertTrue(btnCreateARegistry.isDisplayed());
-        Assert.assertTrue(btnFindRegistry.isDisplayed());
-    }
-
-    public void userInRegistryScreen() {
-
-//        waitForMobileElement(tbRegistry);
-//        clickOnMobileElement(tbRegistry);
-        Assert.assertTrue(btnFindRegistry.isDisplayed());
-      //  Assert.assertTrue(btnNonLoggedInManageRegistry.isDisplayed());
-        Assert.assertTrue(btnCreateARegistry.isDisplayed());
-
-    }
-
-    public void userClickOnCreateRegistry(){
+    public boolean userLandsOnRegistry() {
         try {
             waitForMobileElement(btnCreateARegistry);
-            clickOnMobileElement(btnCreateARegistry);
-        }catch (Exception e){
-            e.printStackTrace();
+            btnCreateARegistry.isDisplayed();
+            btnFindRegistry.isDisplayed();
+            return true;
+        }catch(Exception e){
+            return false;
         }
+    }
+    public boolean userInRegistryScreen() {
+        try {
+            btnFindRegistry.isDisplayed();
+            btnCreateARegistry.isDisplayed();
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
+    public void userClickOnCreateRegistry(){
+            clickOnMobileElement(btnCreateARegistry);
     }
 
    public  void userLandsOnSignIn(){
-
         Assert.assertTrue(txtUsername.isDisplayed());
        Assert.assertTrue(txtPassword.isDisplayed());
    }
-
 
    public void userIsOnSignIn(){
        Assert.assertTrue(txtUsername.isDisplayed());
@@ -121,20 +113,12 @@ public class RegistryPage extends CommonActions {
         Assert.assertTrue(btnNext.isDisplayed());
    }
     public void userEnterUserName(String username) {
-        try {
             waitForMobileElement(txtUsername);
             txtUsername.sendKeys(username);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
     public void userEnterPassword(String password) {
-        try {
             waitForMobileElement(txtPassword);
             txtPassword.sendKeys(password);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void clickLoginBth() {
@@ -142,104 +126,66 @@ public class RegistryPage extends CommonActions {
         btnLogin.click();
     }
 
-
-    public void selectEvenType(){
-
-        try {
-            waitForMobileElement(spnSelectEventType);
-            clickOnMobileElement(spnSelectEventType);
-            waitForMobileElement(spnSelectEventTypeDone);
-            clickOnMobileElement(spnSelectEventTypeDone);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+    public void selectEvenType(String eventType){
+        waitForMobileElement(spnSelectEventType);
+        spnSelectEventType.sendKeys(eventType);
+        clickOnMobileElement(spnSelectEventTypeDone);
     }
 
-    public void selectedEventTypeShouldBePopulated(){
-        waitForMobileElement(btnNext);
-        Assert.assertTrue(btnNext.isDisplayed());
+    public String verifyEventTypeValueGetsPopulated(){
+       String eventTypeValue = spnSelectEventType.getAttribute("value");
+       return eventTypeValue;
     }
 
    public void userClicksOnEvenTypeAndSelectsEventDate(){
-        try {
-            waitForMobileElement(spnSelectEventDate);
-            clickOnMobileElement(spnSelectEventDate);
-            waitForMobileElement(spnEventDate);
-            clickOnMobileElement(spnEventDate);
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-
+       waitForMobileElement(spnSelectEventDate);
+       spnSelectEventDate.click();
+       spnSelectEventType.sendKeys(getCurrentDate());
    }
 
-   public void theSelectDateAndEventShouldBeDisplayedthere(){
-       waitForMobileElement(btnNext);
-       Assert.assertTrue(btnNext.isDisplayed());
+   public boolean theSelectDateAndEventShouldBeDisplayedthere(){
+     String acutalCurrentDate =  spnSelectEventDate.getAttribute("value");
+     if(!acutalCurrentDate.isEmpty()){
+         return true;
+     }
+     return false;
    }
-
 
    public void userQuitsTheApp(){
         quitBrowser();
-
    }
 
    public void userClicksOnPrivacySettingAndSelectsPrivacy(){
-        try {
             waitForMobileElement(spnPrivacySetting);
             clickOnMobileElement(spnPrivacySetting);
             waitForMobileElement(spnPrivacySettingDone);
             clickOnMobileElement(spnPrivacySettingDone);
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
    }
 
    public void theSelectedPrivacyTypeShouldBePopulated(){
-      try {
           waitForMobileElement(btnNext);
           Assert.assertTrue(btnNext.isDisplayed());
-      }catch (Exception e){
-       e.printStackTrace();
-      }
-
-   }
+    }
 
    public void userClicksOnNextButton(){
-        try {
             waitForMobileElement(btnNext);
             clickOnMobileElement(btnNext);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
    }
-public void userIsStepThreeScreen(){
-        try {
-            waitForMobileElement(btnNext);
-            Assert.assertTrue(btnNext.isDisplayed());
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+   public void userIsStepThreeScreen(){
+        waitForMobileElement(btnNext);
+        Assert.assertTrue(btnNext.isDisplayed());
 }
 
-public void startShopping(){
-        try {
-            waitForMobileElement(btnStartShopping);
-            clickOnMobileElement(btnStartShopping);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+      public void startShopping(){
+        waitForMobileElement(btnStartShopping);
+        clickOnMobileElement(btnStartShopping);
 }
 
-public void userScrollToBottom(){
+  public void userScrollToBottom(){
     waitFor(9000);
     swipeScreen(UP);
-
     waitFor(9000);
     swipeScreen(UP);
-
     waitFor(9000);
     swipeScreen(UP);
     waitFor(9000);
@@ -261,5 +207,28 @@ public void userScrollToBottom(){
     Assert.assertTrue(btnFindRegistry.isDisplayed());
     //   Assert.assertTrue(btnNonLoggedInManageRegistry.isDisplayed());
 }
+
+    public void navigateToBackPage(){
+        driver.navigate().back();
+    }
+
+    public void signOut(){
+      scrollByPercentage(0.0,0.50,0.10);
+        swipeDown();
+        clickOnMobileElement(signOut);
+    }
+
+
+    public void signOutIfAlreadySignedIn(){
+        clickOnMobileElement(tbrAccount);
+        clickOnMobileElement(btnAllowWhileUsingApp);
+        try{
+            signIN.isDisplayed();
+        }catch(Exception e){
+            clickOnMobileElement(btnAccountSetting);
+            signOut();
+            waitFor(2500);
+        }
+    }
 
 }

@@ -1,8 +1,8 @@
-@UpdatePassword
+@MSHAPP-177 @UpdatePassword
 Feature:Account Settings: Password Update
 
   Scenario Outline: Verify Whether user is able to Login into the App
-    Given user launches apps and clicks on account setting button
+    Given user launches the apps
     When user clicks sign in option
     And user enter username "<username>" and password "<password>" clicks on login
     Then User should be in homepage
@@ -23,6 +23,7 @@ Feature:Account Settings: Password Update
   Scenario Outline: verify whether user is able to enter current password and new password
    When  user clicks on the current password and new password
     Then  user enter "<currentpassword>" and "<newpassword>"
+    And user quits the screen
     Examples:
       | currentpassword | newpassword |
       | bala3@test.com | test@1234 |

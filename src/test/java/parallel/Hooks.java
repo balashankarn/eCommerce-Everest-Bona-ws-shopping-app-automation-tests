@@ -20,7 +20,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class Hooks {
 
 	private DriverFactory driverFactory;
-	public AppiumDriver<MobileElement> driver;
+	public  AppiumDriver<MobileElement> driver;
 	private ConfigReader configReader;
 	Scenario scenario;
 

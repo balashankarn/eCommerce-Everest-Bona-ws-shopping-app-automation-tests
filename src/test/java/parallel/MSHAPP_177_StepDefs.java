@@ -12,8 +12,6 @@ import pom.wsi.LoginPage;
 import java.sql.Driver;
 
 public class MSHAPP_177_StepDefs {
-    LoginPage login;
-    Hooks hooks = new Hooks();
     AccountPage accountPage = new AccountPage(DriverManager.getDriver());
     AccountSettingPage accountSettingPage = new AccountSettingPage(DriverManager.getDriver());
 
@@ -62,6 +60,5 @@ public class MSHAPP_177_StepDefs {
     public void userEnterAnd(String currentpassword, String newpassword) {
         accountSettingPage.userEnterCurrentPassword(currentpassword);
         accountSettingPage.userEnterNewPassword(newpassword);
-        accountSettingPage.quitBrowser();
     }
 }

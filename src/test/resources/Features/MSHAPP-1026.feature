@@ -2,9 +2,10 @@
 Feature:1026-Optimized Create Registry -Step 1: Event Type
   
   Scenario: verify whether user is able to navigate registry dashboard
-
     Given user launches the apps
-    When  user click on registry in bottom navigation bar
+    When User continue shopping as guest user
+    And Sign out the app if already signed in
+    And  user click on registry in bottom navigation bar
     Then  user lands on registry screen
 
   Scenario: Verify user is navigated to create registry screen
@@ -22,5 +23,6 @@ Feature:1026-Optimized Create Registry -Step 1: Event Type
 
     Scenario: verify whether user is able to select event type
       Given user  is on create event screen
-      And user clicks on event type and selects event
-      Then the selected event should be populated here
+      And user select the event type as "Baby"
+      Then user should able to see the selected value "Baby" in event type
+

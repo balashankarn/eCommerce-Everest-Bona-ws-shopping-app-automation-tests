@@ -15,8 +15,6 @@ import pom.wsi.LoginPage;
 
 public class MSHAPP_176_StepDef extends Factory {
 
-    LoginPage login;
-    Hooks hooks = new Hooks();
     AccountPage accountPage =  new AccountPage(DriverManager.getDriver());
     AccountSettingPage accountSettingPage = new AccountSettingPage(DriverManager.getDriver());
 
@@ -51,6 +49,7 @@ public class MSHAPP_176_StepDef extends Factory {
     public void uiShouldBeAsPerTheSketch() {
      boolean status =   accountSettingPage.verifyEntireEditEmailUI();
      Assert.assertTrue(status);
+
     }
 
     @Then("user should be navigated back to account setting screen")

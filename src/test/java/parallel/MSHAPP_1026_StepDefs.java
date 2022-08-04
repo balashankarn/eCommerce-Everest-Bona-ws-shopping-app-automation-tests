@@ -4,33 +4,28 @@ import com.driverfactory.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.testng.Assert;
 import pom.wsi.*;
 
 public class MSHAPP_1026_StepDefs {
-
-    LoginPage login;
-    Hooks hooks = new Hooks();
-    AccountPage accountPage;
-    AccountSettingPage accountSettingPage;
-    RegistryPage registryPage;
-    PermissionPage permissionPage;
-
+    RegistryPage  registryPage = new RegistryPage(DriverManager.getDriver());
 
     @Given("user  is on create event screen")
     public void userIsOnCreateEventScreen() {
-        registryPage = new RegistryPage(DriverManager.getDriver());
         registryPage.userShouldLandOnCreateRegistryScreenOne();
-
     }
 
-    @And("user clicks on event type and selects event")
-    public void userClicksOnEventTypeAndSelectsEvent() {
-        registryPage.selectEvenType();
+
+    @Given("user select the event type as {string}")
+    public void user_select_the_event_type_as(String eventType) {
+        registryPage.selectEvenType(eventType);
     }
 
-    @Then("the selected event should be populated here")
-    public void theSelectedEventShouldBePopulatedHere() {
-        registryPage.selectedEventTypeShouldBePopulated();
+    @Then("user should able to see the selected value {string} in event type")
+    public void user_should_able_to_see_the_selected_value_in_event_type(String expEventTypeValue) {
+      String actualEventTypeValue =  registryPage.verifyEventTypeValueGetsPopulated();
+      Assert.assertEquals(actualEventTypeValue,expEventTypeValue);
         registryPage.quitBrowser();
+
     }
 }

@@ -12,14 +12,11 @@ import pom.wsi.AccountSettingPage;
 import pom.wsi.LoginPage;
 
 public class MSHAPP_172_StepDefs extends Factory {
-    LoginPage login;
-    Hooks hooks = new Hooks();
     AccountPage accountPage = new AccountPage(DriverManager.getDriver());
     AccountSettingPage accountSettingPage  = new AccountSettingPage((DriverManager.getDriver()));
 
     @Given("user is in dashboard screen")
     public void userIsInDashBoardScreen(){
-        //accountPage = new AccountPage(DriverManager.getDriver());
         accountPage.userInDashBoardScreen();
     }
 
@@ -28,7 +25,6 @@ public class MSHAPP_172_StepDefs extends Factory {
     public void userIsAbleShouldBeAbleToViewAllTheElementsOnDashboard() {
      boolean status =   accountPage.verifyAllDashboardElements();
      Assert.assertTrue(status);
-
     }
 
     @Then("user should be able scroll up and down of the screen")
@@ -54,7 +50,6 @@ public class MSHAPP_172_StepDefs extends Factory {
 
     @Then("user should be navigated to account setting screen.")
     public void userShouldBeNavigatedToAccountSettingScreen() {
-
      boolean status =   accountSettingPage.verifyScreenUI();
      Assert.assertTrue(status);
     }
@@ -70,10 +65,11 @@ public class MSHAPP_172_StepDefs extends Factory {
         Assert.assertTrue(status);
     }
 
-
     @Then("User should be in Account page")
     public void user_should_be_in_account_page() {
         boolean status =  accountPage.verifyAccountPageGetDisplayed();
         Assert.assertTrue(status);
     }
+
+
 }

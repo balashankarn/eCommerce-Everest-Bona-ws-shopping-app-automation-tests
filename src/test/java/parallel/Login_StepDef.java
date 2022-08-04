@@ -16,9 +16,8 @@ import pom.wsi.PermissionPage;
 
 public class Login_StepDef extends Factory {
 
-    LoginPage login;
-    PermissionPage permissionPage;
-    Hooks hooks = new Hooks();
+   LoginPage login = new LoginPage(DriverManager.getDriver());
+   PermissionPage permissionPage = new PermissionPage(DriverManager.getDriver());
     public static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
 
     /************************************************Login Module Step Definitions
@@ -49,13 +48,12 @@ public class Login_StepDef extends Factory {
 //	public void user_navigates_to_registration_form_screen() throws Exception {
 //		login.profileCreation();
 //	}
-    @Given("user launches apps and clicks on account setting button")
-    public void userLaunchesAppsAndClicksOnAccountSettingButton() {
-        hooks.launchBrowser();
-        login = new LoginPage(DriverManager.getDriver());
-        permissionPage = new PermissionPage(DriverManager.getDriver());
-        //	login.selectEnviornment();
-    }
+//
+//    @Given("user launches apps and clicks on account setting button")
+//    public void userLaunchesAppsAndClicksOnAccountSettingButton() {
+//
+//        //	login.selectEnviornment();
+//    }
 
     @When("user clicks sign in option")
     public void userClicksSignInOption() {
@@ -76,16 +74,6 @@ public class Login_StepDef extends Factory {
         login.userLandsOnDashboard();
     }
 
-
-//	@Then("user lands on Account setting screen")
-//	public void userLandsOnAccountSettingScreen() {
-//
-//	}
-
-//	@Then("user land on sign in screen")
-//	public void userLandOnSignInScreen() {
-//
-//	}
 
 
 }

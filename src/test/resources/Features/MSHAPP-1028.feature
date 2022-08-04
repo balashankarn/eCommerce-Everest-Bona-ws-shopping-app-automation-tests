@@ -2,7 +2,6 @@
 Feature:MSHAPP-1028 Registry Privacy Settings -Tell me about
 
   Scenario: verify whether user is able to navigate registry dashboard
-
     Given user launches the apps
     When  user click on registry in bottom navigation bar
     Then  user lands on registry screen

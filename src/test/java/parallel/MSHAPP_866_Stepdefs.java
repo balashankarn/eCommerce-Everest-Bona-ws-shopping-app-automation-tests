@@ -9,11 +9,6 @@ import pom.wsi.LoginPage;
 
 public class MSHAPP_866_Stepdefs {
 
-    LoginPage login;
-    Hooks hooks = new Hooks();
-    AccountPage accountPage;
-    AccountSettingPage accountSettingPage;
-    CheckoutPage checkoutPage;
 
     @Then("user should been shown a NLA notification")
     public void userShouldBeenShownANLANotification() {

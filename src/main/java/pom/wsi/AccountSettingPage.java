@@ -105,8 +105,7 @@ public class AccountSettingPage extends CommonActions {
         try {
             Actions act = new Actions(driver);
             act.moveToElement(btnCloseEditEmail).click().perform();
-            waitVisibilityOfElement(accountSetting);
-            accountSetting.isDisplayed();
+            waitVisibilityOfElement(myProfile);
             myProfile.isDisplayed();
             return true;
         }catch(Exception e){
