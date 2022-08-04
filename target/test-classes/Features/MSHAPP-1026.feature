@@ -25,4 +25,5 @@ Feature:1026-Optimized Create Registry -Step 1: Event Type
       Given user  is on create event screen
       And user select the event type as "Baby"
       Then user should able to see the selected value "Baby" in event type
+      And user quits the screen
 

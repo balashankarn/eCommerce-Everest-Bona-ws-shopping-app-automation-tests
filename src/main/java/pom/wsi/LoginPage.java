@@ -173,7 +173,7 @@ public class LoginPage extends CommonActions {
     public void turnOnNotifications(){
 
         try{
-            implicitWait(8);
+            implicitWait(5);
             allowButton.click();
         }catch(Exception e){
 

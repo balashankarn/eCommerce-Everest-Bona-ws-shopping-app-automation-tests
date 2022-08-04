@@ -3,17 +3,17 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2022-08-04T08:49:42.838Z",
-        "line": 12,
-        "name": "Verify Whether user is able to Login into the App",
+        "start_timestamp": "2022-08-04T15:52:15.514Z",
+        "line": 4,
+        "name": "verify whether user is able to navigate registry dashboard",
         "description": "",
-        "id": "account-settings:-password-update;verify-whether-user-is-able-to-login-into-the-app;;2",
+        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-whether-user-is-able-to-navigate-registry-dashboard",
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 31883000000,
+              "duration": 11468000000,
               "status": "passed"
             },
             "line": 5,
@@ -25,23 +25,139 @@
           },
           {
             "result": {
-              "duration": 2670000000,
+              "duration": 24511000000,
               "status": "passed"
             },
             "line": 6,
-            "name": "user clicks sign in option",
+            "name": "User continue shopping as guest user",
             "match": {
-              "location": "parallel.Login_StepDef.userClicksSignInOption()"
+              "location": "parallel.MSHAPP_1025_StepDefs.UserContinueShoppingAsGuestUser()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 33789000000,
+              "duration": 33751000000,
               "status": "passed"
             },
             "line": 7,
-            "name": "user enter username \"bala3@test.com\" and password \"test@1234\" clicks on login",
+            "name": "Sign out the app if already signed in",
+            "match": {
+              "location": "parallel.MSHAPP_1025_StepDefs.sign_out_the_app_if_already_signed_in()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2000000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user click on registry in bottom navigation bar",
+            "match": {
+              "location": "parallel.MSHAPP_1025_StepDefs.userClickOnRegistryInBottomNavigationBar()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 409000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "user lands on registry screen",
+            "match": {
+              "location": "parallel.MSHAPP_1025_StepDefs.userLandsOnRegistryScreen()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@MSHAPP-1028"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-08-04T15:53:27.820Z",
+        "line": 11,
+        "name": "Verify user is navigated to create registry screen",
+        "description": "",
+        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-user-is-navigated-to-create-registry-screen",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 271000000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "user is on registry screen",
+            "match": {
+              "location": "parallel.MSHAPP_1025_StepDefs.userIsOnRegistryScreen()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1423000000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "user clicks on create registry",
+            "match": {
+              "location": "parallel.MSHAPP_1025_StepDefs.userClicksOnCreateRegistry()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 378000000,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "user lands on sign in screen",
+            "match": {
+              "location": "parallel.MSHAPP_1025_StepDefs.userLandsOnSignInScreen()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@MSHAPP-1028"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-08-04T15:53:29.935Z",
+        "line": 22,
+        "name": "verify whether user is able to login",
+        "description": "",
+        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-whether-user-is-able-to-login;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 295000000,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "user is on sign screen",
+            "match": {
+              "location": "parallel.MSHAPP_1025_StepDefs.userIsOnSignScreen()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2221000000,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "user enter username \"bala3@test.com\" and password \"test@1234\" clicks on login in sign in page",
             "match": {
               "arguments": [
                 {
@@ -53,179 +169,92 @@
                   "offset": 50
                 }
               ],
-              "location": "parallel.Login_StepDef.userEnterUsernameAndPasswordClicksOnLogin(java.lang.String,java.lang.String)"
+              "location": "parallel.MSHAPP_1025_StepDefs.userEnterUsernameAndPasswordClicksOnLoginInSignInPage(java.lang.String,java.lang.String)"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 4229000000,
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "User should be in homepage",
-            "match": {
-              "location": "parallel.MSHAPP_172_StepDefs.user_should_be_in_homepage()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 9695000000,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "User should be in Account page",
-            "match": {
-              "location": "parallel.MSHAPP_172_StepDefs.user_should_be_in_account_page()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@MSHAPP-177"
-          },
-          {
-            "name": "@UpdatePassword"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-08-04T08:51:05.260Z",
-        "line": 14,
-        "name": "verify whether user ia able to navigate to account setting screen",
-        "description": "",
-        "id": "account-settings:-password-update;verify-whether-user-ia-able-to-navigate-to-account-setting-screen",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 2272000000,
-              "status": "passed"
-            },
-            "line": 15,
-            "name": "user clicks on account setting option",
-            "match": {
-              "location": "parallel.MSHAPP_172_StepDefs.userClicksOnAccountSettingOption()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 1324000000,
-              "status": "passed"
-            },
-            "line": 16,
-            "name": "user should be navigated to account setting screen.",
-            "match": {
-              "location": "parallel.MSHAPP_172_StepDefs.userShouldBeNavigatedToAccountSettingScreen()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@MSHAPP-177"
-          },
-          {
-            "name": "@UpdatePassword"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-08-04T08:51:08.903Z",
-        "line": 18,
-        "name": "verify whether user is able to navigate to change password",
-        "description": "",
-        "id": "account-settings:-password-update;verify-whether-user-is-able-to-navigate-to-change-password",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 1706000000,
+              "duration": 2724000000,
               "status": "passed"
             },
             "line": 19,
-            "name": "user clicks on change password",
+            "name": "user should land on create registry screen one",
             "match": {
-              "location": "parallel.MSHAPP_177_StepDefs.userClicksOnChangePassword()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 3242000000,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "user lands on change password",
-            "match": {
-              "location": "parallel.MSHAPP_177_StepDefs.userLandsOnChangePassword()"
+              "location": "parallel.MSHAPP_1025_StepDefs.userShouldLandOnCreateRegistryScreenOne()"
             },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@MSHAPP-177"
-          },
-          {
-            "name": "@UpdatePassword"
+            "name": "@MSHAPP-1028"
           }
         ]
       },
       {
-        "start_timestamp": "2022-08-04T08:51:13.888Z",
-        "line": 29,
-        "name": "verify whether user is able to enter current password and new password",
+        "start_timestamp": "2022-08-04T15:53:35.223Z",
+        "line": 24,
+        "name": "verify user is able select privacy setting",
         "description": "",
-        "id": "account-settings:-password-update;verify-whether-user-is-able-to-enter-current-password-and-new-password;;2",
+        "id": "mshapp-1028-registry-privacy-settings--tell-me-about;verify-user-is-able-select-privacy-setting",
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 6545000000,
-              "status": "passed"
-            },
-            "line": 24,
-            "name": "user clicks on the current password and new password",
-            "match": {
-              "location": "parallel.MSHAPP_177_StepDefs.userClicksOnTheCurrentPasswordAndNewPassword()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 4816000000,
+              "duration": 387000000,
               "status": "passed"
             },
             "line": 25,
-            "name": "user enter \"bala3@test.com\" and \"test@1234\"",
+            "name": "user  is on create event screen",
+            "match": {
+              "location": "parallel.MSHAPP_1026_StepDefs.userIsOnCreateEventScreen()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3727000000,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "user select the Privacy setting as \"Public\"",
             "match": {
               "arguments": [
                 {
-                  "val": "\"bala3@test.com\"",
-                  "offset": 11
-                },
-                {
-                  "val": "\"test@1234\"",
-                  "offset": 32
+                  "val": "\"Public\"",
+                  "offset": 35
                 }
               ],
-              "location": "parallel.MSHAPP_177_StepDefs.userEnterAnd(java.lang.String,java.lang.String)"
+              "location": "parallel.MSHAPP_1028_Stepdefs.user_select_the_privacy_setting_as(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 348000000,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "user should able to see the selected value \"Public\" in Privacy Settings",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Public\"",
+                  "offset": 43
+                }
+              ],
+              "location": "parallel.MSHAPP_1028_Stepdefs.user_should_able_to_see_the_selected_value_in_privacy_settings(java.lang.String)"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 1545000000,
+              "duration": 1131000000,
               "status": "passed"
             },
-            "line": 26,
+            "line": 28,
             "name": "user quits the screen",
             "match": {
               "location": "parallel.MSHAPP_1025_StepDefs.userQuitsTheScreen()"
@@ -235,34 +264,23 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-177"
-          },
-          {
-            "name": "@UpdatePassword"
+            "name": "@MSHAPP-1028"
           }
         ]
       }
     ],
-    "name": "Account Settings: Password Update",
+    "name": "MSHAPP-1028 Registry Privacy Settings -Tell me about",
     "description": "",
-    "id": "account-settings:-password-update",
+    "id": "mshapp-1028-registry-privacy-settings--tell-me-about",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/Features/MSHAPP-177.feature",
+    "uri": "file:src/test/resources/Features/MSHAPP-1028.feature",
     "tags": [
       {
-        "name": "@MSHAPP-177",
+        "name": "@MSHAPP-1028",
         "type": "Tag",
         "location": {
           "line": 1,
           "column": 1
-        }
-      },
-      {
-        "name": "@UpdatePassword",
-        "type": "Tag",
-        "location": {
-          "line": 1,
-          "column": 13
         }
       }
     ]

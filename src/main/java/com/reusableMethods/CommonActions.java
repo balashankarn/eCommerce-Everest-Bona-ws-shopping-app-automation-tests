@@ -600,6 +600,12 @@ public class CommonActions {
         String str = formatter.format(date);
          return str;
     }
+
+    public void moveToElementAndClick(MobileElement element){
+        waitVisibilityOfElement(element);
+        Actions act = new Actions(driver);
+        act.moveToElement(element).click().perform();
+    }
 }
 
 

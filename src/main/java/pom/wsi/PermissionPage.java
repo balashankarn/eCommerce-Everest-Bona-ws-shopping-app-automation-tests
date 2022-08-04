@@ -49,7 +49,6 @@ public class PermissionPage extends CommonActions {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void continueShopping(){

@@ -18,14 +18,13 @@ public class MSHAPP_1026_StepDefs {
 
     @Given("user select the event type as {string}")
     public void user_select_the_event_type_as(String eventType) {
-        registryPage.selectEvenType(eventType);
+        registryPage.selectEvenType();
     }
 
     @Then("user should able to see the selected value {string} in event type")
     public void user_should_able_to_see_the_selected_value_in_event_type(String expEventTypeValue) {
       String actualEventTypeValue =  registryPage.verifyEventTypeValueGetsPopulated();
       Assert.assertEquals(actualEventTypeValue,expEventTypeValue);
-        registryPage.quitBrowser();
-
     }
+
 }

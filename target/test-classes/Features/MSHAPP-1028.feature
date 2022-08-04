@@ -2,9 +2,11 @@
 Feature:MSHAPP-1028 Registry Privacy Settings -Tell me about
 
   Scenario: verify whether user is able to navigate registry dashboard
-    Given user launches the apps
-    When  user click on registry in bottom navigation bar
-    Then  user lands on registry screen
+  Given user launches the apps
+  When User continue shopping as guest user
+  When Sign out the app if already signed in
+  When  user click on registry in bottom navigation bar
+  Then  user lands on registry screen
 
   Scenario: Verify user is navigated to create registry screen
     Given user is on registry screen
@@ -18,7 +20,11 @@ Feature:MSHAPP-1028 Registry Privacy Settings -Tell me about
     Examples:
       | username    | password |
       | bala3@test.com | test@1234 |
+
   Scenario: verify user is able select privacy setting
     Given user  is on create event screen
-    And user clicks on privacy setting and selects privacy
-    Then the selected privacy type should be populated
+    And user select the Privacy setting as "Public"
+    Then user should able to see the selected value "Public" in Privacy Settings
+    And user quits the screen
+
+

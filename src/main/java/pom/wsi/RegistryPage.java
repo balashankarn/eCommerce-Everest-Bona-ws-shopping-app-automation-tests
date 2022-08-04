@@ -13,6 +13,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 import static com.reusableMethods.CommonActions.Direction.DOWN;
 import static com.reusableMethods.CommonActions.Direction.UP;
 
@@ -45,14 +47,19 @@ public class RegistryPage extends CommonActions {
     private MobileElement btnLogin;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[4]")
     private MobileElement spnSelectEventType;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypePicker/XCUIElementTypePickerWheel")
+    private List<MobileElement> pickerWheel;
+
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[3]")
     private MobileElement spnSelectEventDate;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[5]")
+    private MobileElement spnPrivacySetting;
     @iOSXCUITFindBy(accessibility = "DONE")
     private MobileElement spnSelectEventTypeDone;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Tuesday, July 5\"]")
     private MobileElement spnEventDate;
-    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeTextField[@name=\"authtextfield_email_textfield\"])[4]")
-    private MobileElement spnPrivacySetting;
     @iOSXCUITFindBy(accessibility = "DONE")
    private MobileElement spnPrivacySettingDone;
     @iOSXCUITFindBy(accessibility = "checkmark.rectangle")
@@ -126,9 +133,8 @@ public class RegistryPage extends CommonActions {
         btnLogin.click();
     }
 
-    public void selectEvenType(String eventType){
-        waitForMobileElement(spnSelectEventType);
-        spnSelectEventType.sendKeys(eventType);
+    public void selectEvenType(){
+        clickOnMobileElement(spnSelectEventType);
         clickOnMobileElement(spnSelectEventTypeDone);
     }
 
@@ -140,12 +146,12 @@ public class RegistryPage extends CommonActions {
    public void userClicksOnEvenTypeAndSelectsEventDate(){
        waitForMobileElement(spnSelectEventDate);
        spnSelectEventDate.click();
-       spnSelectEventType.sendKeys(getCurrentDate());
+      spnSelectEventDate.sendKeys(getCurrentDate());
    }
 
    public boolean theSelectDateAndEventShouldBeDisplayedthere(){
-     String acutalCurrentDate =  spnSelectEventDate.getAttribute("value");
-     if(!acutalCurrentDate.isEmpty()){
+     String actualCurrentDate =  spnSelectEventDate.getAttribute("value");
+     if(!actualCurrentDate.isEmpty()){
          return true;
      }
      return false;
@@ -155,16 +161,15 @@ public class RegistryPage extends CommonActions {
         quitBrowser();
    }
 
-   public void userClicksOnPrivacySettingAndSelectsPrivacy(){
-            waitForMobileElement(spnPrivacySetting);
-            clickOnMobileElement(spnPrivacySetting);
-            waitForMobileElement(spnPrivacySettingDone);
-            clickOnMobileElement(spnPrivacySettingDone);
+   public void clickOnPrivacySettingAndSelectsPrivacy(){
+       clickOnMobileElement(spnPrivacySetting);
+       clickOnMobileElement(spnPrivacySettingDone);
    }
 
-   public void theSelectedPrivacyTypeShouldBePopulated(){
-          waitForMobileElement(btnNext);
-          Assert.assertTrue(btnNext.isDisplayed());
+   public String verifyPrivacyTYpeGetsDisplayed(){
+       String privacyType = spnPrivacySetting.getAttribute("value");
+       return privacyType;
+
     }
 
    public void userClicksOnNextButton(){
