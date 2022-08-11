@@ -18,6 +18,6 @@ public class MSHAPP_1027_Stepdefs {
     public void theSelectedEventDateShouldBePopulatedHere() {
        boolean status = registryPage.theSelectDateAndEventShouldBeDisplayedthere();
        Assert.assertTrue(status);
-       registryPage.quitBrowser();
+
     }
 }

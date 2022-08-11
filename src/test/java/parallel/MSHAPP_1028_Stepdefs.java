@@ -13,7 +13,7 @@ public class MSHAPP_1028_Stepdefs {
 
     @Given("user select the Privacy setting as {string}")
     public void user_select_the_privacy_setting_as(String privacyType) {
-        registryPage.clickOnPrivacySettingAndSelectsPrivacy();
+        registryPage.clickOnPrivacySettingAndSelectsPrivacy(privacyType);
     }
 
     @Then("user should able to see the selected value {string} in Privacy Settings")

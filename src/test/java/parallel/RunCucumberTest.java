@@ -14,12 +14,12 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(features= {"src/test/resources/Features"},
 		glue= {"parallel"},
 		dryRun= false,
-		tags= "@MSHAPP-1028",
+		tags= "@MSHAPP-1033",
 		plugin= {"pretty", "json:target/ResultsMobile/cucumber.json"},
-		monochrome = true)
+		monochrome = false)
 public class RunCucumberTest {
 
-	@AfterClass         
+	@AfterClass
 	   public static void afterClass() throws IOException {                 
 		   JvmReport.generateReport(System.getProperty("user.dir")+"/target/ResultsMobile/cucumber.json");     
 		   

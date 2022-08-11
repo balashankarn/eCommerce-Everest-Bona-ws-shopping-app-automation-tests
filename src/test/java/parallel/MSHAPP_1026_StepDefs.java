@@ -18,7 +18,7 @@ public class MSHAPP_1026_StepDefs {
 
     @Given("user select the event type as {string}")
     public void user_select_the_event_type_as(String eventType) {
-        registryPage.selectEvenType();
+        registryPage.selectEvenType(eventType);
     }
 
     @Then("user should able to see the selected value {string} in event type")

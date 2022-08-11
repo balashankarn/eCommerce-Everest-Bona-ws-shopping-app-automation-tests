@@ -3,15 +3,10 @@ package com.reusableMethods;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
@@ -572,7 +567,7 @@ public class CommonActions {
     }
 
     public static WebDriverWait webDriverWait() {
-        return new WebDriverWait(driver, 40);
+        return new WebDriverWait(driver, 20);
     }
 
     public static void waitVisibilityOfElement(MobileElement element) {
@@ -585,7 +580,7 @@ public class CommonActions {
     }
 
     public void scrollByPercentage(double startX, double startY, double endY) {
-
+        waitFor(2000);
         Dimension size = driver.manage().window().getSize();
         int startX1 = (int) (size.width * startX);
         int startY1 = (int) (size.height * startY);
@@ -601,12 +596,51 @@ public class CommonActions {
          return str;
     }
 
+    public String getNextDay(){
+        DateFormat dateFormat = new SimpleDateFormat("dd");
+        Date date = new Date();
+
+      Calendar c =  Calendar.getInstance();
+      c.setTime(date);
+
+       c.add (Calendar.DATE,1);
+
+     Date d1 =  c.getTime();
+
+     int nextDay = Integer.parseInt(dateFormat.format(d1));
+    return Integer.toString(nextDay);
+
+    }
+
     public void moveToElementAndClick(MobileElement element){
         waitVisibilityOfElement(element);
         Actions act = new Actions(driver);
         act.moveToElement(element).click().perform();
     }
-}
+
+        public void scrollByXYcordinates(int startX, int startY, int endX, int endY) {
+
+            Dimension  size = driver.manage().window().getSize();
+
+            new TouchAction((PerformsTouchActions) driver).press(point(startX, startY)).waitAction(waitOptions(Duration.ofMillis(1000)))
+                    .moveTo(point(endX, endY)).release().perform();
+
+        }
+
+    public void scrollDown() {
+        Map<String, Object> args = new HashMap<>();
+        args.put("direction", "up");
+        driver.executeScript("mobile: swipe", args);
+    }
+
+    public void scrollUp() {
+        Map<String, Object> args = new HashMap<>();
+        args.put("direction", "down");
+        driver.executeScript("mobile: swipe", args);
+    }
+
+    }
+
 
 
 
