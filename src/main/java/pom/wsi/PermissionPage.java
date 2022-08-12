@@ -37,7 +37,7 @@ public class PermissionPage extends CommonActions {
     private MobileElement btnSignIn;
 
     @iOSXCUITFindBy(accessibility = "Allow")
-    private MobileElement allowButton;
+    private MobileElement btnAllow;
 
 
 
@@ -52,6 +52,11 @@ public class PermissionPage extends CommonActions {
     }
 
     public void continueShopping(){
+        try{
+            clickOnMobileElement(btnAllow);
+        }catch(Exception e){
+
+        }
         clickOnMobileElement(btnContinueAsGuest);
         login = new LoginPage(driver);
         login.turnOnNotifications();

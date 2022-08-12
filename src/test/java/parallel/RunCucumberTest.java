@@ -14,7 +14,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(features= {"src/test/resources/Features"},
 		glue= {"parallel"},
 		dryRun= false,
-		tags= "@MSHAPP-1033",
+		tags= "@MSHAPP-1034",
 		plugin= {"pretty", "json:target/ResultsMobile/cucumber.json"},
 		monochrome = false)
 public class RunCucumberTest {

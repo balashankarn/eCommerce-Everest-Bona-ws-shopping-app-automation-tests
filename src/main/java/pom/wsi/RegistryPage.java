@@ -118,6 +118,10 @@ public class RegistryPage extends CommonActions {
     private MobileElement checkedAddToMyGuests;
     @iOSXCUITFindBy(accessibility = "SIGN OUT")
     private MobileElement btnSignOut;
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name='Rectangle'])[2]")
+    private MobileElement chkToAcceptGiftCards;
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name='checkmark.rectangle'])[2]")
+    private MobileElement checkedAddToAcceptGiftCards;
 
 
     public void userClickOnRegistry() {
@@ -393,7 +397,6 @@ public class RegistryPage extends CommonActions {
             return false;
         }
     }
-
     public void clickOnCheckBoxForAccessRegistry() {
         clickOnMobileElement(chkCoRegistrantOne);
     }
@@ -417,19 +420,16 @@ public class RegistryPage extends CommonActions {
         txtNameRegistry.sendKeys(registryName + extraCharacter);
         String actualRegistryName = txtNameRegistry.getText();
         if (actualRegistryName.equals(registryName) && actualRegistryName.length() == characterCount) {
-
             return true;
         }
         return false;
     }
-
 
     public boolean verifySpecialCharacterIsAllowedForNameYourRegistry(String registryName) {
         txtNameRegistry.clear();
         txtNameRegistry.sendKeys(registryName);
         String actualRegistryName = txtNameRegistry.getText();
         if (actualRegistryName.equals(registryName)) {
-
             return true;
         }
         return false;
@@ -442,8 +442,8 @@ public class RegistryPage extends CommonActions {
 
     public boolean verifyCharacterLimitForEnterYourGuestMessage(int characterCount, String message) {
         waitVisibilityOfElement(txtEnterYourGuestMessage);
-      int len =  message.length();
-      System.out.println(len);
+        int len = message.length();
+        System.out.println(len);
         String extraCharacter = "testing";
         txtEnterYourGuestMessage.sendKeys(message + extraCharacter);
         String actualRegistryName = txtEnterYourGuestMessage.getText();
@@ -452,13 +452,11 @@ public class RegistryPage extends CommonActions {
             return true;
         }
         return false;
-
     }
 
     public boolean verifyCharacterCountGetsDisplayedForEnterYourGuestMessage() {
-          scrollDown();
+        scrollDown();
         return lblCharacterCount.isDisplayed();
-
     }
 
     public boolean verifyCheckboxIsSelectedForAddMessageToMyGuests() {
@@ -478,11 +476,34 @@ public class RegistryPage extends CommonActions {
         }
     }
 
-    public void clickOnCheckboxForAddToMyGuests(){
+    public void clickOnCheckboxForAddToMyGuests() {
         clickOnMobileElement(checkedAddToMyGuests);
     }
 
+
+    public boolean verifyCheckboxIsNotSelectedForAcceptGiftCards() {
+        scrollDown();
+        if(!chkToAcceptGiftCards.isSelected()){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean verifyCheckboxIsSelectedForAcceptGiftCards(){
+        clickOnMobileElement(chkToAcceptGiftCards);
+        if(checkedAddToAcceptGiftCards.isDisplayed()){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean unchecksCheckBoxForAcceptGiftCards(){
+        clickOnMobileElement(checkedAddToAcceptGiftCards);
+        if(!chkToAcceptGiftCards.isSelected()){
+            return true;
+        }
+        return false;
+    }
+
 }
-
-
 

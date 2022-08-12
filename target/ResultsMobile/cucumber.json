@@ -3,17 +3,17 @@
     "line": 3,
     "elements": [
       {
-        "start_timestamp": "2022-08-11T15:58:01.276Z",
+        "start_timestamp": "2022-08-12T13:54:53.309Z",
         "line": 5,
         "name": "verify that user is able to navigate registry dashboard",
         "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-that-user-is-able-to-navigate-registry-dashboard",
+        "id": "optimized-create-registry---step-3:-gift-card-select;verify-that-user-is-able-to-navigate-registry-dashboard",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 13870000000,
+              "duration": 19181000000,
               "status": "passed"
             },
             "line": 6,
@@ -25,7 +25,7 @@
           },
           {
             "result": {
-              "duration": 26791000000,
+              "duration": 26682000000,
               "status": "passed"
             },
             "line": 7,
@@ -37,7 +37,7 @@
           },
           {
             "result": {
-              "duration": 34581000000,
+              "duration": 33822000000,
               "status": "passed"
             },
             "line": 8,
@@ -49,7 +49,7 @@
           },
           {
             "result": {
-              "duration": 1717000000,
+              "duration": 1739000000,
               "status": "passed"
             },
             "line": 9,
@@ -61,7 +61,7 @@
           },
           {
             "result": {
-              "duration": 371000000,
+              "duration": 365000000,
               "status": "passed"
             },
             "line": 10,
@@ -74,22 +74,22 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1033"
+            "name": "@MSHAPP-1034"
           }
         ]
       },
       {
-        "start_timestamp": "2022-08-11T15:59:18.779Z",
+        "start_timestamp": "2022-08-12T13:56:15.336Z",
         "line": 12,
         "name": "Verify that user is navigated to create registry screen",
         "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-that-user-is-navigated-to-create-registry-screen",
+        "id": "optimized-create-registry---step-3:-gift-card-select;verify-that-user-is-navigated-to-create-registry-screen",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 258000000,
+              "duration": 250000000,
               "status": "passed"
             },
             "line": 13,
@@ -101,7 +101,7 @@
           },
           {
             "result": {
-              "duration": 1441000000,
+              "duration": 1417000000,
               "status": "passed"
             },
             "line": 14,
@@ -113,7 +113,7 @@
           },
           {
             "result": {
-              "duration": 329000000,
+              "duration": 338000000,
               "status": "passed"
             },
             "line": 15,
@@ -126,22 +126,22 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1033"
+            "name": "@MSHAPP-1034"
           }
         ]
       },
       {
-        "start_timestamp": "2022-08-11T15:59:20.870Z",
+        "start_timestamp": "2022-08-12T13:56:17.398Z",
         "line": 23,
         "name": "verify that user is able to login",
         "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-that-user-is-able-to-login;;2",
+        "id": "optimized-create-registry---step-3:-gift-card-select;verify-that-user-is-able-to-login;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 293000000,
+              "duration": 295000000,
               "status": "passed"
             },
             "line": 18,
@@ -153,7 +153,7 @@
           },
           {
             "result": {
-              "duration": 2358000000,
+              "duration": 2256000000,
               "status": "passed"
             },
             "line": 19,
@@ -175,7 +175,7 @@
           },
           {
             "result": {
-              "duration": 2734000000,
+              "duration": 2577000000,
               "status": "passed"
             },
             "line": 20,
@@ -188,22 +188,22 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1033"
+            "name": "@MSHAPP-1034"
           }
         ]
       },
       {
-        "start_timestamp": "2022-08-11T15:59:26.301Z",
+        "start_timestamp": "2022-08-12T13:56:22.588Z",
         "line": 25,
         "name": "Verify that User is able to fill up all the required fields of 1st screen of Create Registry flow nad move to 2nd screen",
         "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-that-user-is-able-to-fill-up-all-the-required-fields-of-1st-screen-of-create-registry-flow-nad-move-to-2nd-screen",
+        "id": "optimized-create-registry---step-3:-gift-card-select;verify-that-user-is-able-to-fill-up-all-the-required-fields-of-1st-screen-of-create-registry-flow-nad-move-to-2nd-screen",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 4347000000,
+              "duration": 4101000000,
               "status": "passed"
             },
             "line": 26,
@@ -221,7 +221,7 @@
           },
           {
             "result": {
-              "duration": 1701000000,
+              "duration": 1655000000,
               "status": "passed"
             },
             "line": 27,
@@ -233,7 +233,7 @@
           },
           {
             "result": {
-              "duration": 6073000000,
+              "duration": 6164000000,
               "status": "passed"
             },
             "line": 28,
@@ -251,7 +251,7 @@
           },
           {
             "result": {
-              "duration": 1483000000,
+              "duration": 1432000000,
               "status": "passed"
             },
             "line": 29,
@@ -264,22 +264,22 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1033"
+            "name": "@MSHAPP-1034"
           }
         ]
       },
       {
-        "start_timestamp": "2022-08-11T15:59:39.942Z",
+        "start_timestamp": "2022-08-12T13:56:35.995Z",
         "line": 37,
         "name": "Verify that User is able to fill up all the required fields of the 2nd screen of Create Registry flow nad move to 3rd screen",
         "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-that-user-is-able-to-fill-up-all-the-required-fields-of-the-2nd-screen-of-create-registry-flow-nad-move-to-3rd-screen;;2",
+        "id": "optimized-create-registry---step-3:-gift-card-select;verify-that-user-is-able-to-fill-up-all-the-required-fields-of-the-2nd-screen-of-create-registry-flow-nad-move-to-3rd-screen;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 9153000000,
+              "duration": 8962000000,
               "status": "passed"
             },
             "line": 32,
@@ -313,7 +313,7 @@
           },
           {
             "result": {
-              "duration": 1426000000,
+              "duration": 1455000000,
               "status": "passed"
             },
             "line": 33,
@@ -326,22 +326,22 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1033"
+            "name": "@MSHAPP-1034"
           }
         ]
       },
       {
-        "start_timestamp": "2022-08-11T15:59:50.555Z",
+        "start_timestamp": "2022-08-12T13:56:46.445Z",
         "line": 40,
         "name": "Verify that user is able to land on the 3rd screen of Create Registry flow",
         "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-that-user-is-able-to-land-on-the-3rd-screen-of-create-registry-flow",
+        "id": "optimized-create-registry---step-3:-gift-card-select;verify-that-user-is-able-to-land-on-the-3rd-screen-of-create-registry-flow",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 406000000,
+              "duration": 405000000,
               "status": "passed"
             },
             "line": 41,
@@ -354,239 +354,93 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1033"
+            "name": "@MSHAPP-1034"
           }
         ]
       },
       {
-        "start_timestamp": "2022-08-11T15:59:50.992Z",
-        "line": 48,
-        "name": "Verify that user is able to enter a name with maximum of 40 character in NAME YOUR REGISTRY  field",
+        "start_timestamp": "2022-08-12T13:56:46.874Z",
+        "line": 43,
+        "name": "Verify that user is able to see the checkbox to accept Gift cards is not checked",
         "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-that-user-is-able-to-enter-a-name-with-maximum-of-40-character-in-name-your-registry--field;;2",
+        "id": "optimized-create-registry---step-3:-gift-card-select;verify-that-user-is-able-to-see-the-checkbox-to-accept-gift-cards-is-not-checked",
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 2455000000,
+              "duration": 633000000,
               "status": "passed"
             },
             "line": 44,
-            "name": "User should able to enter a name \"The Name of your Registry Auto   Testing\" with maximum of 40 character",
+            "name": "User should able to see the checkbox to accept Gift cards is not checked",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"The Name of your Registry Auto   Testing\"",
-                  "offset": 33
-                },
-                {
-                  "val": "40",
-                  "offset": 92
-                }
-              ],
-              "location": "parallel.MSHAPP_1033_Stepdef.user_should_able_to_enter_a_name_with_maximum_of_character(java.lang.String,java.lang.Integer)"
+              "location": "parallel.MSHAPP_1034_Stepdef.user_should_able_to_see_the_checkbox_to_accept_gift_cards_is_not_checked()"
             },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1033"
+            "name": "@MSHAPP-1034"
           }
         ]
       },
       {
-        "start_timestamp": "2022-08-11T15:59:53.481Z",
-        "line": 55,
-        "name": "Verify that user is able to  enter special character in NAME YOUR REGISTRY field",
+        "start_timestamp": "2022-08-12T13:56:47.520Z",
+        "line": 46,
+        "name": "Verify that user is able to select the checkbox to accept Gift cards",
         "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-that-user-is-able-to--enter-special-character-in-name-your-registry-field;;2",
+        "id": "optimized-create-registry---step-3:-gift-card-select;verify-that-user-is-able-to-select-the-checkbox-to-accept-gift-cards",
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 3011000000,
+              "duration": 2090000000,
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "User should able to select the checkbox to accept Gift card",
+            "match": {
+              "location": "parallel.MSHAPP_1034_Stepdef.user_should_able_to_select_the_checkbox_to_accept_gift_card()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@MSHAPP-1034"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-08-12T13:56:49.650Z",
+        "line": 49,
+        "name": "Verify that user is able to uncheck the checkbox to accept gift cards",
+        "description": "",
+        "id": "optimized-create-registry---step-3:-gift-card-select;verify-that-user-is-able-to-uncheck-the-checkbox-to-accept-gift-cards",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2269000000,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "User should able to uncheck the checkbox to accept gift cards",
+            "match": {
+              "location": "parallel.MSHAPP_1034_Stepdef.user_should_able_to_uncheck_the_checkbox_to_accept_gift_cards()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1131000000,
               "status": "passed"
             },
             "line": 51,
-            "name": "User should able to enter special character \"AutoTesting!@$5^\u0026\u0026**\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"AutoTesting!@$5^\u0026\u0026**\"",
-                  "offset": 44
-                }
-              ],
-              "location": "parallel.MSHAPP_1033_Stepdef.user_should_able_to_enter_special_character(java.lang.String)"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@MSHAPP-1033"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-08-11T15:59:56.538Z",
-        "line": 57,
-        "name": "Verify that user is able to see the label I want to add a message to my guests",
-        "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-that-user-is-able-to-see-the-label-i-want-to-add-a-message-to-my-guests",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 509000000,
-              "status": "passed"
-            },
-            "line": 58,
-            "name": "User should able to see label \"I want to add a message to my guests\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"I want to add a message to my guests\"",
-                  "offset": 30
-                }
-              ],
-              "location": "parallel.MSHAPP_1033_Stepdef.user_should_able_to_see_label(java.lang.String)"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@MSHAPP-1033"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-08-11T15:59:57.082Z",
-        "line": 66,
-        "name": "Verify that user is able to enter a maximum of 300 characters in the message field",
-        "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-that-user-is-able-to-enter-a-maximum-of-300-characters-in-the-message-field;;2",
-        "type": "scenario",
-        "keyword": "Scenario Outline",
-        "steps": [
-          {
-            "result": {
-              "duration": 7259000000,
-              "status": "passed"
-            },
-            "line": 61,
-            "name": "User should able to enter a maximum of 300 characters \"it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for test\" in the message field",
-            "match": {
-              "arguments": [
-                {
-                  "val": "300",
-                  "offset": 39
-                },
-                {
-                  "val": "\"it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for test\"",
-                  "offset": 54
-                }
-              ],
-              "location": "parallel.MSHAPP_1033_Stepdef.user_should_able_to_enter_a_maximum_of_characters_in_the_message_field(java.lang.Integer,java.lang.String)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 987000000,
-              "status": "passed"
-            },
-            "line": 62,
-            "name": "User should able to see the character count as \"0/300\" after entering the below Message",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"0/300\"",
-                  "offset": 47
-                }
-              ],
-              "location": "parallel.MSHAPP_1033_Stepdef.user_should_able_to_see_the_character_count_as_after_entering_the_below_message(java.lang.String)"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@MSHAPP-1033"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-08-11T16:00:05.350Z",
-        "line": 68,
-        "name": "Verify that user is able to see the checkbox to add message to guests gets checked",
-        "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-that-user-is-able-to-see-the-checkbox-to-add-message-to-guests-gets-checked",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 804000000,
-              "status": "passed"
-            },
-            "line": 69,
-            "name": "User should able to see the checkbox to add message to guests gets checked",
-            "match": {
-              "location": "parallel.MSHAPP_1033_Stepdef.user_should_able_to_see_the_checkbox_to_add_message_to_guests_gets_checked()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@MSHAPP-1033"
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2022-08-11T16:00:06.176Z",
-        "line": 71,
-        "name": "Verify thar user is able to see the Enter the guest message field should be hidden after uncheck",
-        "description": "",
-        "id": "optimized-create-registry---step-3:-personalize-registry-creation;verify-thar-user-is-able-to-see-the-enter-the-guest-message-field-should-be-hidden-after-uncheck",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 2224000000,
-              "status": "passed"
-            },
-            "line": 72,
-            "name": "click on checkbox for add a message to my guests",
-            "match": {
-              "location": "parallel.MSHAPP_1033_Stepdef.click_on_checkbox_for_add_a_message_to_my_guests()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 20270000000,
-              "status": "passed"
-            },
-            "line": 73,
-            "name": "User should able to see the Enter the guest message field should be hidden",
-            "match": {
-              "location": "parallel.MSHAPP_1033_Stepdef.user_should_able_to_see_the_enter_the_guest_message_field_should_be_hidden()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 1094000000,
-              "status": "passed"
-            },
-            "line": 74,
             "name": "user quits the screen",
             "match": {
               "location": "parallel.MSHAPP_1025_StepDefs.userQuitsTheScreen()"
@@ -596,19 +450,19 @@
         ],
         "tags": [
           {
-            "name": "@MSHAPP-1033"
+            "name": "@MSHAPP-1034"
           }
         ]
       }
     ],
-    "name": "Optimized Create Registry - Step 3: Personalize Registry creation",
+    "name": "Optimized Create Registry - Step 3: Gift card select",
     "description": "",
-    "id": "optimized-create-registry---step-3:-personalize-registry-creation",
+    "id": "optimized-create-registry---step-3:-gift-card-select",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/Features/MSHAPP-1033.feature",
+    "uri": "file:src/test/resources/Features/MSHAPP-1034.feature",
     "tags": [
       {
-        "name": "@MSHAPP-1033",
+        "name": "@MSHAPP-1034",
         "type": "Tag",
         "location": {
           "line": 1,
