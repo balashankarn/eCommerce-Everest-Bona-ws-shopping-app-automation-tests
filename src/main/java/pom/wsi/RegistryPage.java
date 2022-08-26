@@ -128,6 +128,12 @@ public class RegistryPage extends CommonActions {
     @iOSXCUITFindBy(accessibility = "Before & After Event")
     private MobileElement txtBeforeAndAfterEvent;
 
+    @iOSXCUITFindBy(accessibility = "CREATE REGISTRY")
+    private MobileElement btnCreateARegistryTwo;
+
+    @iOSXCUITFindBy(id = "Congratulations, you’re registered!")
+    private MobileElement lblCongratulations;
+
 
     public void userClickOnRegistry() {
         waitForMobileElement(tbRegistry);
@@ -206,13 +212,13 @@ public class RegistryPage extends CommonActions {
         return eventTypeValue;
     }
 
-    public void userClicksOnEvenTypeAndSelectsEventDate() {
+    public void selectsEventDate() {
         waitForMobileElement(spnSelectEventDate);
         spnSelectEventDate.click();
         driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + getNextDay() + "']")).click();
     }
 
-    public boolean theSelectDateAndEventShouldBeDisplayedthere() {
+    public boolean verifySelectedDateIsDisplayed(){
         actualCurrentDate = spnSelectEventDate.getAttribute("value");
         if (!actualCurrentDate.isEmpty()) {
             return true;
@@ -542,6 +548,15 @@ public class RegistryPage extends CommonActions {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void clickOnCreateRegistryButton(){
+        scrollDown();
+        clickOnMobileElement(btnCreateARegistryTwo);
+    }
+
+    public String verifyConfirmationScreenIsDisplayed(){
+       return lblCongratulations.getText();
     }
 
 }

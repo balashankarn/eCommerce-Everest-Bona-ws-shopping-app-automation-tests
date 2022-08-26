@@ -12,12 +12,12 @@ public class MSHAPP_1027_Stepdefs {
 
     @And("user clicks on event type and selects event date")
     public void userClicksOnEvenTypeAndSelectsEventDate() {
-        registryPage.userClicksOnEvenTypeAndSelectsEventDate();
+        registryPage.selectsEventDate();
     }
 
     @Then("the selected event date should be populated here")
     public void theSelectedEventDateShouldBePopulatedHere() {
-        boolean status = registryPage.theSelectDateAndEventShouldBeDisplayedthere();
+        boolean status = registryPage.verifySelectedDateIsDisplayed();
         Assert.assertTrue(status);
     }
 
