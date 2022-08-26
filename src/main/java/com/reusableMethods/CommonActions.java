@@ -401,7 +401,7 @@ public class CommonActions {
     }
 
     public static boolean waitForMobileElement(MobileElement element) {
-        exwait.until(ExpectedConditions.visibilityOf(element));
+        waitVisibilityOfElement(element);
         return true;
     }
 
@@ -494,7 +494,6 @@ public class CommonActions {
 
     public void quitBrowser() {
         driver.closeApp();
-
     }
 
     public void swipeScreen(Direction dir) {
@@ -593,39 +592,39 @@ public class CommonActions {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
         String str = formatter.format(date);
-         return str;
+        return str;
     }
 
-    public String getNextDay(){
+    public String getNextDay() {
         DateFormat dateFormat = new SimpleDateFormat("dd");
         Date date = new Date();
 
-      Calendar c =  Calendar.getInstance();
-      c.setTime(date);
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
 
-       c.add (Calendar.DATE,1);
+        c.add(Calendar.DATE, 1);
 
-     Date d1 =  c.getTime();
+        Date d1 = c.getTime();
 
-     int nextDay = Integer.parseInt(dateFormat.format(d1));
-    return Integer.toString(nextDay);
+        int nextDay = Integer.parseInt(dateFormat.format(d1));
+        return Integer.toString(nextDay);
 
     }
 
-    public void moveToElementAndClick(MobileElement element){
+    public void moveToElementAndClick(MobileElement element) {
         waitVisibilityOfElement(element);
         Actions act = new Actions(driver);
         act.moveToElement(element).click().perform();
     }
 
-        public void scrollByXYcordinates(int startX, int startY, int endX, int endY) {
+    public void scrollByXYcordinates(int startX, int startY, int endX, int endY) {
 
-            Dimension  size = driver.manage().window().getSize();
+        Dimension size = driver.manage().window().getSize();
 
-            new TouchAction((PerformsTouchActions) driver).press(point(startX, startY)).waitAction(waitOptions(Duration.ofMillis(1000)))
-                    .moveTo(point(endX, endY)).release().perform();
+        new TouchAction((PerformsTouchActions) driver).press(point(startX, startY)).waitAction(waitOptions(Duration.ofMillis(1000)))
+                .moveTo(point(endX, endY)).release().perform();
 
-        }
+    }
 
     public void scrollDown() {
         Map<String, Object> args = new HashMap<>();
@@ -639,7 +638,7 @@ public class CommonActions {
         driver.executeScript("mobile: swipe", args);
     }
 
-    }
+}
 
 
 

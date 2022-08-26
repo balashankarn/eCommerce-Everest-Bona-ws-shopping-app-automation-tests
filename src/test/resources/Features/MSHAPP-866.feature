@@ -1,3 +1,4 @@
+@MSHAPP-866
 Feature: No Longer Available notification
 
   Scenario Outline: Verify Whether user is able to Login into the App
@@ -21,5 +22,5 @@ Feature: No Longer Available notification
 
   Scenario: verify whether user is able to navigate back cart
     Given user is NLA notification screen
-    When user clicks on NLA
-    Then user should be navigated back to cart
+    #When user clicks on NLA
+    #Then user should be navigated back to cart

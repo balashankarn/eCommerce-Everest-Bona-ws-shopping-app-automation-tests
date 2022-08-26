@@ -17,9 +17,8 @@ public class PermissionPage extends CommonActions {
     public static final Logger logger = LoggerFactory.getLogger(PermissionPage.class);
 
     public PermissionPage(AppiumDriver driver) {
-    //    login =new LoginPage(DriverManager.getDriver());
+        login = new LoginPage(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-
     }
 
 
@@ -35,15 +34,12 @@ public class PermissionPage extends CommonActions {
     private MobileElement btnStartShopping;
     @iOSXCUITFindBy(accessibility = "SIGN IN")
     private MobileElement btnSignIn;
-
     @iOSXCUITFindBy(accessibility = "Allow")
     private MobileElement btnAllow;
 
 
-
-
     public void clickOnAllowOnce() {
-        try{
+        try {
             implicitWait(15);
             btnAllowWhileUsingApp.click();
         } catch (Exception e) {
@@ -51,24 +47,24 @@ public class PermissionPage extends CommonActions {
         }
     }
 
-    public void continueShopping(){
-        try{
-            clickOnMobileElement(btnAllow);
-        }catch(Exception e){
+    public void continueShopping() {
+        clickOnMobileElement(btnContinueAsGuest);
+        waitFor(3000);
+       login.turnOnNotifications();
+        try {
+            implicitWait(5);
+            btnAllow.click();
+        } catch (Exception e) {
 
         }
-        clickOnMobileElement(btnContinueAsGuest);
-        login = new LoginPage(driver);
-        login.turnOnNotifications();
-        waitForMobileElement(btnStartShopping);
-        clickOnMobileElement(btnStartShopping);
+        btnStartShopping.click();
     }
 
-    public void continueSignIn(){
+    public void continueSignIn() {
         try {
             waitForMobileElement(btnSignIn);
             clickOnMobileElement(btnSignIn);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

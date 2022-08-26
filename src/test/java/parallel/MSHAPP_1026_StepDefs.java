@@ -8,7 +8,7 @@ import org.testng.Assert;
 import pom.wsi.*;
 
 public class MSHAPP_1026_StepDefs {
-    RegistryPage  registryPage = new RegistryPage(DriverManager.getDriver());
+    RegistryPage registryPage = new RegistryPage(DriverManager.getDriver());
 
     @Given("user  is on create event screen")
     public void userIsOnCreateEventScreen() {
@@ -23,8 +23,8 @@ public class MSHAPP_1026_StepDefs {
 
     @Then("user should able to see the selected value {string} in event type")
     public void user_should_able_to_see_the_selected_value_in_event_type(String expEventTypeValue) {
-      String actualEventTypeValue =  registryPage.verifyEventTypeValueGetsPopulated();
-      Assert.assertEquals(actualEventTypeValue,expEventTypeValue);
+        String actualEventTypeValue = registryPage.verifyEventTypeValueGetsPopulated();
+        Assert.assertEquals(actualEventTypeValue, expEventTypeValue);
     }
 
 }

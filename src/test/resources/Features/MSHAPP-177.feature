@@ -1,4 +1,4 @@
-@MSHAPP-177 @UpdatePassword
+@MSHAPP-177 @UpdatePassword @Regression
 Feature:Account Settings: Password Update
 
   Scenario Outline: Verify Whether user is able to Login into the App
@@ -8,7 +8,7 @@ Feature:Account Settings: Password Update
     Then User should be in homepage
     Then User should be in Account page
     Examples:
-      | username    | password |
+      | username       | password  |
       | bala3@test.com | test@1234 |
 
   Scenario:verify whether user ia able to navigate to account setting screen
@@ -21,9 +21,9 @@ Feature:Account Settings: Password Update
 
 
   Scenario Outline: verify whether user is able to enter current password and new password
-   When  user clicks on the current password and new password
+    When  user clicks on the current password and new password
     Then  user enter "<currentpassword>" and "<newpassword>"
     And user quits the screen
     Examples:
       | currentpassword | newpassword |
-      | bala3@test.com | test@1234 |
+      | bala3@test.com  | test@1234   |

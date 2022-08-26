@@ -61,4 +61,5 @@ public class MSHAPP_177_StepDefs {
         accountSettingPage.userEnterCurrentPassword(currentpassword);
         accountSettingPage.userEnterNewPassword(newpassword);
     }
+
 }

@@ -1,20 +1,20 @@
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/CheckoutPage.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/utilities/ExcelReader.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/utilities/LoggerClass.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/driverfactory/DriverFactory.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/AccountPage.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/driverfactory/DriverManager.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/LoginPage.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/reusableMethods/CommonActions.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/driverfactory/manager/IOSDriverManager.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/reusableMethods/Screenshots.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/AccountSettingPage.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/driverfactory/manager/AndriodDriverManager.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/OrderHistoryPage.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/TabBarPage.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/driverfactory/Factory.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/utilities/JvmReport.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/exceptions/TargetNotValidException.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/PermissionPage.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/RegistryPage.java
-/Users/rajesh_c1/Desktop/untitled folder/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/utilities/ConfigReader.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/driverfactory/DriverFactory.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/LoginPage.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/driverfactory/manager/AndriodDriverManager.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/utilities/ConfigReader.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/CheckoutPage.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/utilities/JvmReport.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/reusableMethods/Screenshots.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/AccountPage.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/utilities/ExcelReader.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/exceptions/TargetNotValidException.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/TabBarPage.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/AccountSettingPage.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/utilities/LoggerClass.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/driverfactory/Factory.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/driverfactory/manager/IOSDriverManager.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/PermissionPage.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/OrderHistoryPage.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/pom/wsi/RegistryPage.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/reusableMethods/CommonActions.java
+/Users/rajesh_c1/Desktop/ShopApp/eCommerce-Everest-Bona-ws-shopping-app-automation-tests/src/main/java/com/driverfactory/DriverManager.java

@@ -18,8 +18,8 @@ public class MSHAPP_1028_Stepdefs {
 
     @Then("user should able to see the selected value {string} in Privacy Settings")
     public void user_should_able_to_see_the_selected_value_in_privacy_settings(String expPrivacyType) {
-      String actualPrivacyType =  registryPage.verifyPrivacyTYpeGetsDisplayed();
-        Assert.assertEquals(actualPrivacyType,expPrivacyType);
-
+        String actualPrivacyType = registryPage.verifyPrivacyTYpeGetsDisplayed();
+        Assert.assertEquals(actualPrivacyType, expPrivacyType);
     }
+
 }

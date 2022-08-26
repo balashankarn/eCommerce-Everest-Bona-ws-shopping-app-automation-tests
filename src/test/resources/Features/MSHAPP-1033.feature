@@ -1,4 +1,4 @@
-@MSHAPP-1033
+@MSHAPP-1033 @Regression
 
 Feature:Optimized Create Registry - Step 3: Personalize Registry creation
 
@@ -61,9 +61,9 @@ Feature:Optimized Create Registry - Step 3: Personalize Registry creation
     Then User should able to enter a maximum of 300 characters "<Message>" in the message field
     Then User should able to see the character count as "0/300" after entering the below Message
 
-      Examples:
-      | Message |
-      |it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for test|
+    Examples:
+      | Message                                                                                                                                                                                                                                                                                                      |
+      | it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for the testing it is for test |
 
   Scenario: Verify that user is able to see the checkbox to add message to guests gets checked
     Then User should able to see the checkbox to add message to guests gets checked

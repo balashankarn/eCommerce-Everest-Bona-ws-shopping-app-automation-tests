@@ -7,6 +7,8 @@ import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +30,7 @@ public class LoginPage extends CommonActions {
     TabBarPage tabBarPage;
     PermissionPage permissionPage;
     AccountSettingPage accountSettingPage;
+
     public LoginPage(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
@@ -39,7 +42,6 @@ public class LoginPage extends CommonActions {
     private MobileElement btnStartShopping;
     @iOSXCUITFindBy(accessibility = "ACCOUNT")
     private MobileElement tbrAccount;
-
     @iOSXCUITFindBy(id = "SIGN IN")
     private MobileElement btnSignin;
 
@@ -53,9 +55,9 @@ public class LoginPage extends CommonActions {
     private MobileElement btnresgression;
     @iOSXCUITFindBy(accessibility = "authentication_sign_in_button")
     private MobileElement btnLogin;
-    @iOSXCUITFindBy(id = "TURN ON NOTIFICATIONS")
-    private MobileElement turnOnNotifications;
 
+    @iOSXCUITFindBy(id = "cart_share_button")
+    private MobileElement turnOnNotifications;
     @iOSXCUITFindBy(accessibility = "Allow")
     private MobileElement allowButton;
     @iOSXCUITFindBy(id = "authtextfield_email_textfield")
@@ -81,7 +83,12 @@ public class LoginPage extends CommonActions {
 
 
     public void navigatingToSignin() {
+        try {
+            implicitWait(8);
+            allowButton.click();
+        } catch (Exception e) {
 
+        }
         clickOnMobileElement(btnStartShopping);
         clickOnMobileElement(tbrAccount);
     }
@@ -109,48 +116,35 @@ public class LoginPage extends CommonActions {
     public void userEnterUserName(String username) {
         waitVisibilityOfElement(txtUsername);
         txtUsername.click();
-        sendKeysOnMobileElement(txtUsername,username);
+        sendKeysOnMobileElement(txtUsername, username);
 
     }
 
     public void userEnterPassword(String password) {
-            waitForMobileElement(txtPassword);
-            txtPassword.sendKeys(password);
+        waitForMobileElement(txtPassword);
+        txtPassword.sendKeys(password);
     }
 
     public void clickLoginBth() {
         clickOnMobileElement(btnLogin);
-        try{
-            implicitWait(8);
-            allowButton.click();
-        }catch(Exception e){
-
-        }
         waitVisibilityOfElement(turnOnNotifications);
-        try{
-        for(int i=0; i<5; i++) {
-            turnOnNotifications.click();
-            if (allowBtn.isDisplayed()) {
+        waitFor(2000);
+        turnOnNotifications.click();
+        try {
+            if (allowButton.isDisplayed()) {
                 allowButton.click();
-                break;
             }
+        } catch (Exception e) {
+
         }
-        }catch(Exception e){
-
-            }
-
-
     }
 
-
-
     public void userLandsOnDashboard() {
-
-            waitForMobileElement(tbrAccount);
-            try {
-                implicitWait(15);
-                btnOK.click();
-            }catch(Exception e){
+        waitForMobileElement(tbrAccount);
+        try {
+            implicitWait(15);
+            btnOK.click();
+        } catch (Exception e) {
 
 
         }
@@ -163,34 +157,33 @@ public class LoginPage extends CommonActions {
     public void scrollDown() {
         swipeDown();
     }
-    public void signOut(){
+
+    public void signOut() {
         swipeUp();
         Assert.assertTrue(btnAccountSetting.isDisplayed());
         clickOnMobileElement(btnAccountSetting);
         scrollDown();
     }
 
-    public void turnOnNotifications(){
+    public void turnOnNotifications() {
+        waitFor(3000);
+        turnOnNotifications.click();
+            for (int i = 0; i < 10; i++) {
+                waitFor(1500);
+                try {
 
-        try{
-            implicitWait(5);
-            allowButton.click();
-        }catch(Exception e){
-
-        }
-        waitVisibilityOfElement(turnOnNotifications);
-        try{
-            for(int i=0; i<5; i++) {
-                turnOnNotifications.click();
-                if (allowBtn.isDisplayed()) {
+                if (allowButton.isDisplayed()) {
                     allowButton.click();
                     break;
                 }
+
+            } catch(Exception e){
+                System.out.println("it is not clicking");
             }
-        }catch(Exception e){
-
         }
-
+    }
     }
 
-}
+
+
+

@@ -1,3 +1,4 @@
+@MSHAPP-874
 Feature: Ship Restriction notification
 
   Scenario Outline: Verify Whether user is able to Login into the App

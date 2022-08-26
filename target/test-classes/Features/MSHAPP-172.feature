@@ -1,4 +1,4 @@
- @MSHAPP-172 @AccountDashboard
+@MSHAPP-172 @AccountDashboard @Regression
 Feature: MSHAPP-172 Account Dashboard: Signed In (basic version)
 
   Scenario Outline: Verify that user is able to Land into Account page
@@ -8,8 +8,8 @@ Feature: MSHAPP-172 Account Dashboard: Signed In (basic version)
     Then User should be in homepage
     Then User should be in Account page
     Examples:
-      |username|password|
-     | bala3@test.com | test@1234 |
+      | username       | password  |
+      | bala3@test.com | test@1234 |
 
 
   Scenario: Verify that UI as per design in Account setting page

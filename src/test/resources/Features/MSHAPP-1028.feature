@@ -1,4 +1,4 @@
-@MSHAPP-1028
+@MSHAPP-1028 @Regression
 Feature:MSHAPP-1028 Registry Privacy Settings -Tell me about
 
   Scenario: verify whether user is able to navigate registry dashboard

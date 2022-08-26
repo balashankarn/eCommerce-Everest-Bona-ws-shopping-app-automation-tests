@@ -1,4 +1,4 @@
-@orderHistory
+@orderHistory @Regression
 Feature: Order history
 
   Scenario Outline: Verify Whether user is able to Login into the App

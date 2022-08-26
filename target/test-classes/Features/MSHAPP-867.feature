@@ -1,7 +1,8 @@
+@MSHAPP-867
 Feature: Backorder notification
 
   Scenario Outline: Verify Whether user is able to Login into the App
-    Given Given user launches the apps
+    Given user launches the apps
     When user clicks sign in option
     And user enter username "<username>" and password "<password>" clicks on login
     Then user lands on dashboard screen

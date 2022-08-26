@@ -15,7 +15,7 @@ import pom.wsi.LoginPage;
 
 public class MSHAPP_176_StepDef extends Factory {
 
-    AccountPage accountPage =  new AccountPage(DriverManager.getDriver());
+    AccountPage accountPage = new AccountPage(DriverManager.getDriver());
     AccountSettingPage accountSettingPage = new AccountSettingPage(DriverManager.getDriver());
 
     @Given("user is on account dashboard screen")
@@ -47,16 +47,16 @@ public class MSHAPP_176_StepDef extends Factory {
 
     @Then("UI should be as per the sketch")
     public void uiShouldBeAsPerTheSketch() {
-     boolean status =   accountSettingPage.verifyEntireEditEmailUI();
-     Assert.assertTrue(status);
-
+        boolean status = accountSettingPage.verifyEntireEditEmailUI();
+        Assert.assertTrue(status);
     }
 
     @Then("user should be navigated back to account setting screen")
     public void userShouldBeNavigatedBackToAccountSettingScreen() throws InterruptedException {
-      boolean status =  accountSettingPage.userClicksOnCloseButton();
-      Assert.assertTrue(status);
+        boolean status = accountSettingPage.userClicksOnCloseButton();
+        Assert.assertTrue(status);
     }
+
     @When("user navigate to account setting page")
     public void userNavigateToAccountSettingPage() {
         accountPage.navigateToAccountSettingPage();
@@ -67,4 +67,5 @@ public class MSHAPP_176_StepDef extends Factory {
         accountSettingPage.userEnterCurrentPassword(currentpassword);
         accountSettingPage.userEnterEmailAddress(newemailaddress);
     }
+
 }

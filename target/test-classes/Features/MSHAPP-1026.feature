@@ -1,6 +1,6 @@
-@MSHAPP-1026
+@MSHAPP-1026 @Regression
 Feature:1026-Optimized Create Registry -Step 1: Event Type
-  
+
   Scenario: verify whether user is able to navigate registry dashboard
     Given user launches the apps
     When User continue shopping as guest user
@@ -18,12 +18,12 @@ Feature:1026-Optimized Create Registry -Step 1: Event Type
     And user enter username "<username>" and password "<password>" clicks on login in sign in page
     Then user should land on create registry screen one
     Examples:
-      | username    | password |
+      | username       | password  |
       | bala3@test.com | test@1234 |
 
-    Scenario: verify whether user is able to select event type
-      Given user  is on create event screen
-      And user select the event type as "Baby"
-      Then user should able to see the selected value "Baby" in event type
-      And user quits the screen
+  Scenario: verify whether user is able to select event type
+    Given user  is on create event screen
+    And user select the event type as "Baby"
+    Then user should able to see the selected value "Baby" in event type
+    And user quits the screen
 

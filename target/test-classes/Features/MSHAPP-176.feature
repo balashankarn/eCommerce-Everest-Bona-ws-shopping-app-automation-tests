@@ -1,14 +1,14 @@
-@MSHAPP-176 @EditEmail
+@MSHAPP-176 @EditEmail @Regression
 Feature: MSHAPP-176 Account Settings: Edit email: Form only; no text entry or submission yet
 
   Scenario Outline: Verify that user is able to Login into the App
     Given user launches the apps
     When user clicks sign in option
-   And user enter username "<username>" and password "<password>" clicks on login
+    And user enter username "<username>" and password "<password>" clicks on login
     Then User should be in homepage
     Then User should be in Account page
     Examples:
-      |username|password|
+      | username       | password  |
       | bala3@test.com | test@1234 |
 
   Scenario: Verify that user is able to click on email edit option
@@ -28,5 +28,5 @@ Feature: MSHAPP-176 Account Settings: Edit email: Form only; no text entry or su
     And user quits the screen
 
     Examples:
-    | currentpassword  | |newemailaddress|
-    |    bala@123   |    |   bala3@test.com|
+      | currentpassword |  | newemailaddress |
+      | bala@123        |  | bala3@test.com  |

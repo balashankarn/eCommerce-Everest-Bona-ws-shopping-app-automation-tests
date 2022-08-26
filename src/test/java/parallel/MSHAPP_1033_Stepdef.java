@@ -50,6 +50,7 @@ public class MSHAPP_1033_Stepdef {
         boolean status = registryPage.verifyEnterYourGuestMessageFieldGetsHidden();
         Assert.assertFalse(status);
     }
+
     @Given("click on checkbox for add a message to my guests")
     public void click_on_checkbox_for_add_a_message_to_my_guests() {
         registryPage.clickOnCheckboxForAddToMyGuests();

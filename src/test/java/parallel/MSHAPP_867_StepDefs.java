@@ -26,39 +26,44 @@ public class MSHAPP_867_StepDefs {
     }
 
     @Then("once user is cart screen user should be able to view checkout button")
-    public void onceUserIsCartScreenUserShouldBeAbleToViewCheckoutButton() {
+    public void onceUserIsCartScreenUserShouldBeAbleToViewCheckoutButton() throws InterruptedException {
 
     }
 
     @Given("user is in checkout screen")
-    public void userIsInCheckoutScreen() {
+    public void userIsInCheckoutScreen() throws InterruptedException {
 
     }
 
     @When("user click checkout  in payment screen")
-    public void userClickCheckoutInPaymentScreen() {
+    public void userClickCheckoutInPaymentScreen() throws InterruptedException {
+
     }
 
     @Then("user should been shown a BO notification")
-    public void userShouldBeenShownABONotification() {
+    public void userShouldBeenShownABONotification() throws InterruptedException {
+
 
     }
 
     @Given("user is BO notification screen")
-    public void userIsBONotificationScreen() {
+    public void userIsBONotificationScreen() throws InterruptedException {
+
 
     }
 
     @When("user clicks on BO")
-    public void userClicksOnBO() {
+    public void userClicksOnBO() throws InterruptedException {
 
     }
 
     @Then("user should be navigated back to cart in")
-    public void userShouldBeNavigatedBackToCartIn() {
+    public void userShouldBeNavigatedBackToCartIn() throws InterruptedException {
+
     }
 
     @Then("user should been shown a shipping restriction notification")
-    public void userShouldBeenShownAShippingRestrictionNotification() {
+    public void userShouldBeenShownAShippingRestrictionNotification() throws InterruptedException {
+
     }
 }

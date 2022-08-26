@@ -10,12 +10,14 @@ import pom.wsi.LoginPage;
 public class MSHAPP_874_StepDefs {
 
     @Given("user is shipping notification screen")
-    public void userIsShippingNotificationScreen() {
+    public void userIsShippingNotificationScreen() throws InterruptedException {
 
+        wait(2000);
     }
 
     @When("user clicks on ship restriction")
-    public void userClicksOnShipRestriction() {
+    public void userClicksOnShipRestriction() throws InterruptedException {
 
+        wait(2000);
     }
 }

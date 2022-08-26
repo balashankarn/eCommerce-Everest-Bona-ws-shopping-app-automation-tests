@@ -23,6 +23,7 @@ import static com.reusableMethods.CommonActions.Direction.UP;
 public class RegistryPage extends CommonActions {
     static ExcelReader reader = new ExcelReader();
     public static final Logger logger = LoggerFactory.getLogger(PermissionPage.class);
+    public static String actualCurrentDate = "";
 
     public RegistryPage(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -122,6 +123,10 @@ public class RegistryPage extends CommonActions {
     private MobileElement chkToAcceptGiftCards;
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name='checkmark.rectangle'])[2]")
     private MobileElement checkedAddToAcceptGiftCards;
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeButton[@name='EDIT'])[2]")
+    private MobileElement btnEditTwo;
+    @iOSXCUITFindBy(accessibility = "Before & After Event")
+    private MobileElement txtBeforeAndAfterEvent;
 
 
     public void userClickOnRegistry() {
@@ -208,7 +213,7 @@ public class RegistryPage extends CommonActions {
     }
 
     public boolean theSelectDateAndEventShouldBeDisplayedthere() {
-        String actualCurrentDate = spnSelectEventDate.getAttribute("value");
+        actualCurrentDate = spnSelectEventDate.getAttribute("value");
         if (!actualCurrentDate.isEmpty()) {
             return true;
         }
@@ -224,7 +229,6 @@ public class RegistryPage extends CommonActions {
         waitVisibilityOfElement(pickerWheel);
         pickerWheel.sendKeys(privacyTYpe);
         waitFor(2000);
-
         clickOnMobileElement(spnPrivacySettingDone);
     }
 
@@ -280,7 +284,7 @@ public class RegistryPage extends CommonActions {
     }
 
     public void signOut() {
-        scrollByPercentage(0.0, 0.90, 0.10);
+        scrollDown();
         clickOnMobileElement(btnSignOut);
     }
 
@@ -288,11 +292,11 @@ public class RegistryPage extends CommonActions {
         clickOnMobileElement(tbrAccount);
         clickOnMobileElement(btnAllowWhileUsingApp);
         try {
-            btnSignIN.isDisplayed();
-        } catch (Exception e) {
-            clickOnMobileElement(btnAccountSetting);
+            implicitWait(10);
+            btnAccountSetting.click();
             signOut();
-            waitFor(2500);
+        } catch (Exception e) {
+
         }
     }
 
@@ -339,6 +343,7 @@ public class RegistryPage extends CommonActions {
             return false;
         }
     }
+
     public boolean enterFirstNameAndLastname(String firstName, String lastName) {
         txtFirstName.sendKeys(firstName);
         txtLastName.sendKeys(lastName);
@@ -397,6 +402,7 @@ public class RegistryPage extends CommonActions {
             return false;
         }
     }
+
     public void clickOnCheckBoxForAccessRegistry() {
         clickOnMobileElement(chkCoRegistrantOne);
     }
@@ -483,26 +489,59 @@ public class RegistryPage extends CommonActions {
 
     public boolean verifyCheckboxIsNotSelectedForAcceptGiftCards() {
         scrollDown();
-        if(!chkToAcceptGiftCards.isSelected()){
+        if (!chkToAcceptGiftCards.isSelected()) {
             return true;
         }
         return false;
     }
 
-    public boolean verifyCheckboxIsSelectedForAcceptGiftCards(){
+    public boolean verifyCheckboxIsSelectedForAcceptGiftCards() {
         clickOnMobileElement(chkToAcceptGiftCards);
-        if(checkedAddToAcceptGiftCards.isDisplayed()){
+        if (checkedAddToAcceptGiftCards.isDisplayed()) {
             return true;
         }
         return false;
     }
 
-    public boolean unchecksCheckBoxForAcceptGiftCards(){
+    public boolean unchecksCheckBoxForAcceptGiftCards() {
         clickOnMobileElement(checkedAddToAcceptGiftCards);
-        if(!chkToAcceptGiftCards.isSelected()){
+        if (!chkToAcceptGiftCards.isSelected()) {
             return true;
         }
         return false;
+    }
+
+    public boolean verifyBeforeAndAfterEventInfoIsDisplayed() {
+        return txtBeforeAndAfterEvent.isDisplayed();
+    }
+
+    public void clickOnEditBtn() {
+        clickOnMobileElement(btnEditTwo);
+    }
+
+    public boolean navigateToSecondScreen() {
+        return txtLastName.isDisplayed();
+    }
+
+    public String verifySecondScreenInformationEditable(String lastName) {
+        txtLastName.clear();
+        txtLastName.sendKeys(lastName);
+        lastName = txtLastName.getText();
+        scrollDown();
+        clickOnMobileElement(btnNext);
+        return lastName;
+    }
+
+    public boolean verifyStepOneInformationAreDisplayedInStepThreeScreen(String firstAndLastName, String eventType, String eventDate) {
+        try {
+            driver.findElement(By.id(eventType)).isDisplayed();
+            eventDate = actualCurrentDate;
+            String eventDateAndFirstAndLastName = eventDate + " " + firstAndLastName;
+            //driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='"+eventDateAndFirstAndLastName+"']")).isDisplayed();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

@@ -57,6 +57,8 @@ public class AccountPage extends CommonActions {
     private MobileElement accountSettings;
     @iOSXCUITFindBy(accessibility = "Allow While Using App")
     private MobileElement btnAllowWhileUsingApp;
+    @iOSXCUITFindBy(accessibility = "Allow")
+    private MobileElement allowButton;
 
     public void accountDashBoard() {
             scrollTo("","up",btnCustomerService);
@@ -89,6 +91,12 @@ public class AccountPage extends CommonActions {
     }
 
     public boolean verifyHomePageGetsDisplayed(){
+        try{
+            implicitWait(5);
+            allowButton.click();
+        }catch(Exception e){
+
+        }
         try{
             clickOnMobileElement(btnStartShopping);
             waitVisibilityOfElement(homeIcon);

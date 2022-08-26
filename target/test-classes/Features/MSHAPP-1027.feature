@@ -1,4 +1,4 @@
-@MSHAPP-1027
+@MSHAPP-1027 @Regression
 Feature:1027-Optimized Create Registry - Step 1: Event Date
 
   Scenario: verify whether user is able to navigate registry dashboard
@@ -18,11 +18,12 @@ Feature:1027-Optimized Create Registry - Step 1: Event Date
     And user enter username "<username>" and password "<password>" clicks on login in sign in page
     Then user should land on create registry screen one
     Examples:
-      | username    | password |
-      | bala3@test.com | test@1234|
+      | username       | password  |
+      | bala3@test.com | test@1234 |
 
-   Scenario: verify user is able select event date
+  Scenario: verify user is able select event date
     Given user  is on create event screen
     And user clicks on event type and selects event date
     Then the selected event date should be populated here
+    And user quits the screen
 

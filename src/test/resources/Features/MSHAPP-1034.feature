@@ -1,4 +1,4 @@
-@MSHAPP-1034
+@MSHAPP-1034 @Regression
 
 Feature: Optimized Create Registry - Step 3: Gift card select
 
