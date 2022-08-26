@@ -8,7 +8,6 @@ import pom.wsi.RegistryPage;
 
 public class MSHAPP_1035_Stepdef {
 
-
     RegistryPage registryPage = new RegistryPage(DriverManager.getDriver());
 
     @Then("User should able to see the information {string} in readable view")
