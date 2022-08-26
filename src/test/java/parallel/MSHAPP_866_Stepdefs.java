@@ -2,6 +2,7 @@ package parallel;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import junit.framework.Assert;
 import pom.wsi.AccountPage;
 import pom.wsi.AccountSettingPage;
@@ -21,5 +22,13 @@ public class MSHAPP_866_Stepdefs {
     public void userIsNLANotificationScreen() throws InterruptedException {
 
         Assert.assertTrue(false);
+    }
+
+    @When("user clicks on NLA")
+    public void userClicksOnNLA() {
+    }
+
+    @Then("user should be navigated back to cart")
+    public void userShouldBeNavigatedBackToCart() {
     }
 }

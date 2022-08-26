@@ -27,12 +27,12 @@ public class MSHAPP_867_StepDefs {
 
     @Then("once user is cart screen user should be able to view checkout button")
     public void onceUserIsCartScreenUserShouldBeAbleToViewCheckoutButton() throws InterruptedException {
-
+        checkoutPage.userClickOnCheckOutInCartPage();
     }
 
     @Given("user is in checkout screen")
     public void userIsInCheckoutScreen() throws InterruptedException {
-
+        //checkoutPage
     }
 
     @When("user click checkout  in payment screen")

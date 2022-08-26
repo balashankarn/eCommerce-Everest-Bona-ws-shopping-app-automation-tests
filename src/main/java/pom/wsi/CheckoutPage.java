@@ -24,6 +24,9 @@ public class CheckoutPage extends CommonActions {
     private MobileElement tbrCart;
     @iOSXCUITFindBy(accessibility = "CHECKOUT")
     private MobileElement btnCheckout;
+
+    @iOSXCUITFindBy(accessibility = "cart_checkout_button")
+    private MobileElement btnCheckoutInCart;
     @iOSXCUITFindBy(accessibility = "CHECKOUT AS A GUEST")
     private MobileElement btnCheckoutAsGuest;
     @iOSXCUITFindBy(accessibility = "authentication_sign_in_button")
@@ -65,6 +68,17 @@ public class CheckoutPage extends CommonActions {
         try {
             waitForMobileElement(btnCheckout);
             btnCheckout.click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void userClickOnCheckOutInCartPage() {
+
+        try {
+            waitForMobileElement(btnCheckoutInCart);
+            btnCheckoutInCart.click();
         } catch (Exception e) {
             e.printStackTrace();
         }
