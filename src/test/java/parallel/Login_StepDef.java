@@ -10,14 +10,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 import pom.wsi.LoginPage;
 import pom.wsi.PermissionPage;
 
 
 public class Login_StepDef extends Factory {
 
-   LoginPage login = new LoginPage(DriverManager.getDriver());
-   PermissionPage permissionPage = new PermissionPage(DriverManager.getDriver());
+    LoginPage login = new LoginPage(DriverManager.getDriver());
+    PermissionPage permissionPage = new PermissionPage(DriverManager.getDriver());
     public static final Logger logger = LoggerFactory.getLogger(LoginPage.class);
 
     /************************************************Login Module Step Definitions
@@ -54,7 +55,6 @@ public class Login_StepDef extends Factory {
 //
 //        //	login.selectEnviornment();
 //    }
-
     @When("user clicks sign in option")
     public void userClicksSignInOption() {
         login.clickOnSignin();
@@ -71,9 +71,26 @@ public class Login_StepDef extends Factory {
     public void userLandsOnDashboardScreen() {
         login.navigatingToSignin();
         permissionPage.clickOnAllowOnce();
-        login.userLandsOnDashboard();
+        boolean status = login.userLandsOnDashboard();
+        Assert.assertTrue(status);
     }
 
+    @When("user enter username {string} and password {string}")
+    public void user_enter_username_and_password(String username, String password) {
+        login.userEnterUserName(username);
+        login.userEnterPassword(password);
 
+    }
+
+    @When("user click on Login Button")
+    public void user_click_on_login_button() {
+        login.clickLoginButton();
+    }
+
+    @Then("user should not able to navigate to next page")
+    public void user_should_not_able_to_navigate_to_next_page() {
+        boolean status = login.verifyTurnOnNotificationsIsNotDisplayed();
+        Assert.assertFalse(status);
+    }
 
 }

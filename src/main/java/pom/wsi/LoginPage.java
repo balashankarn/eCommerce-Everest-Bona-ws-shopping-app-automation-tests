@@ -139,15 +139,9 @@ public class LoginPage extends CommonActions {
         }
     }
 
-    public void userLandsOnDashboard() {
+    public boolean userLandsOnDashboard() {
         waitForMobileElement(tbrAccount);
-        try {
-            implicitWait(15);
-            btnOK.click();
-        } catch (Exception e) {
-
-
-        }
+         return  tbrAccount.isDisplayed();
     }
 
     public void scrollUp() {
@@ -181,6 +175,22 @@ public class LoginPage extends CommonActions {
                 System.out.println("it is not clicking");
             }
         }
+    }
+
+    public void clickLoginButton() {
+        clickOnMobileElement(btnLogin);
+    }
+
+    public boolean verifyTurnOnNotificationsIsNotDisplayed(){
+
+        boolean match = true;
+        try{
+            implicitWait(5);
+            turnOnNotifications.isDisplayed();
+        }catch (Exception e){
+            match = false;
+        }
+        return match;
     }
     }
 
