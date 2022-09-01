@@ -78,7 +78,7 @@ public class AccountPage extends CommonActions {
     public boolean verifyAllDashboardElements() {
         try {
             makeAdesignAppoinment.isDisplayed();
-            smartMoodBoard.isDisplayed();
+           // smartMoodBoard.isDisplayed();
             virtualRoomTour.isDisplayed();
             viewInRoom.isDisplayed();
             myKeyRewards.isDisplayed();
@@ -119,12 +119,15 @@ public class AccountPage extends CommonActions {
             return false;
         }
   }
-    public void scrollUp() {
-        swipeUp();
+
+    public void doScrollUp(){
+       scrollUp();
     }
-    public void scrollDown() {
-        swipeDown();
+
+    public void  doScrollDown(){
+        scrollDown();
     }
+
 
 }
 

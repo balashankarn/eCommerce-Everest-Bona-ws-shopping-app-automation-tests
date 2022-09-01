@@ -29,8 +29,8 @@ public class MSHAPP_172_StepDefs extends Factory {
 
     @Then("user should be able scroll up and down of the screen")
     public void userShouldBeAbleScrollUpAndDownOfTheScreen() {
-        accountPage.scrollUp();
-        accountPage.scrollDown();
+        accountPage.doScrollUp();
+        accountPage.doScrollDown();
     }
 
     @Given("user is on the account dashboard screen")

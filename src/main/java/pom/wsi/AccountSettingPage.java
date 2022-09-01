@@ -103,7 +103,7 @@ public class AccountSettingPage extends CommonActions {
 
     public boolean userClicksOnCloseButton() throws InterruptedException {
         try {
-            Actions act = new Actions(driver);
+            Actions act = new Actions(DriverManager.getDriver());
             act.moveToElement(btnCloseEditEmail).click().perform();
             waitVisibilityOfElement(myProfile);
             myProfile.isDisplayed();
