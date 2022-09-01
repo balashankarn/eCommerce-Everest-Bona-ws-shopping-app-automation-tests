@@ -1,15 +1,18 @@
 package com.driverfactory;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 
 
 public class DriverManager {
 	
 	private static ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
+
 	
 	private DriverManager() {}
 	
-	public static AppiumDriver getDriver() {	
+	public static synchronized AppiumDriver<MobileElement> getDriver() {
+
 		return driver.get();
 	}
 	

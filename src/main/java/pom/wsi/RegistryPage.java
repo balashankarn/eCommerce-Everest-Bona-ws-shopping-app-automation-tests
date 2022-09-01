@@ -4,6 +4,7 @@ import com.driverfactory.DriverManager;
 import com.reusableMethods.CommonActions;
 import com.utilities.ExcelReader;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -24,6 +25,7 @@ public class RegistryPage extends CommonActions {
     static ExcelReader reader = new ExcelReader();
     public static final Logger logger = LoggerFactory.getLogger(PermissionPage.class);
     public static String actualCurrentDate = "";
+    By nextDay = MobileBy.xpath("//XCUIElementTypeStaticText[@name='" + getNextDay() + "']");
 
     public RegistryPage(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -63,6 +65,9 @@ public class RegistryPage extends CommonActions {
     private MobileElement btnLogin;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[4]")
     private MobileElement spnSelectEventType;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='30']")
+    private MobileElement date;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[3]")
     private MobileElement spnSelectEventDate;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[5]")
@@ -213,12 +218,12 @@ public class RegistryPage extends CommonActions {
     }
 
     public void selectsEventDate() {
-        waitForMobileElement(spnSelectEventDate);
-        spnSelectEventDate.click();
-        driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + getNextDay() + "']")).click();
+        clickOnMobileElement(spnSelectEventDate);
+        DriverManager.getDriver().findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + getNextDay() + "']")).click();
     }
 
     public boolean verifySelectedDateIsDisplayed(){
+        waitForMobileElement(spnSelectEventDate);
         actualCurrentDate = spnSelectEventDate.getAttribute("value");
         if (!actualCurrentDate.isEmpty()) {
             return true;
@@ -290,7 +295,7 @@ public class RegistryPage extends CommonActions {
     }
 
     public void signOut() {
-        scrollDown();
+        scrollUp();
         clickOnMobileElement(btnSignOut);
     }
 
@@ -300,7 +305,7 @@ public class RegistryPage extends CommonActions {
         try {
             implicitWait(10);
             btnAccountSetting.click();
-            signOut();
+            clickOnMobileElement(btnSignOut);
         } catch (Exception e) {
 
         }
@@ -319,8 +324,10 @@ public class RegistryPage extends CommonActions {
         txtState.click();
         pickerWheel.sendKeys(state);
         clickOnMobileElement(spnSelectStateDone);
+        waitFor(1500);
+        txtPhone.click();
         txtPhone.sendKeys(phone);
-        scrollDown();
+        scrollUp();
     }
 
     public boolean verifyThirdScreenGetsDisplayed() {
@@ -410,6 +417,7 @@ public class RegistryPage extends CommonActions {
     }
 
     public void clickOnCheckBoxForAccessRegistry() {
+        scrollUp();
         clickOnMobileElement(chkCoRegistrantOne);
     }
 
@@ -448,15 +456,14 @@ public class RegistryPage extends CommonActions {
     }
 
     public boolean verifyAddToGuestsLabelGetsDisplayed() {
-        scrollDown();
+        scrollUp();
         return lblAddToMyGuests.isDisplayed();
     }
 
     public boolean verifyCharacterLimitForEnterYourGuestMessage(int characterCount, String message) {
         waitVisibilityOfElement(txtEnterYourGuestMessage);
-        int len = message.length();
-        System.out.println(len);
         String extraCharacter = "testing";
+        txtEnterYourGuestMessage.click();
         txtEnterYourGuestMessage.sendKeys(message + extraCharacter);
         String actualRegistryName = txtEnterYourGuestMessage.getText();
         if (actualRegistryName.equals(message) && actualRegistryName.length() == characterCount) {
@@ -467,12 +474,11 @@ public class RegistryPage extends CommonActions {
     }
 
     public boolean verifyCharacterCountGetsDisplayedForEnterYourGuestMessage() {
-        scrollDown();
+        scrollUp();
         return lblCharacterCount.isDisplayed();
     }
 
     public boolean verifyCheckboxIsSelectedForAddMessageToMyGuests() {
-        scrollDown();
         if (checkedAddToMyGuests.isDisplayed()) {
             return true;
         }
@@ -494,7 +500,7 @@ public class RegistryPage extends CommonActions {
 
 
     public boolean verifyCheckboxIsNotSelectedForAcceptGiftCards() {
-        scrollDown();
+        scrollUp();
         if (!chkToAcceptGiftCards.isSelected()) {
             return true;
         }
@@ -530,20 +536,22 @@ public class RegistryPage extends CommonActions {
     }
 
     public String verifySecondScreenInformationEditable(String lastName) {
+        txtLastName.click();
         txtLastName.clear();
+        waitFor(1500);
         txtLastName.sendKeys(lastName);
         lastName = txtLastName.getText();
-        scrollDown();
+        scrollUp();
         clickOnMobileElement(btnNext);
         return lastName;
     }
 
     public boolean verifyStepOneInformationAreDisplayedInStepThreeScreen(String firstAndLastName, String eventType, String eventDate) {
         try {
-            driver.findElement(By.id(eventType)).isDisplayed();
+            DriverManager.getDriver().findElement(By.id(eventType)).isDisplayed();
             eventDate = actualCurrentDate;
             String eventDateAndFirstAndLastName = eventDate + " " + firstAndLastName;
-            //driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='"+eventDateAndFirstAndLastName+"']")).isDisplayed();
+         //   DriverManager.getDriver().findElement(By.xpath("//XCUIElementTypeStaticText[@name='"+eventDateAndFirstAndLastName+"']")).isDisplayed();
             return true;
         } catch (Exception e) {
             return false;
@@ -551,7 +559,7 @@ public class RegistryPage extends CommonActions {
     }
 
     public void clickOnCreateRegistryButton(){
-        scrollDown();
+        scrollUp();
         clickOnMobileElement(btnCreateARegistryTwo);
     }
 

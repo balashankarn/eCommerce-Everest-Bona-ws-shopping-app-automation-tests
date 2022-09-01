@@ -47,7 +47,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
 import static io.appium.java_client.touch.offset.PointOption.point;
 
-public class CommonActions {
+public class CommonActions  {
     public static String platformName = null;
     public static Properties props;
     public static Logger logger = Logger.getLogger(String.valueOf(CommonActions.class));
@@ -71,7 +71,7 @@ public class CommonActions {
 
     public CommonActions() {
         try {
-            exwait = new WebDriverWait(DriverManager.getDriver(), 100);
+            exwait = new WebDriverWait(DriverManager.getDriver(), 35);
         } catch (Exception e) {
         }
     }
@@ -566,7 +566,7 @@ public class CommonActions {
     }
 
     public static WebDriverWait webDriverWait() {
-        return new WebDriverWait(driver, 20);
+        return new WebDriverWait(driver, 25);
     }
 
     public static void waitVisibilityOfElement(MobileElement element) {
@@ -626,16 +626,16 @@ public class CommonActions {
 
     }
 
-    public void scrollDown() {
-        Map<String, Object> args = new HashMap<>();
-        args.put("direction", "up");
-        driver.executeScript("mobile: swipe", args);
-    }
-
     public void scrollUp() {
         Map<String, Object> args = new HashMap<>();
+        args.put("direction", "up");
+        DriverManager.getDriver().executeScript("mobile: swipe", args);
+    }
+
+    public void scrollDown() {
+        Map<String, Object> args = new HashMap<>();
         args.put("direction", "down");
-        driver.executeScript("mobile: swipe", args);
+        DriverManager.getDriver().executeScript("mobile: swipe", args);
     }
 
 }

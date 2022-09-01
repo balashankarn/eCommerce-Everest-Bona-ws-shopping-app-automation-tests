@@ -124,6 +124,7 @@ public class MSHAPP_1032_Stepdef {
     public void user_should_able_to_see_email_fields_gets_hidden_after_uncheck() {
         registryPage.uncheckForAccessRegistry();
         boolean status = registryPage.verifyCoRegistrantFormGetsHiddenForAccessRegistry();
+        Assert.assertFalse(status);
     }
 
     @Given("user click on checkbox for access this registry")
