@@ -56,7 +56,7 @@ public class LoginPage extends CommonActions {
     @iOSXCUITFindBy(accessibility = "authentication_sign_in_button")
     private MobileElement btnLogin;
 
-    @iOSXCUITFindBy(id = "cart_share_button")
+    @iOSXCUITFindBy(id = "TURN ON NOTIFICATIONS")
     private MobileElement turnOnNotifications;
     @iOSXCUITFindBy(accessibility = "Allow")
     private MobileElement allowButton;

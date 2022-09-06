@@ -39,6 +39,8 @@ public class RegistryPage extends CommonActions {
     private MobileElement tbRegistry;
     @iOSXCUITFindBy(accessibility = "CREATE A REGISTRY")
     private MobileElement btnCreateARegistry;
+    @iOSXCUITFindBy(accessibility = "MANAGE YOUR REGISTRIES")
+    private MobileElement btnManageYourRegistries;
     @iOSXCUITFindBy(accessibility = "FIND A REGISTRY")
     private MobileElement btnFindRegistry;
     @iOSXCUITFindBy(accessibility = "SIGN IN")
@@ -139,6 +141,32 @@ public class RegistryPage extends CommonActions {
     @iOSXCUITFindBy(id = "Congratulations, you’re registered!")
     private MobileElement lblCongratulations;
 
+    @iOSXCUITFindBy(accessibility = "Registry")
+    private MobileElement lblRegistry;
+
+    @iOSXCUITFindBy(accessibility = "DELETE REGISTRY")
+    private MobileElement lblDeleteRegistry;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='Create Registry']")
+    private MobileElement lblCreateARegistry;
+
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='TELL US ABOUT YOUR SPECIAL DAY']/following::XCUIElementTypeButton)[1]")
+    private MobileElement btnTellUsAboutYourSpecialDayEdit;
+
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='WHEN IS THE EVENT']/following::XCUIElementTypeButton)[1]")
+    private MobileElement btnWhenIsTheEventSectionEdit;
+
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='SHIPPING ADDRESS']/following::XCUIElementTypeButton)[1]")
+    private MobileElement btnShippingAddressSectionEdit;
+
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='CO-REGISTRANT INFORMATION']/following::XCUIElementTypeButton)[1]")
+    private MobileElement btnCoRegistrantSectionEdit;
+
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='POTTERY BARN KIDS GIFT CARDS']/following::XCUIElementTypeButton)[1]")
+    private MobileElement btnPotteryBarnKidsSectionEdit;
+
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='WHAT ARE YOUR REGISTRY PREFERENCES?']/following::XCUIElementTypeButton)[1]")
+    private MobileElement btnWhatAreYourRegistryPreferenceSectionEdit;
 
     public void userClickOnRegistry() {
         waitForMobileElement(tbRegistry);
@@ -291,7 +319,7 @@ public class RegistryPage extends CommonActions {
     }
 
     public void navigateToBackPage() {
-        driver.navigate().back();
+        DriverManager.getDriver().navigate().back();
     }
 
     public void signOut() {
@@ -567,5 +595,143 @@ public class RegistryPage extends CommonActions {
        return lblCongratulations.getText();
     }
 
-}
+    public void clickOnManageYourRegistries(){
+        waitVisibilityOfElement(lblRegistry);
+        waitFor(2000);
+        scrollByPercentage(0.0,0.90,0.10);
+        waitFor(2000);
+        scrollByPercentage(0.0,0.90,0.10);
+        waitFor(2000);
+        scrollByPercentage(0.0,0.90,0.10);
+        clickOnMobileElement(btnManageYourRegistries);
+    }
+
+    public boolean verifyFirstPrimaryRegistryIsMarkedAndHighlighted(){
+       //logic need to be implemented
+
+        return true;
+    }
+
+    public void selectOtherRegistryAsPrimary(){
+
+        //logic need to be implemented
+    }
+
+    public boolean verifySelectedPrimaryIsMarkedAndHighlighted(){
+
+        //logic need to be implemented
+
+        return true;
+
+    }
+
+    public void navigateToBack(){
+
+        navigateToBackPage();
+    }
+
+    public void clickOnManageRegistryEditButton(String registryName){
+        DriverManager.getDriver().findElement(By.xpath("(//XCUIElementTypeStaticText[@name='"+registryName+"']/following::XCUIElementTypeStaticText[@name='EDIT'])[1]")).click();
+    }
+
+    public boolean verifyTellUsAboutYourSpecialDaySectionEditable(){
+        try {
+            waitVisibilityOfElement(lblDeleteRegistry);
+            clickOnMobileElement(btnTellUsAboutYourSpecialDayEdit);
+            lblCreateARegistry.isDisplayed();
+            waitFor(2000);
+            navigateToBackPage();
+            waitVisibilityOfElement(lblDeleteRegistry);
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+        }
+
+    public boolean verifyWhenIsTheEventSectionEditable(){
+        try {
+            waitVisibilityOfElement(lblDeleteRegistry);
+            clickOnMobileElement(btnWhenIsTheEventSectionEdit);
+            lblCreateARegistry.isDisplayed();
+            waitFor(2000);
+            navigateToBackPage();
+            waitVisibilityOfElement(lblDeleteRegistry);
+            return true;
+        }catch (Exception e){
+           return false;
+        }
+
+    }
+
+    public boolean verifyShippingAddressSectionEditable() {
+        try {
+            waitVisibilityOfElement(lblDeleteRegistry);
+            clickOnMobileElement(btnShippingAddressSectionEdit);
+            lblCreateARegistry.isDisplayed();
+            waitFor(2000);
+            navigateToBackPage();
+            waitVisibilityOfElement(lblDeleteRegistry);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean verifyCoRegistrantSectionEditable(){
+        try {
+            waitVisibilityOfElement(lblDeleteRegistry);
+            waitFor(2000);
+            scrollUp();
+            clickOnMobileElement(btnCoRegistrantSectionEdit);
+            lblCreateARegistry.isDisplayed();
+            waitFor(2000);
+            navigateToBackPage();
+            waitVisibilityOfElement(lblDeleteRegistry);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean verifyPotteryBarnKidsSectionEditable(){
+        try {
+            waitVisibilityOfElement(lblDeleteRegistry);
+            waitFor(2000);
+            scrollUp();
+            clickOnMobileElement(btnPotteryBarnKidsSectionEdit);
+            lblCreateARegistry.isDisplayed();
+            waitFor(2000);
+            navigateToBackPage();
+            waitVisibilityOfElement(lblDeleteRegistry);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean verifyWhatAreYourRegistryPreferencesSectionEditable(){
+        try {
+            waitVisibilityOfElement(lblDeleteRegistry);
+            waitFor(2000);
+            scrollUp();
+            clickOnMobileElement(btnWhatAreYourRegistryPreferenceSectionEdit);
+            lblCreateARegistry.isDisplayed();
+            waitFor(2000);
+            navigateToBackPage();
+            waitVisibilityOfElement(lblDeleteRegistry);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    }
+
+
+
+
+
+
+
 
