@@ -25,5 +25,5 @@ Feature:1027-Optimized Create Registry - Step 1: Event Date
     Given user  is on create event screen
     And user clicks on event type and selects event date
     Then the selected event date should be populated here
-    And user quits the screen
+   And user quits the screen
 

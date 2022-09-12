@@ -6,10 +6,12 @@ import com.utilities.ExcelReader;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
@@ -41,6 +43,14 @@ public class RegistryPage extends CommonActions {
     private MobileElement btnCreateARegistry;
     @iOSXCUITFindBy(accessibility = "MANAGE YOUR REGISTRIES")
     private MobileElement btnManageYourRegistries;
+    @iOSXCUITFindBy(accessibility = "DELETE REGISTRY")
+    private MobileElement btnDeleteRegistry;
+    @iOSXCUITFindBy(accessibility = "YES")
+    private MobileElement btnYes;
+    @iOSXCUITFindBy(accessibility = "CONTINUE")
+    private MobileElement btnContinue;
+    @iOSXCUITFindBy(accessibility = "MY REGISTRY TOOLS")
+    private MobileElement lblMyRegistryTools;
     @iOSXCUITFindBy(accessibility = "FIND A REGISTRY")
     private MobileElement btnFindRegistry;
     @iOSXCUITFindBy(accessibility = "SIGN IN")
@@ -68,7 +78,7 @@ public class RegistryPage extends CommonActions {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[4]")
     private MobileElement spnSelectEventType;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='30']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='13']")
     private MobileElement date;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[3]")
     private MobileElement spnSelectEventDate;
@@ -134,39 +144,36 @@ public class RegistryPage extends CommonActions {
     private MobileElement btnEditTwo;
     @iOSXCUITFindBy(accessibility = "Before & After Event")
     private MobileElement txtBeforeAndAfterEvent;
-
     @iOSXCUITFindBy(accessibility = "CREATE REGISTRY")
     private MobileElement btnCreateARegistryTwo;
-
     @iOSXCUITFindBy(id = "Congratulations, you’re registered!")
     private MobileElement lblCongratulations;
-
     @iOSXCUITFindBy(accessibility = "Registry")
     private MobileElement lblRegistry;
-
     @iOSXCUITFindBy(accessibility = "DELETE REGISTRY")
     private MobileElement lblDeleteRegistry;
-
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='Create Registry']")
     private MobileElement lblCreateARegistry;
-
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='Manage Registry']")
+    private MobileElement lblManageRegistry;
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='TELL US ABOUT YOUR SPECIAL DAY']/following::XCUIElementTypeButton)[1]")
     private MobileElement btnTellUsAboutYourSpecialDayEdit;
-
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='WHEN IS THE EVENT']/following::XCUIElementTypeButton)[1]")
     private MobileElement btnWhenIsTheEventSectionEdit;
-
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='SHIPPING ADDRESS']/following::XCUIElementTypeButton)[1]")
     private MobileElement btnShippingAddressSectionEdit;
-
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='CO-REGISTRANT INFORMATION']/following::XCUIElementTypeButton)[1]")
     private MobileElement btnCoRegistrantSectionEdit;
-
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='POTTERY BARN KIDS GIFT CARDS']/following::XCUIElementTypeButton)[1]")
     private MobileElement btnPotteryBarnKidsSectionEdit;
-
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='WHAT ARE YOUR REGISTRY PREFERENCES?']/following::XCUIElementTypeButton)[1]")
     private MobileElement btnWhatAreYourRegistryPreferenceSectionEdit;
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Messages']")
+    private MobileElement lblMessages;
+    @iOSXCUITFindBy(iOSNsPredicate = "label == '30'")
+    private MobileElement eventDate;
+
+
 
     public void userClickOnRegistry() {
         waitForMobileElement(tbRegistry);
@@ -247,7 +254,8 @@ public class RegistryPage extends CommonActions {
 
     public void selectsEventDate() {
         clickOnMobileElement(spnSelectEventDate);
-        DriverManager.getDriver().findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + getNextDay() + "']")).click();
+        waitFor(3000);
+        clickOnMobileElement(eventDate);
     }
 
     public boolean verifySelectedDateIsDisplayed(){
@@ -329,6 +337,8 @@ public class RegistryPage extends CommonActions {
 
     public void signOutIfAlreadySignedIn() {
         clickOnMobileElement(tbrAccount);
+            waitFor(2000);
+            btnContinue.click();
         clickOnMobileElement(btnAllowWhileUsingApp);
         try {
             implicitWait(10);
@@ -725,6 +735,51 @@ public class RegistryPage extends CommonActions {
             return false;
         }
     }
+
+      public boolean verifyShareIconIsActive(String registryName){
+        try {
+            DriverManager.getDriver().findElement(By.xpath("(//XCUIElementTypeStaticText[@name='" + registryName + "']/following::XCUIElementTypeStaticText[@name='SHARE'])[1]/preceding:: XCUIElementTypeImage[1]")).isDisplayed();
+            DriverManager.getDriver().findElement(By.xpath("(//XCUIElementTypeStaticText[@name='" + registryName + "']/following::XCUIElementTypeStaticText[@name='SHARE'])[1]/preceding:: XCUIElementTypeImage[1]")).isEnabled();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+      }
+
+      public void clickOnShareIcon(String registryName){
+          DriverManager.getDriver().findElement(By.xpath("(//XCUIElementTypeStaticText[@name='"+registryName+"']/following::XCUIElementTypeStaticText[@name='SHARE'])[1]/preceding:: XCUIElementTypeImage[1]")).click();
+      }
+
+      public boolean verifyDefaultSharingOptionIsDisplayed(){
+         waitVisibilityOfElement(lblMessages);
+          return lblMessages.isDisplayed();
+      }
+
+      public void deleteExistingRegistry(){
+
+        try{
+            if(lblMyRegistryTools.isDisplayed()){
+                waitFor(2000);
+                scrollByPercentage(0.0,0.90,0.10);
+                waitFor(2000);
+                scrollByPercentage(0.0,0.90,0.10);
+                waitFor(2000);
+                scrollByPercentage(0.0,0.90,0.10);
+                clickOnMobileElement(btnManageYourRegistries);
+                waitVisibilityOfElement(lblManageRegistry);
+            List<MobileElement> registryEditButtons =  DriverManager.getDriver().findElements(By.xpath("//XCUIElementTypeStaticText[@name='EDIT']"));
+            System.out.println(registryEditButtons.size());
+            for(MobileElement editButton : registryEditButtons){
+                clickOnMobileElement(editButton);
+                clickOnMobileElement(btnDeleteRegistry);
+                clickOnMobileElement(btnYes);
+            }
+            }
+        }catch (Exception e){
+
+        }
+
+      }
 
     }
 

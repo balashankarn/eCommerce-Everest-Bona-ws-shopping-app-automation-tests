@@ -1,4 +1,4 @@
-@MSHAPP-1041
+@Regression
 Feature: Manage Registry || Primary registry
 
   Scenario: verify that user is able to navigate registry dashboard
@@ -9,7 +9,7 @@ Feature: Manage Registry || Primary registry
     Then  user lands on registry screen
 
   Scenario: Verify that user is navigated to create registry screen
-    Given user is on registry screenss
+    Given user is on registry screen
     When  user clicks on create registry
     Then user lands on sign in screen
 
@@ -17,18 +17,18 @@ Feature: Manage Registry || Primary registry
     Given user is on sign screen
     And user enter username "<username>" and password "<password>" clicks on login in sign in page
     Then user should land on create registry screen one
+    And User navigate to backPage
     Examples:
-      | username       | password  |
-      | kiruba6@test.com | test@1234 |
+      | username| password|
+      | kiruba6@test.com | test@1234|
 
-    Scenario: Verify that user is able to see first primary registry is marked and highlighted as default
+    Scenario: Verify that user is able to see SHARE icon is actives
       When user user clicks on MANAGE YOUR REGISTRIES
-      Then User should able to see the Primary registry is marked and highlighted
+      Then User should able to see the SHARE icon is active of the Registry "AutoTest"
 
-      Scenario:  Verify that user is able to change the other Registry as Primary
-        When user select other registry as Primary
-        Then user should able to see the selected Primary registry is marked and highlighted
-
-
+      Scenario:Verify that user is able to see default sharing options
+      When click on SHARE icon of the Registry "AutoTest"
+        Then User should able to see default sharing options
+        And user quits the screen
 
 

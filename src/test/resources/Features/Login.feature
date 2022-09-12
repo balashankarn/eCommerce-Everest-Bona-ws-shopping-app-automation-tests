@@ -1,6 +1,5 @@
-@signin
+@Signin @Regression
 Feature: Sign In
-
 
   Scenario Outline: Verify that user is able to Sign In with valid username and valid password
       Given user launches the apps

@@ -1,4 +1,4 @@
-@MSHAPP-1036
+@MSHAPP-1036 @Regression
 Feature: Optimized Create Registry - Step 4: Confirmation
 
  Scenario: verify that user is able to navigate registry dashboard

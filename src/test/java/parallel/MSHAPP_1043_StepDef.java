@@ -10,16 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MSHAPP_1043_StepDef {
-
     RegistryPage registryPage = new RegistryPage(DriverManager.getDriver());
-
 
     @Then("User navigate to backPage")
     public void user_navigate_to_back_page() {
-
         registryPage.navigateToBack();
     }
-
 
     @When("click on Edit button of the Registry {string}")
     public void click_on_edit_button_of_the_registry(String registryName) {
@@ -31,7 +27,6 @@ public class MSHAPP_1043_StepDef {
        boolean status = registryPage.verifyTellUsAboutYourSpecialDaySectionEditable();
         Assert.assertTrue(status);
     }
-
 
     @Then("user should able to edit the WHEN IS THE EVENT section")
     public void user_should_able_to_edit_the_when_is_the_event_section() {
