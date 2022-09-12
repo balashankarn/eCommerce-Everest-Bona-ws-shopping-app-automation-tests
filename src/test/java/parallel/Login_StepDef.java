@@ -79,7 +79,6 @@ public class Login_StepDef extends Factory {
     public void user_enter_username_and_password(String username, String password) {
         login.userEnterUserName(username);
         login.userEnterPassword(password);
-
     }
 
     @When("user click on Login Button")

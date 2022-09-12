@@ -1,4 +1,4 @@
-@MSHAPP-1043
+@MSHAPP-1043 @Regression
 Feature: Manage Registry || Primary registry
 
   Scenario: verify that user is able to navigate registry dashboard

@@ -58,6 +58,9 @@ public class LoginPage extends CommonActions {
 
     @iOSXCUITFindBy(id = "TURN ON NOTIFICATIONS")
     private MobileElement turnOnNotifications;
+
+    @iOSXCUITFindBy(id = "CONTINUE")
+    private MobileElement btnContinue;
     @iOSXCUITFindBy(accessibility = "Allow")
     private MobileElement allowButton;
     @iOSXCUITFindBy(id = "authtextfield_email_textfield")
@@ -91,6 +94,8 @@ public class LoginPage extends CommonActions {
         }
         clickOnMobileElement(btnStartShopping);
         clickOnMobileElement(tbrAccount);
+        waitFor(2000);
+        btnContinue.click();
     }
 
     public void selectEnviornment() {
