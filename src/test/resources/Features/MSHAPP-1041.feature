@@ -9,7 +9,7 @@ Feature: Manage Registry || Primary registry
     Then  user lands on registry screen
 
   Scenario: Verify that user is navigated to create registry screen
-    Given user is on registry screenss
+    Given user is on registry screen
     When  user clicks on create registry
     Then user lands on sign in screen
 

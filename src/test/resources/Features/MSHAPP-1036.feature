@@ -22,7 +22,7 @@ Feature: Optimized Create Registry - Step 4: Confirmation
    | bala3@test.com | test@1234 |
 
  Scenario: Verify that User is able to fill up all the required fields of 1st screen of Create Registry flow nad move to 2nd screen
-  And user select the event type as "Baby"
+  And user select the event type as "Birth"
   And user clicks on event type and selects event date
   And user select the Privacy setting as "Public"
   And user clicks on Next button

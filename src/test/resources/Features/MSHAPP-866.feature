@@ -1,4 +1,4 @@
-@MSHAPP-866
+@MSHAPP-866 @Regression
 Feature: No Longer Available notification
 
   Scenario Outline: Verify Whether user is able to Login into the App

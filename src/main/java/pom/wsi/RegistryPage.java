@@ -63,7 +63,7 @@ public class RegistryPage extends CommonActions {
     private MobileElement btnNext;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[3]")
     private MobileElement txtAddress;
-    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name='Rectangle'])[1]")
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='Use address as entered']/preceding-sibling::XCUIElementTypeImage)[1]")
     private MobileElement chkUseAddress;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[5]")
     private MobileElement txtCity;
@@ -88,7 +88,7 @@ public class RegistryPage extends CommonActions {
     private MobileElement pickerWheel;
     @iOSXCUITFindBy(id = "I have a co-registrant")
     private MobileElement txtCoRegistrant;
-    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name='Rectangle'])[1]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='I have a co-registrant']/preceding-sibling::XCUIElementTypeImage[@name='Rectangle']")
     private MobileElement chkCoRegistrantOne;
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name='Rectangle'])[2]")
     private MobileElement chkCoRegistrantTwo;
@@ -355,7 +355,8 @@ public class RegistryPage extends CommonActions {
 
     public void fillUpSecondScreenfieldsOfCreateRegristry(String address, String city, String state, String zip, String phone) {
         waitVisibilityOfElement(txtAddress);
-        clickOnMobileElement(chkUseAddress);
+        waitFor(2000);
+        moveToElementAndClick(chkUseAddress);
         txtAddress.sendKeys(address);
         txtCity.sendKeys(city);
         txtZip.sendKeys(zip);
@@ -380,8 +381,11 @@ public class RegistryPage extends CommonActions {
         return false;
     }
 
-    public void clickOnCoRegistrantCheckBox() {
-        clickOnMobileElement(chkCoRegistrantOne);
+    public void clickOnCoRegistrantCheckBox() throws InterruptedException {
+        Thread.sleep(6000);
+        scrollUp();
+        Thread.sleep(2000);
+        ClickUsingXandYCords(chkCoRegistrantOne);
     }
 
     public boolean verifyFirstNameAndLastNameGetsDisplayed() {

@@ -37,6 +37,8 @@ public class AccountPage extends CommonActions {
     private MobileElement btnStartShopping;
     @iOSXCUITFindBy(accessibility = "ACCOUNT")
     private MobileElement tbrAccount;
+    @iOSXCUITFindBy(accessibility = "CONTINUE")
+    private MobileElement btnContinue;
     @iOSXCUITFindBy(id = "Choose my preferred store")
     private MobileElement chooseMyPreferredStore;
     @iOSXCUITFindBy(id = "MY ORDERS")
@@ -111,6 +113,7 @@ public class AccountPage extends CommonActions {
         try {
             waitFor(1500);
             clickOnMobileElement(tbrAccount);
+            clickOnMobileElement(btnContinue);
             clickOnMobileElement(btnAllowWhileUsingApp);
             waitVisibilityOfElement(myOrders);
             myOrders.isDisplayed();

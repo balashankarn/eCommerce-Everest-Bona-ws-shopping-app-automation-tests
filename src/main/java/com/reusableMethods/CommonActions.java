@@ -13,14 +13,7 @@ import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -44,8 +37,11 @@ import io.appium.java_client.android.nativekey.PressesKey;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
+import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static io.appium.java_client.touch.offset.ElementOption.element;
 import static io.appium.java_client.touch.offset.PointOption.point;
+import static java.time.Duration.ofMillis;
 
 public class CommonActions  {
     public static String platformName = null;
@@ -92,7 +88,7 @@ public class CommonActions  {
     public static boolean fluentWaitDisplayed(MobileElement element, long t, long ts) {
         try {
             FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(t))
-                    .pollingEvery(Duration.ofMillis(ts)).ignoring(Exception.class);
+                    .pollingEvery(ofMillis(ts)).ignoring(Exception.class);
             wait.until(ExpectedConditions.visibilityOf(element));
 
             return true;
@@ -455,6 +451,21 @@ public class CommonActions  {
         new TouchAction((PerformsTouchActions) DriverManager.getDriver()).tap(point(xcord, ycord)).perform();
     }
 
+    public void tapByElement (MobileElement elementBy) throws InterruptedException {
+        scrollUp();
+        waitFor(2000);
+        for(int i=0; i<10; i++) {
+            try {
+                new TouchAction(driver).tap(tapOptions().withElement(element(elementBy)))
+                        .waitAction(waitOptions(ofMillis(250))).perform();
+                break;
+            }catch (Exception e){
+                Thread.sleep(2000);
+System.out.println(e);
+            }
+        }
+    }
+
     public static void MobDragAndDrop(MobileElement element1, MobileElement element2) {
         Actions act = new Actions(driver);
         act.clickAndHold(element1).moveToElement(element2).release().build().perform();
@@ -538,7 +549,7 @@ public class CommonActions  {
             new TouchAction(DriverManager.getDriver())
                     .press(pointOptionStart)
                     // a bit more reliable when we add small wait
-                    .waitAction(waitOptions(Duration.ofMillis(PRESS_TIME)))
+                    .waitAction(waitOptions(ofMillis(PRESS_TIME)))
                     .moveTo(pointOptionEnd)
                     .release().perform();
         } catch (Exception e) {
@@ -584,7 +595,7 @@ public class CommonActions  {
         int startX1 = (int) (size.width * startX);
         int startY1 = (int) (size.height * startY);
         int endY1 = (int) (size.height * endY);
-        new TouchAction((PerformsTouchActions) driver).press(point(startX1, startY1)).waitAction(waitOptions(Duration.ofMillis(1000)))
+        new TouchAction((PerformsTouchActions) driver).press(point(startX1, startY1)).waitAction(waitOptions(ofMillis(1000)))
                 .moveTo(point(startX1, endY1)).release().perform();
     }
 
@@ -620,8 +631,7 @@ public class CommonActions  {
     public void scrollByXYcordinates(int startX, int startY, int endX, int endY) {
 
         Dimension size = driver.manage().window().getSize();
-
-        new TouchAction((PerformsTouchActions) driver).press(point(startX, startY)).waitAction(waitOptions(Duration.ofMillis(1000)))
+        new TouchAction((PerformsTouchActions) driver).press(point(startX, startY)).waitAction(waitOptions(ofMillis(1000)))
                 .moveTo(point(endX, endY)).release().perform();
 
     }

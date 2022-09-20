@@ -1,4 +1,4 @@
-@MSHAPP-867
+@MSHAPP-867 @Regression
 Feature: Backorder notification
 
   Scenario Outline: Verify Whether user is able to Login into the App

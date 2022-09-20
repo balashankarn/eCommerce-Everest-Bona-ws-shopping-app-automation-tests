@@ -37,6 +37,9 @@ public class PermissionPage extends CommonActions {
     @iOSXCUITFindBy(accessibility = "Allow")
     private MobileElement btnAllow;
 
+    @iOSXCUITFindBy(accessibility = "Debug")
+    private MobileElement btnDebug;
+
 
     public void clickOnAllowOnce() {
         try {
@@ -50,6 +53,7 @@ public class PermissionPage extends CommonActions {
     public void continueShopping() {
         clickOnMobileElement(btnContinueAsGuest);
         waitFor(3000);
+       // login.selectEnviornment();
        login.turnOnNotifications();
         try {
             implicitWait(5);
