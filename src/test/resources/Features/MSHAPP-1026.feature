@@ -23,7 +23,7 @@ Feature:1026-Optimized Create Registry -Step 1: Event Type
 
   Scenario: verify whether user is able to select event type
     Given user  is on create event screen
-    And user select the event type as "Baby"
-    Then user should able to see the selected value "Baby" in event type
+    And user select the event type as "Birth"
+    Then user should able to see the selected value "Birth" in event type
     And user quits the screen
 

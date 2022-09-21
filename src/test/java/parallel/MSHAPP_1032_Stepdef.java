@@ -80,7 +80,7 @@ public class MSHAPP_1032_Stepdef {
     }
 
     @Given("click on checkbox for co-registrant")
-    public void click_on_co_registrant_checkbox() {
+    public void click_on_co_registrant_checkbox() throws InterruptedException {
         registryPage.clickOnCoRegistrantCheckBox();
     }
 

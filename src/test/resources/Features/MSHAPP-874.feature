@@ -1,4 +1,4 @@
-@MSHAPP-874
+@MSHAPP-874 @Regression
 Feature: Ship Restriction notification
 
   Scenario Outline: Verify Whether user is able to Login into the App

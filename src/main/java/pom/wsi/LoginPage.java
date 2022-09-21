@@ -73,16 +73,26 @@ public class LoginPage extends CommonActions {
     @iOSXCUITFindBy(accessibility = "User Name")
     private MobileElement dashboard_Element;
     //@iOSXCUITFindBy(accessibility = "Debug")
-    @iOSXCUITFindBy(accessibility = "debugOverlay")
-    private MobileElement debug;
+//    @iOSXCUITFindBy(id = "debugOverlay")
+//    private MobileElement debug;
     @iOSXCUITFindBy(accessibility = "section0row1")
     private MobileElement selct_Site;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name='debugOverlay']")
+   private MobileElement debug;
+
+//    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Debug']")
+//    private MobileElement debug;
+
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"pk\"])[2]")
     private MobileElement btnQA41;
     @iOSXCUITFindBy(accessibility = "ACCOUNT SETTINGS")
     private MobileElement btnAccountSetting;
+
     @iOSXCUITFindBy(accessibility = "NEXT")
     private MobileElement btnNext;
+    @iOSXCUITFindBy(id = "Continue")
+    private MobileElement btnContinueOne;
 
 
     public void navigatingToSignin() {
@@ -100,8 +110,10 @@ public class LoginPage extends CommonActions {
 
     public void selectEnviornment() {
         try {
-            waitForMobileElement(debug);
-            clickOnMobileElement(debug);
+           // waitForMobileElement(debug);
+            waitFor(3000);
+            ClickUsingXandYCords(debug);
+         //   moveToElementAndClick(debug);
             waitForMobileElement(selct_Site);
             clickOnMobileElement(selct_Site);
             waitForMobileElement(btnresgression);
@@ -119,6 +131,7 @@ public class LoginPage extends CommonActions {
     }
 
     public void userEnterUserName(String username) {
+        waitFor(2000);
         waitVisibilityOfElement(txtUsername);
         txtUsername.click();
         sendKeysOnMobileElement(txtUsername, username);
@@ -126,6 +139,7 @@ public class LoginPage extends CommonActions {
     }
 
     public void userEnterPassword(String password) {
+        waitFor(2000);
         waitForMobileElement(txtPassword);
         txtPassword.sendKeys(password);
     }
@@ -142,6 +156,7 @@ public class LoginPage extends CommonActions {
         } catch (Exception e) {
 
         }
+        clickOnMobileElement(btnContinue);
     }
 
     public boolean userLandsOnDashboard() {
@@ -175,11 +190,11 @@ public class LoginPage extends CommonActions {
                     allowButton.click();
                     break;
                 }
-
             } catch(Exception e){
                 System.out.println("it is not clicking");
             }
-        }
+            }
+              clickOnMobileElement(btnContinue);
     }
 
     public void clickLoginButton() {

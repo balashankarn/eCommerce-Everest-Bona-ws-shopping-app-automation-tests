@@ -32,7 +32,6 @@ Feature: Manage Registry || Primary registry
   Scenario: Verify that WHEN IS THE EVENT section editable
     Then user should able to edit the WHEN IS THE EVENT section
 
-
   Scenario: Verify that Tell us about your special day section editable
     Then user should able to edit the Tell us about your special day section
 
@@ -40,18 +39,18 @@ Feature: Manage Registry || Primary registry
   Scenario: Verify that Tell us about your special day section editable
     Then user should able to edit the Tell us about your special day section
 
-  Scenario: Verify that SHIPPING ADDRESS editable
-    Then user should able to edit the SHIPPING ADDRESS section
-
-  Scenario: Verify that CO-REGISTRANT INFORMATION  section editable
-    Then user should able to edit the CO-REGISTRANT INFORMATION  section
-
-  Scenario: Verify that POTTERY BARN KIDS section editable
-    Then user should able to edit the POTTERY BARN KIDS section
-
-  Scenario: Verify that WHAT ARE YOUR REGISTRY PREFERENCES section editable
-    Then user should able to edit the WHAT ARE YOUR REGISTRY PREFERENCES section
-    And user quits the screen
+#  Scenario: Verify that SHIPPING ADDRESS editable
+#    Then user should able to edit the SHIPPING ADDRESS section
+#
+#  Scenario: Verify that CO-REGISTRANT INFORMATION  section editable
+#    Then user should able to edit the CO-REGISTRANT INFORMATION  section
+#
+#  Scenario: Verify that POTTERY BARN KIDS section editable
+#    Then user should able to edit the POTTERY BARN KIDS section
+#
+#  Scenario: Verify that WHAT ARE YOUR REGISTRY PREFERENCES section editable
+#    Then user should able to edit the WHAT ARE YOUR REGISTRY PREFERENCES section
+#    And user quits the screen
 
 
 
