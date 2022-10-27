@@ -75,7 +75,7 @@ Feature:-Optimized Create Registry - Step 3: Co-Registrant
 
   Scenario: Verify that User is able to see email fields gets hidden after uncheck
     Then User should able to see email fields gets hidden after uncheck
-    And user quits the screen
+   # And user quits the screen
 
 
 

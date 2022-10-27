@@ -49,19 +49,22 @@ public class PermissionPage extends CommonActions {
             e.printStackTrace();
         }
     }
+    @iOSXCUITFindBy(id = "CONTINUE")
+    private MobileElement btnContinue;
 
     public void continueShopping() {
         clickOnMobileElement(btnContinueAsGuest);
         waitFor(3000);
        // login.selectEnviornment();
        login.turnOnNotifications();
+        clickOnMobileElement(btnContinue);
         try {
             implicitWait(5);
             btnAllow.click();
         } catch (Exception e) {
 
         }
-        btnStartShopping.click();
+       btnStartShopping.click();
     }
 
     public void continueSignIn() {

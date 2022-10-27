@@ -17,11 +17,16 @@ Feature: Optimized Create Registry - Step 4: Confirmation
   Given user is on sign screen
   And user enter username "<username>" and password "<password>" clicks on login in sign in page
   Then user should land on create registry screen one
+  And User navigate to backPage
+  And delete the existing Registry if it available already
+  When user clicks on create registry
+  Then user should land on create registry screen one
   Examples:
    | username       | password  |
    | bala3@test.com | test@1234 |
 
  Scenario: Verify that User is able to fill up all the required fields of 1st screen of Create Registry flow nad move to 2nd screen
+  And user enter Last name "Testing"
   And user select the event type as "Birth"
   And user clicks on event type and selects event date
   And user select the Privacy setting as "Public"
@@ -41,5 +46,5 @@ Feature: Optimized Create Registry - Step 4: Confirmation
   Scenario:Verify that user is able to navigate to confirmation screen after creating Registry
    And User click on Create Registry Button
    Then User should able to see the message "Congratulations, you’re registered!" in  confirmation screen
-   And user quits the screen
+   #And user quits the screen
 

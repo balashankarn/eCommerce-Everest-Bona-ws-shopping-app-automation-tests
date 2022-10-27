@@ -181,7 +181,8 @@ public class LoginPage extends CommonActions {
 
     public void turnOnNotifications() {
         waitFor(3000);
-        turnOnNotifications.click();
+     //   turnOnNotifications.click();
+        clickOnMobileElement(btnContinue);
             for (int i = 0; i < 10; i++) {
                 waitFor(1500);
                 try {
@@ -194,7 +195,7 @@ public class LoginPage extends CommonActions {
                 System.out.println("it is not clicking");
             }
             }
-              clickOnMobileElement(btnContinue);
+
     }
 
     public void clickLoginButton() {

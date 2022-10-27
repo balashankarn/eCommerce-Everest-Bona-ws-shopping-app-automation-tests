@@ -20,4 +20,9 @@ public class MSHAPP_1036_Stepdef {
         Assert.assertEquals(actualConfirmationScreenMessage, expConfirmationScreenMessage);
     }
 
+    @Given("user enter Last name {string}")
+    public void user_enter_last_name(String lastName) {
+        registryPage.enterLastName(lastName);
+    }
+
 }
