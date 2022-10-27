@@ -9,7 +9,7 @@ Feature: Optimized Create Registry - Step 4: Confirmation
   Then  user lands on registry screen
 
  Scenario: Verify that user is navigated to create registry screen
-  Given user is on registry screen
+ Given user is on registry screen
   When  user clicks on create registry
   Then user lands on sign in screen
 
@@ -46,5 +46,5 @@ Feature: Optimized Create Registry - Step 4: Confirmation
   Scenario:Verify that user is able to navigate to confirmation screen after creating Registry
    And User click on Create Registry Button
    Then User should able to see the message "Congratulations, you’re registered!" in  confirmation screen
-   #And user quits the screen
+   And user quits the screen
 
