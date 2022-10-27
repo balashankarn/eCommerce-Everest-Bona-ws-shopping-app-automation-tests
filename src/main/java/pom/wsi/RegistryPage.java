@@ -175,6 +175,10 @@ public class RegistryPage extends CommonActions {
     private MobileElement lblMessages;
     @iOSXCUITFindBy(iOSNsPredicate = "label == '30'")
     private MobileElement eventDate;
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='EDIT'])[1]")
+    private MobileElement btnEditOne;
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeImage[@name='edit']")
+    private List<MobileElement> btnEdit;
 
 
 
@@ -258,7 +262,7 @@ public class RegistryPage extends CommonActions {
     public void selectsEventDate() {
         clickOnMobileElement(spnSelectEventDate);
         waitFor(3000);
-        clickOnMobileElement(eventDate);
+        clickOnMobileElement(DriverManager.getDriver().findElement(By.xpath("//XCUIElementTypeStaticText[@name='"+getNextDay()+"']")));
     }
 
     public boolean verifySelectedDateIsDisplayed(){
@@ -609,6 +613,7 @@ public class RegistryPage extends CommonActions {
     }
 
     public String verifyConfirmationScreenIsDisplayed(){
+        waitForMobileElement(lblCongratulations);
        return lblCongratulations.getText();
     }
 
@@ -762,7 +767,7 @@ public class RegistryPage extends CommonActions {
           return lblMessages.isDisplayed();
       }
 
-      public void deleteExistingRegistry(){
+    public void deleteExistingRegistry() {
         try {
             if (lblMyRegistryTools.isDisplayed()) {
                 waitFor(2000);
@@ -773,21 +778,21 @@ public class RegistryPage extends CommonActions {
                 scrollByPercentage(0.0, 0.90, 0.10);
                 clickOnMobileElement(btnManageYourRegistries);
                 waitVisibilityOfElement(lblManageRegistry);
-                List<MobileElement> registryEditButtons = DriverManager.getDriver().findElements(By.xpath("//XCUIElementTypeStaticText[@name='EDIT']"));
-                System.out.println(registryEditButtons.size());
-                for (MobileElement editButton : registryEditButtons) {
-                    System.out.println(registryEditButtons.size());
-                    clickOnMobileElement(editButton);
+                int registryEditButtonsSize = btnEdit.size();
+                for (int i = registryEditButtonsSize; i >= 0; i--) {
+                    clickOnMobileElement(btnEditOne);
                     clickOnMobileElement(btnDeleteRegistry);
                     clickOnMobileElement(btnYes);
+                    waitFor(2000);
                 }
             }
         }catch(Exception e){
-
+            System.out.println("exception throwing" + e);
         }
-      }
+    }
 
-      public void enterLastName(String lastName){
+
+    public void enterLastName(String lastName){
           sendKeysOnMobileElement(txtlastName,lastName);
       }
 
