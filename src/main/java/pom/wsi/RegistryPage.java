@@ -78,6 +78,8 @@ public class RegistryPage extends CommonActions {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[4]")
     private MobileElement spnSelectEventType;
 
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`label == 'EDIT'`][1]")
+    MobileElement editFllNameButton;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[1]/XCUIElementTypeTextField[2]")
     private MobileElement txtlastName;
 
@@ -91,7 +93,7 @@ public class RegistryPage extends CommonActions {
     private MobileElement pickerWheel;
     @iOSXCUITFindBy(id = "I have a co-registrant")
     private MobileElement txtCoRegistrant;
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='I have a co-registrant']/preceding-sibling::XCUIElementTypeImage[@name='Rectangle']")
+    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage)[4]")
     private MobileElement chkCoRegistrantOne;
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeImage[@name='Rectangle'])[2]")
     private MobileElement chkCoRegistrantTwo;
@@ -284,6 +286,7 @@ public class RegistryPage extends CommonActions {
         pickerWheel.sendKeys(privacyTYpe);
         waitFor(2000);
         clickOnMobileElement(spnPrivacySettingDone);
+        scrollUp();
     }
 
     public String verifyPrivacyTYpeGetsDisplayed() {

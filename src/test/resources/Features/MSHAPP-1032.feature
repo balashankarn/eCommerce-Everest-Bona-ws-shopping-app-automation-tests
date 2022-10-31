@@ -1,7 +1,7 @@
 @MSHAPP-1032 @Regression
 Feature:-Optimized Create Registry - Step 3: Co-Registrant
 
-  Scenario: verify that user is able to navigate registry dashboard
+    Scenario: verify that user is able to navigate registry dashboard
     Given user launches the apps
     When User continue shopping as guest user
     When Sign out the app if already signed in
@@ -14,14 +14,19 @@ Feature:-Optimized Create Registry - Step 3: Co-Registrant
     Then user lands on sign in screen
 
   Scenario Outline: verify that user is able to login
-    Given user is on sign screen
-    And user enter username "<username>" and password "<password>" clicks on login in sign in page
+    When user enter username "<username>" and password "<password>" clicks on login in sign in page
+    Then user should land on create registry screen one
+    And User navigate to backPage
+    And delete the existing Registry if it available already
+    When user clicks on create registry
     Then user should land on create registry screen one
     Examples:
       | username       | password  |
       | bala3@test.com | test@1234 |
 
+
   Scenario: Verify that User is able to fill up all the required fields of 1st screen of Create Registry flow nad move to 2nd screen
+    And user enter Last name "Testing"
     And user select the event type as "Birth"
     And user clicks on event type and selects event date
     And user select the Privacy setting as "Public"
@@ -53,13 +58,13 @@ Feature:-Optimized Create Registry - Step 3: Co-Registrant
       | FirstName | LastName |
       | c         | c        |
 
-  Scenario: Verify that User is able to see co-registrant form fields should gets hidden after uncheck
-    And uncheck the co-registrant checkbox
-    Then User should able to see co-registrant form gets hidden
+#  Scenario: Verify that User is able to see co-registrant form fields should gets hidden after uncheck
+#    And uncheck the co-registrant checkbox
+#    Then User should able to see co-registrant form gets hidden
 
-  Scenario: Verify that co-registrant checkbox is not selected as default to access this registry
-    And click on checkbox for co-registrant
-    Then user should able to see co-registrant checkbox is not selected as default to access this registry
+#  Scenario: Verify that co-registrant checkbox is not selected as default to access this registry
+#    And click on checkbox for co-registrant
+#    Then user should able to see co-registrant checkbox is not selected as default to access this registry
 
   Scenario: Verify that user is able to see the mandatory fields when click on co-registrant checkbox to access the registry
     And user click on checkbox for access this registry
@@ -70,11 +75,11 @@ Feature:-Optimized Create Registry - Step 3: Co-Registrant
     Then User should able to enter "<Email>" and "<Confirm Email>"
 
     Examples:
-      | Email                  | Confirm Email          |
+      | Email                  | Confirm Email           |
       | autotest1234@gmail.com | autotest1234@gmail.com |
 
-  Scenario: Verify that User is able to see email fields gets hidden after uncheck
-    Then User should able to see email fields gets hidden after uncheck
+#  Scenario: Verify that User is able to see email fields gets hidden after uncheck
+#    Then User should able to see email fields gets hidden after uncheck
    # And user quits the screen
 
 

@@ -14,8 +14,7 @@ Feature: Optimized Create Registry - Step 4: Confirmation
   Then user lands on sign in screen
 
  Scenario Outline: verify that user is able to login
-  Given user is on sign screen
-  And user enter username "<username>" and password "<password>" clicks on login in sign in page
+  When user enter username "<username>" and password "<password>" clicks on login in sign in page
   Then user should land on create registry screen one
   And User navigate to backPage
   And delete the existing Registry if it available already
@@ -46,5 +45,5 @@ Feature: Optimized Create Registry - Step 4: Confirmation
   Scenario:Verify that user is able to navigate to confirmation screen after creating Registry
    And User click on Create Registry Button
    Then User should able to see the message "Congratulations, you’re registered!" in  confirmation screen
-   And user quits the screen
+  # And user quits the screen
 
